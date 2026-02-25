@@ -17,12 +17,12 @@ export function FeaturesSection({ articles, limit }: FeaturesSectionProps) {
   }
 
   return (
-    <section className="border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
+    <section id="research" className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
       <div className="space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Research</h2>
           <a
-            href="/features"
+            href="#research"
             className="text-xs font-medium tracking-[0.08em] text-zinc-600 transition-colors hover:text-black"
           >
             View all research

@@ -1,57 +1,37 @@
-﻿import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
-
-interface HeroProps {
-  aboutDescription: string;
-}
-
-export function Hero({ aboutDescription }: HeroProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const paragraphs = aboutDescription
-    .split('\n\n')
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean);
-  const visibleParagraphs = isOpen ? paragraphs : paragraphs.slice(0, 2);
-
+export function Hero() {
   return (
-    <section className="border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
-      <div className="space-y-5">
-        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-zinc-200 pb-4">
-          <div className="grid gap-4 sm:grid-cols-3">
-            <div>
-              <p className="text-[11px] tracking-[0.14em] text-zinc-500">FOCUS</p>
-              <p className="mt-1 text-sm text-zinc-700">Research-led personal archive</p>
-            </div>
-            <div>
-              <p className="text-[11px] tracking-[0.14em] text-zinc-500">SECTIONS</p>
-              <p className="mt-1 text-sm text-zinc-700">Keywords / Research / Activities / Knowledge</p>
-            </div>
-            <div>
-              <p className="text-[11px] tracking-[0.14em] text-zinc-500">FORMAT</p>
-              <p className="mt-1 text-sm text-zinc-700">Linear editorial boundaries</p>
-            </div>
-          </div>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center gap-2 border border-zinc-300 bg-white px-3 py-2 text-xs font-medium text-zinc-700 transition-colors hover:text-black"
-          >
-            About {isOpen ? 'Collapse' : 'Expand'}
-            <ChevronDown
-              className={cn(
-                'h-4 w-4 transition-transform duration-200',
-                isOpen ? 'rotate-180' : ''
-              )}
-            />
-          </button>
+    <section id="top" className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.35fr_0.75fr]">
+        <div className="space-y-1">
+          <p className="text-[15px] font-medium leading-6 text-zinc-700">RESEARCH INTEREST</p>
+          <p className="text-[15px] leading-6 text-zinc-700">
+            <span className="block">Magnetism, Spintronics</span>
+            <span className="block">Probabilistic computing</span>
+          </p>
         </div>
 
-        <div className="space-y-4">
-          {visibleParagraphs.map((paragraph, index) => (
-            <p key={index} className="text-[15px] leading-7 text-zinc-700">
-              {paragraph}
-            </p>
-          ))}
+        <div className="space-y-1">
+          <p className="text-[15px] font-medium leading-6 text-zinc-700">DEGREE</p>
+          <p className="text-[15px] leading-6 text-zinc-700">
+            <span className="block">Ph.D. in Materials Science</span>
+            <span className="block">Seoul National University</span>
+          </p>
+        </div>
+
+        <div className="space-y-1">
+          <p className="text-[15px] font-medium leading-6 text-zinc-700">CURRENT AFILLIATION</p>
+          <p className="text-[15px] leading-6 text-zinc-700">
+            <span className="block">Post-silicon Semiconductor Institute</span>
+            <span className="block">Korea Institute of Science and Technology</span>
+          </p>
+        </div>
+
+        <div className="space-y-1">
+          <p className="text-[15px] font-medium leading-6 text-zinc-700">CONTACT</p>
+          <p className="text-[15px] leading-6 text-zinc-700">
+            <span className="block">proslaw@kist.re.kr</span>
+            <span className="block">lawsper@gmail.com</span>
+          </p>
         </div>
       </div>
     </section>

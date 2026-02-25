@@ -1,10 +1,10 @@
 import type { Tag, Author, Article, Producer, CabinetItem, NavItem } from '@/types';
 
 export const navItems: NavItem[] = [
-  { label: 'Keywords', href: '/connects' },
-  { label: 'Research', href: '/features' },
-  { label: 'Activities', href: '/producers' },
-  { label: 'Knowledge', href: '/cabinet' },
+  { label: 'Keywords', href: '#keywords' },
+  { label: 'Research', href: '#research' },
+  { label: 'Activities', href: '#activities' },
+  { label: 'Network', href: '#network' },
 ];
 
 export const tagColors = [
@@ -279,4 +279,3 @@ export const footerCredits = {
   copyright:
     '吏?2024-2026 Archive of Gyuyoung Park. All rights reserved. Content may not be reproduced without permission.',
 };
-

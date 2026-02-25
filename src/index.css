@@ -6,6 +6,9 @@
 
 @layer base {
   :root {
+    --outer-bg: rgb(244, 243, 238);
+    --inner-bg: #f8f7f2;
+    --line-color: #dde7e7;
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
     --card: 0 0% 100%;
@@ -39,18 +42,36 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-    background: rgb(244, 243, 238);
+    background: var(--outer-bg);
     color: rgb(24, 24, 27);
   }
 }
 
 @layer components {
+  .site-header {
+    background: rgb(244 243 238 / 95%);
+  }
+
   .site-shell {
     width: min(100%, 1280px);
     margin-inline: auto;
-    border-left: 1px solid rgb(212, 212, 216);
-    border-right: 1px solid rgb(212, 212, 216);
+    background: var(--inner-bg);
+    border-left: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color);
   }
+
+  .site-shell .bg-white {
+    background-color: var(--inner-bg) !important;
+  }
+}
+
+[class*='border-zinc-300'],
+[class*='border-zinc-200'] {
+  border-color: var(--line-color) !important;
+}
+
+[class*='divide-zinc-300'] > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--line-color) !important;
 }
 
 /* Custom scrollbar */

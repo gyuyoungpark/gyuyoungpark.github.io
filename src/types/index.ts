@@ -46,12 +46,4 @@ export interface NavItem {
   href: string;
 }
 
-export interface SiteContent {
-  aboutDescription: string;
-  tags: Tag[];
-  articles: Article[];
-  producers: Producer[];
-  cabinetItems: CabinetItem[];
-}
-
 export type PageType = 'home' | 'connects' | 'issues' | 'features' | 'producers' | 'cabinet';

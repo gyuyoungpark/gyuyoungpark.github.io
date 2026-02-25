@@ -18,10 +18,10 @@ export function Footer() {
             <div className="border-l border-t border-zinc-300 p-4">
               <p className="mb-2 text-[11px] font-semibold tracking-[0.14em] text-zinc-500">SECTIONS</p>
               <ul className="space-y-1 text-zinc-700">
-                <li><a href="/connects" className="hover:text-black">Keywords</a></li>
-                <li><a href="/features" className="hover:text-black">Research</a></li>
-                <li><a href="/producers" className="hover:text-black">Activities</a></li>
-                <li><a href="/cabinet" className="hover:text-black">Knowledge</a></li>
+                <li><a href="#keywords" className="hover:text-black">Keywords</a></li>
+                <li><a href="#research" className="hover:text-black">Research</a></li>
+                <li><a href="#activities" className="hover:text-black">Activities</a></li>
+                <li><a href="#network" className="hover:text-black">Network</a></li>
               </ul>
             </div>
 
