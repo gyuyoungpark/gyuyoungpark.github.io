@@ -55,7 +55,7 @@ export function Header() {
           )}
         >
           <a href="#top" className="inline-flex items-center">
-            <span className="text-[20px] font-semibold tracking-[0.01em] lg:text-[24px]">Archive of Gyuyoung Park</span>
+            <span className="text-[20px] font-semibold tracking-[0.01em] lg:text-[24px]">Gyuyoung Park</span>
           </a>
 
           <nav className="hidden items-center gap-4 justify-self-start lg:ml-8 lg:flex">

@@ -112,67 +112,14 @@ export const authors: Author[] = [
   { id: '8', name: 'Yeju Son', bio: 'Coordinator supporting research and publishing programs.' },
 ];
 
+// TODO: 실제 Research 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
 export const articles: Article[] = [
-  {
-    id: '1',
-    title: 'Compressed Time and Outsourced Creation',
-    authors: [authors[0]],
-    description:
-      'This essay examines how speed-driven production changes artistic rhythm, agency, and attention. It asks what is lost when creative work is optimized for output over depth.',
-    tags: [tags[10], tags[16], tags[31], tags[53]],
-    category: 'Research',
-    isNew: true,
-  },
-  {
-    id: '2',
-    title: 'Roundtable: Young Art After 2020',
-    authors: [authors[1], authors[2], authors[3]],
-    description:
-      'A discussion about independent practices, institutional support models, and the changing conditions of contemporary art in Korea and beyond.',
-    tags: [tags[44], tags[49], tags[57], tags[69]],
-    category: 'Conversation',
-    isNew: false,
-  },
-  {
-    id: '3',
-    title: 'Open Calls, Incubation, and the Myth of Opportunity',
-    authors: [authors[5]],
-    description:
-      'A critical reading of how grant cycles and incubation frameworks shape careers, value systems, and artistic risk in early-stage practice.',
-    tags: [tags[36], tags[49], tags[51], tags[68]],
-    category: 'Research',
-    isNew: false,
-  },
-  {
-    id: '4',
-    title: 'Refusing the Individual Hero Narrative',
-    authors: [authors[3]],
-    description:
-      'This piece proposes refusal as a tactic against market-friendly identities and explores collaborative alternatives to singular authorship.',
-    tags: [tags[34], tags[44], tags[56], tags[57]],
-    category: 'Essay',
-    isNew: true,
-  },
-  {
-    id: '5',
-    title: 'Imprint as an Expanded Publishing Site',
-    authors: [authors[1], authors[7]],
-    description:
-      'From printed matter to networked formats, this article explores how editorial design becomes a spatial and social practice.',
-    tags: [tags[43], tags[59], tags[45], tags[4]],
-    category: 'Project Note',
-    isNew: false,
-  },
-  {
-    id: '6',
-    title: 'After Testimony: Media, Technology, and Memory',
-    authors: [authors[4]],
-    description:
-      'A reflection on how testimony migrates across media systems and how technological interfaces alter memory politics.',
-    tags: [tags[19], tags[22], tags[54], tags[71]],
-    category: 'Research',
-    isNew: false,
-  },
+  { id: '1', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
+  { id: '2', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
+  { id: '3', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
+  { id: '4', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
+  { id: '5', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
+  { id: '6', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
 ];
 
 // TODO: 실제 Studies 항목으로 채우기 — 현재 비어 있어 섹션은 placeholder 상태로 표시됨

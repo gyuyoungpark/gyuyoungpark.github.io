@@ -9,7 +9,7 @@ export function Footer() {
             <div className="space-y-2">
               <p className="text-[11px] font-semibold tracking-[0.14em] text-zinc-500">ARCHIVE</p>
               <p className="text-2xl font-semibold tracking-tight text-zinc-900">
-                Archive of Gyuyoung Park
+                Gyuyoung Park
               </p>
             </div>
           </div>
