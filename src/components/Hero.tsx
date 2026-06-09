@@ -48,8 +48,8 @@ export function Hero() {
         <div className="space-y-1">
           <p className="text-[15px] font-medium leading-6 text-zinc-700">RESEARCH INTEREST</p>
           <p className="text-[15px] leading-6 text-zinc-700">
-            <span className="block">Magnetism, Spintronics</span>
-            <span className="block">Probabilistic computing</span>
+            <span className="block">Magnetism and Spintronics</span>
+            <span className="block">Probabilistic computing and AI</span>
           </p>
         </div>
 
