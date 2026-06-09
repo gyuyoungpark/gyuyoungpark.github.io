@@ -6,9 +6,9 @@ interface CabinetSectionProps {
 
 export function CabinetSection({ items }: CabinetSectionProps) {
   return (
-    <section id="network" className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
+    <section id="collaborator" className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
       <div className="space-y-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Network</h2>
+        <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Collaborator</h2>
 
         <div className="space-y-[7px]">
           {items.map((item) => (

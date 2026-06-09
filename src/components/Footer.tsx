@@ -21,7 +21,7 @@ export function Footer() {
                 <li><a href="#keywords" className="hover:text-black">Keywords</a></li>
                 <li><a href="#research" className="hover:text-black">Research</a></li>
                 <li><a href="#activities" className="hover:text-black">Activities</a></li>
-                <li><a href="#network" className="hover:text-black">Network</a></li>
+                <li><a href="#collaborator" className="hover:text-black">Collaborator</a></li>
               </ul>
             </div>
 

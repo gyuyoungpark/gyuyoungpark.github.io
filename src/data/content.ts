@@ -4,7 +4,7 @@ export const navItems: NavItem[] = [
   { label: 'Keywords', href: '#keywords' },
   { label: 'Research', href: '#research' },
   { label: 'Activities', href: '#activities' },
-  { label: 'Network', href: '#network' },
+  { label: 'Collaborator', href: '#collaborator' },
 ];
 
 export const tagColors = [
