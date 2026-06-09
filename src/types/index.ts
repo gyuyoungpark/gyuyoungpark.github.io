@@ -41,6 +41,14 @@ export interface CabinetItem {
   description?: string;
 }
 
+export interface StudyItem {
+  id: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  period?: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;

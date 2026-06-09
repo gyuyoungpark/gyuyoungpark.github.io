@@ -1,8 +1,9 @@
-import type { Tag, Author, Article, Producer, CabinetItem, NavItem } from '@/types';
+import type { Tag, Author, Article, Producer, CabinetItem, NavItem, StudyItem } from '@/types';
 
 export const navItems: NavItem[] = [
   { label: 'Keywords', href: '#keywords' },
   { label: 'Research', href: '#research' },
+  { label: 'Studies', href: '#studies' },
   { label: 'Activities', href: '#activities' },
   { label: 'Collaborator', href: '#collaborator' },
 ];
@@ -173,6 +174,9 @@ export const articles: Article[] = [
     isNew: false,
   },
 ];
+
+// TODO: 실제 Studies 항목으로 채우기 — 현재 비어 있어 섹션은 placeholder 상태로 표시됨
+export const studies: StudyItem[] = [];
 
 export const producers: Producer[] = [
   {

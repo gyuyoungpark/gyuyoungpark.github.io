@@ -11,7 +11,7 @@ const externalLinks = [
   },
   {
     label: 'ORCID',
-    href: 'https://orcid.org/my-orcid?orcid=0009-0001-8492-4299',
+    href: 'https://orcid.org/0009-0001-8492-4299',
     icon: '/download/ORCID_iD.svg',
   },
   {

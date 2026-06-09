@@ -20,6 +20,7 @@ export function Footer() {
               <ul className="space-y-1 text-zinc-700">
                 <li><a href="#keywords" className="hover:text-black">Keywords</a></li>
                 <li><a href="#research" className="hover:text-black">Research</a></li>
+                <li><a href="#studies" className="hover:text-black">Studies</a></li>
                 <li><a href="#activities" className="hover:text-black">Activities</a></li>
                 <li><a href="#collaborator" className="hover:text-black">Collaborator</a></li>
               </ul>

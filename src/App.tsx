@@ -2,9 +2,10 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { TagCloud } from '@/components/TagCloud';
 import { FeaturesSection } from '@/components/FeaturesSection';
+import { StudiesSection } from '@/components/StudiesSection';
 import { ProducersSection } from '@/components/ProducersSection';
 import { CabinetSection } from '@/components/CabinetSection';
-import { articles, cabinetItems, producers } from '@/data/content';
+import { articles, cabinetItems, producers, studies } from '@/data/content';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Hero />
         <TagCloud />
         <FeaturesSection articles={articles} />
+        <StudiesSection studies={studies} />
         <ProducersSection producers={producers} />
         <CabinetSection items={cabinetItems} />
       </main>
