@@ -178,82 +178,23 @@ export const articles: Article[] = [
 // TODO: 실제 Studies 항목으로 채우기 — 현재 비어 있어 섹션은 placeholder 상태로 표시됨
 export const studies: StudyItem[] = [];
 
+// TODO: 실제 Activities 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
 export const producers: Producer[] = [
-  {
-    id: '1',
-    name: 'Cheonseok Oh',
-    bio: 'Artist working between visual composition and language experiments.',
-    role: 'Artist',
-  },
-  {
-    id: '2',
-    name: 'Yeju Son',
-    bio: 'Coordinator supporting long-form research, editorial workflows, and program logistics.',
-    role: 'Coordinator',
-  },
-  {
-    id: '3',
-    name: 'Hyesoon Kim',
-    bio: 'Poet and essayist engaged with memory, voice, and political imagination.',
-    role: 'Writer',
-  },
-  {
-    id: '4',
-    name: 'Hyeyoung Choi',
-    bio: 'Researcher and activist focusing on peace, locality, and social movement archives.',
-    role: 'Researcher',
-  },
-  {
-    id: '5',
-    name: 'Jung-Hyeon Kwon',
-    bio: 'Editor developing program frameworks across criticism and institutional research.',
-    role: 'Editor',
-  },
-  {
-    id: '6',
-    name: 'Yujin Park',
-    bio: 'Critic interested in curatorial labor, discourse formats, and exhibition systems.',
-    role: 'Critic',
-  },
-  {
-    id: '7',
-    name: 'Taegyun Yoon',
-    bio: 'Writer tracking contemporary art infrastructures and collaborative resistance methods.',
-    role: 'Critic',
-  },
-  {
-    id: '8',
-    name: 'Moonhee Han',
-    bio: 'Researcher examining cultural policy, youth labor, and support economies.',
-    role: 'Researcher',
-  },
+  { id: '1', name: '', bio: '', role: '' },
+  { id: '2', name: '', bio: '', role: '' },
+  { id: '3', name: '', bio: '', role: '' },
+  { id: '4', name: '', bio: '', role: '' },
+  { id: '5', name: '', bio: '', role: '' },
+  { id: '6', name: '', bio: '', role: '' },
+  { id: '7', name: '', bio: '', role: '' },
+  { id: '8', name: '', bio: '', role: '' },
 ];
 
+// TODO: 실제 Collaborator 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
 export const cabinetItems: CabinetItem[] = [
-  {
-    id: '1',
-    title: 'Segments of Time',
-    subtitle: 'Collection Open: Hacking and Extraction',
-    author: 'Tae-man Choi',
-    location: 'Seoul, Main Hall',
-    description: 'A critical writing project connecting archives and media archaeology.',
-  },
-  {
-    id: '2',
-    title: 'Workshop as Counter-Form in Art',
-    subtitle: 'NANJI Studio Critique Workshop',
-    author: 'Eunji Lee, Yeo-ro Lee',
-    location: 'NANJI Residency',
-    description: 'A field note on workshop formats as collective pedagogy.',
-  },
-  {
-    id: '3',
-    title: 'Learning Through Small Protocols',
-    subtitle: 'Open Reading Group 2025',
-    author: 'Archive Team',
-    location: 'Online and On-site',
-    description: 'A modular reading structure for recurring public sessions.',
-  },
+  { id: '1', title: '', subtitle: '', author: '', location: '', description: '' },
+  { id: '2', title: '', subtitle: '', author: '', location: '', description: '' },
+  { id: '3', title: '', subtitle: '', author: '', location: '', description: '' },
 ];
 
 export const aboutContent = {
