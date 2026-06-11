@@ -154,6 +154,25 @@ The project connects writing, conversation, and documentation into one evolving 
 It is built as a living structure: open to updates, collaborative references, and long-term editorial experimentation.`,
 };
 
+// Site statistics shown in the closing block (mirrors the Hero block at the top).
+// - Visitor count is fetched live from GoatCounter (requires "Allow visitor counter"
+//   enabled in GoatCounter Settings).
+// - Scholar metrics are a manual snapshot: Google Scholar has no public API and blocks
+//   client-side fetching (CORS), so these are real values copied from the profile.
+//   Source: https://scholar.google.com/citations?user=FAUWfAcAAAAJ
+//   Refresh periodically and update `asOf`.
+export const siteStats = {
+  goatcounterCode: 'gyuyoungpark',
+  scholarUrl: 'https://scholar.google.com/citations?user=FAUWfAcAAAAJ&hl=ko',
+  scholar: {
+    works: 24,
+    citations: 46,
+    hIndex: 5,
+    i10Index: 1,
+    asOf: '2026-06-11',
+  },
+};
+
 export const footerCredits = {
   publisher: 'Gyuyoung Park',
   editors: [

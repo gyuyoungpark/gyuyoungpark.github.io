@@ -5,6 +5,7 @@ import { FeaturesSection } from '@/components/FeaturesSection';
 import { StudiesSection } from '@/components/StudiesSection';
 import { ProducersSection } from '@/components/ProducersSection';
 import { CabinetSection } from '@/components/CabinetSection';
+import { StatsSection } from '@/components/StatsSection';
 import { articles, cabinetItems, producers, studies } from '@/data/content';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
         <StudiesSection studies={studies} />
         <ProducersSection producers={producers} />
         <CabinetSection items={cabinetItems} />
+        <StatsSection />
       </main>
     </div>
   );
