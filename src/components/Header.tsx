@@ -133,7 +133,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block border-b border-zinc-200 py-2 text-[18px] font-semibold tracking-[0.01em] text-zinc-700 transition-colors hover:text-black"
+              className="block border-b border-zinc-300 py-2 text-[18px] font-semibold tracking-[0.01em] text-zinc-700 transition-colors hover:text-black"
             >
               {item.label}
             </a>

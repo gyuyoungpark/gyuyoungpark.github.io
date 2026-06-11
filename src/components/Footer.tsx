@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="pb-10">
       <div className="site-shell border-t border-zinc-300 bg-white px-4 py-8 sm:px-6 lg:px-8">
         <div className="space-y-6">
-          <div className="flex flex-wrap items-end justify-between gap-3 border-b border-zinc-200 pb-4">
+          <div className="flex flex-wrap items-end justify-between gap-3 border-b border-zinc-300 pb-4">
             <div className="space-y-2">
               <p className="text-[11px] font-semibold tracking-[0.14em] text-zinc-500">ARCHIVE</p>
               <p className="text-2xl font-semibold tracking-tight text-zinc-900">
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 border-t border-zinc-200 pt-4">
+        <div className="mt-6 border-t border-zinc-300 pt-4">
           <p className="text-xs leading-6 text-zinc-500">{footerCredits.copyright}</p>
         </div>
       </div>

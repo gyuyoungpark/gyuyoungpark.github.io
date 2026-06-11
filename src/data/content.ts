@@ -157,15 +157,19 @@ It is built as a living structure: open to updates, collaborative references, an
 // Site statistics shown in the closing block (mirrors the Hero block at the top).
 // - Visitor count is fetched live from GoatCounter (requires "Allow visitor counter"
 //   enabled in GoatCounter Settings).
-// - Scholar metrics are a manual snapshot: Google Scholar has no public API and blocks
+// - Documents = ORCID public works, fetched live from the ORCID public API (CORS-enabled).
+//   `worksFallback` is a real snapshot used only if the API is unreachable.
+// - Citation metrics are a manual snapshot: Google Scholar has no public API and blocks
 //   client-side fetching (CORS), so these are real values copied from the profile.
 //   Source: https://scholar.google.com/citations?user=FAUWfAcAAAAJ
 //   Refresh periodically and update `asOf`.
 export const siteStats = {
   goatcounterCode: 'gyuyoungpark',
+  orcidId: '0009-0001-8492-4299',
+  orcidUrl: 'https://orcid.org/0009-0001-8492-4299',
   scholarUrl: 'https://scholar.google.com/citations?user=FAUWfAcAAAAJ&hl=ko',
+  worksFallback: 8,
   scholar: {
-    works: 24,
     citations: 46,
     hIndex: 5,
     i10Index: 1,

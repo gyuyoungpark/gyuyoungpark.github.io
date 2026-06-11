@@ -45,6 +45,31 @@ function useVisitorCount(code: string): VisitorState {
   return state;
 }
 
+function useOrcidWorks(orcidId: string, fallback: number): number | null {
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`https://pub.orcid.org/v3.0/${orcidId}/works`, {
+      headers: { Accept: 'application/json' },
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(String(res.status)))))
+      .then((data: { group?: unknown[] }) => {
+        if (cancelled) return;
+        setCount(Array.isArray(data.group) ? data.group.length : fallback);
+      })
+      .catch(() => {
+        if (!cancelled) setCount(fallback);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [orcidId, fallback]);
+
+  return count;
+}
+
 function StatCell({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
     <div className="space-y-1">
@@ -59,7 +84,8 @@ function StatCell({ label, value, sub }: { label: string; value: string; sub?: s
 
 export function StatsSection() {
   const { visitors, views, status } = useVisitorCount(siteStats.goatcounterCode);
-  const { scholar, scholarUrl } = siteStats;
+  const { scholar, scholarUrl, orcidId, orcidUrl, worksFallback } = siteStats;
+  const works = useOrcidWorks(orcidId, worksFallback);
   const fmt = (n: number | null) => (n === null ? '—' : n.toLocaleString('en-US'));
 
   const visitorValue = status === 'loading' ? '···' : fmt(visitors);
@@ -73,11 +99,15 @@ export function StatsSection() {
   return (
     <section
       id="stats"
-      className="scroll-mt-28 border-t border-zinc-300 px-4 py-10 sm:px-6 lg:px-8"
+      className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8"
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <StatCell label="VISITORS" value={visitorValue} sub={visitorSub} />
-        <StatCell label="DOCUMENTS" value={fmt(scholar.works)} sub="published works" />
+        <StatCell
+          label="DOCUMENTS"
+          value={works === null ? '···' : fmt(works)}
+          sub="ORCID works"
+        />
         <StatCell label="CITATIONS" value={fmt(scholar.citations)} sub={`as of ${scholar.asOf}`} />
         <StatCell
           label="CITATION INDEX"
@@ -86,14 +116,22 @@ export function StatsSection() {
         />
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
+        <a
+          href={orcidUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="text-[13px] leading-5 text-zinc-500 underline-offset-2 transition-colors hover:text-black hover:underline"
+        >
+          Documents: ORCID ↗
+        </a>
         <a
           href={scholarUrl}
           target="_blank"
           rel="noreferrer"
           className="text-[13px] leading-5 text-zinc-500 underline-offset-2 transition-colors hover:text-black hover:underline"
         >
-          Source: Google Scholar ↗
+          Citations: Google Scholar ↗
         </a>
       </div>
     </section>

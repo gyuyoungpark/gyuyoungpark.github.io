@@ -36,7 +36,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
 
         <p className="mt-4 line-clamp-4 text-sm leading-6 text-zinc-600">{article.description}</p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5 border-t border-zinc-200 pt-3">
+        <div className="mt-4 flex flex-wrap gap-1.5 border-t border-zinc-300 pt-3">
           {article.tags.slice(0, 4).map((tag) => {
             const backgroundColor = getKellyColor(`article-${article.id}-tag-${tag.id}`);
             const textColor = getKellyTextColor(backgroundColor);
