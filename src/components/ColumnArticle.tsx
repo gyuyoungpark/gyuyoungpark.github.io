@@ -3,13 +3,22 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import column from '@/data/columns/electron-fluid.json';
 import { ColumnFigure } from './ColumnFigure';
+import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
 
-function MathText({ text }: { text: string }) {
-  return text.split(/(\\\([\s\S]*?\\\))/g).map((part, index) =>
-    part.startsWith('\\(') ? (
-      <span key={index} dangerouslySetInnerHTML={{ __html: katex.renderToString(part.slice(2, -2), { throwOnError: false, trust: false }) }} />
-    ) : part
-  );
+const paragraphs = linkColumnParagraphs(column.blocks);
+
+function ArticleText({ tokens }: { tokens: ColumnTextToken[] }) {
+  return tokens.map((token, index) => {
+    if (token.type === 'math') return <span key={index} dangerouslySetInnerHTML={{ __html: katex.renderToString(token.text, { throwOnError: false, trust: false }) }} />;
+    if (token.type === 'link') return (
+      <a key={index} href={token.href} target="_blank" rel="noopener noreferrer"
+        title={`${token.text} — Wikipedia (새 탭)`}
+        className="underline decoration-zinc-400 decoration-dotted underline-offset-4 transition-colors hover:text-[#286b8a] hover:decoration-solid">
+        {token.text}
+      </a>
+    );
+    return token.text;
+  });
 }
 
 export function ColumnArticle() {
@@ -33,7 +42,7 @@ export function ColumnArticle() {
           if (block.type === 'figure') return <ColumnFigure key={index} number={block.number!} />;
           if (block.type === 'heading') return <h2 key={index} className="mb-6 mt-14 text-2xl font-semibold leading-relaxed">{block.text}</h2>;
           if (block.type === 'equation') return <div key={index} className="my-8 overflow-x-auto py-2" dangerouslySetInnerHTML={{ __html: katex.renderToString(block.text!, { displayMode: true, throwOnError: false, trust: false }) }} />;
-          return <p key={index} className="mb-6 text-base leading-[1.95] text-zinc-700 sm:text-[17px]"><MathText text={block.text!} /></p>;
+          return <p key={index} className="mb-6 text-base leading-[1.95] text-zinc-700 sm:text-[17px]"><ArticleText tokens={paragraphs[index]} /></p>;
         })}
       </div>
       <footer className="mt-12 border-t border-zinc-300 pt-6">

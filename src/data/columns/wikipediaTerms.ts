@@ -1,0 +1,23 @@
+// Article destinations checked on 2026-09-26. Use Korean pages where suitable.
+export const wikipediaTerms = [
+  { term: '전하', href: 'https://ko.wikipedia.org/wiki/전하' },
+  { term: '전류', href: 'https://ko.wikipedia.org/wiki/전류' },
+  { term: '전자', href: 'https://ko.wikipedia.org/wiki/전자' },
+  { term: '전압', href: 'https://ko.wikipedia.org/wiki/전압' },
+  { term: '저항', href: 'https://ko.wikipedia.org/wiki/전기저항' },
+  { term: '유체역학', href: 'https://ko.wikipedia.org/wiki/유체역학' },
+  { term: '운동량', href: 'https://ko.wikipedia.org/wiki/운동량' },
+  { term: '산란', href: 'https://ko.wikipedia.org/wiki/산란' },
+  { term: '격자 진동', href: 'https://ko.wikipedia.org/wiki/포논' },
+  { term: '국소 평형', href: 'https://en.wikipedia.org/wiki/Thermodynamic_equilibrium#Local_and_global_equilibrium' },
+  { term: '탄도 수송', href: 'https://en.wikipedia.org/wiki/Ballistic_conduction' },
+  { term: '전단 점성', href: 'https://ko.wikipedia.org/wiki/점성' },
+  { term: '푸아죄유 흐름', href: 'https://ko.wikipedia.org/wiki/푸아죄유의_법칙' },
+  { term: '그래핀', href: 'https://ko.wikipedia.org/wiki/그래핀' },
+  { term: '홀 전기장', href: 'https://ko.wikipedia.org/wiki/홀_효과' },
+  { term: '동점성계수', href: 'https://ko.wikipedia.org/wiki/점성#동점성계수' },
+  { term: '소용돌이', href: 'https://en.wikipedia.org/wiki/Vortex' },
+  { term: '선형 응답', href: 'https://en.wikipedia.org/wiki/Linear_response_theory' },
+  { term: '난류', href: 'https://ko.wikipedia.org/wiki/난류' },
+  { term: '줄가열', href: 'https://en.wikipedia.org/wiki/Joule_heating' },
+];
