@@ -24,9 +24,8 @@ export function ColumnArticle() {
 
   return (
     <article lang="ko" className="column-article mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
-      <a href="/#columns" className="text-sm text-zinc-600 hover:text-black">← 칼럼 목록</a>
-      <header className="mb-10 mt-10 border-b border-zinc-300 pb-8">
-        <p className="mb-4 text-xs tracking-[0.14em] text-zinc-500">칼럼 01 · 전자 유체</p>
+      <header className="mb-10 border-b border-zinc-300 pb-8">
+        <time dateTime={column.date} className="mb-4 block text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
         <h1 ref={titleRef} tabIndex={-1} className="text-3xl font-semibold leading-snug tracking-tight outline-none sm:text-4xl">{column.title}</h1>
         <p className="mt-5 text-sm text-zinc-500">Gyuyoung Park</p>
       </header>
@@ -39,7 +38,7 @@ export function ColumnArticle() {
         })}
       </div>
       <footer className="mt-12 border-t border-zinc-300 pt-6">
-        <a href="/#columns" className="text-sm text-zinc-600 hover:text-black">← 칼럼 목록으로 돌아가기</a>
+        <a href="/#columns" className="text-sm text-zinc-600 hover:text-black">Back to Columns</a>
       </footer>
     </article>
   );

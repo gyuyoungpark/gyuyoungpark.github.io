@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <title>전자 유체의 흐름</title>
+  <desc>전자들의 평균 흐름이 채널 벽 근처에서는 느리고 중앙에서는 빠른 개념도. 화살표 길이는 평균 흐름의 상대적인 속도를 나타내며 실제 측정 데이터가 아니다.</desc>
+  <defs>
+    <linearGradient id="channel" x1="320" y1="60" x2="320" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eaf1f2"/>
+      <stop offset=".5" stop-color="#d7e9ec"/>
+      <stop offset="1" stop-color="#eaf1f2"/>
+    </linearGradient>
+    <linearGradient id="speed" x1="140" y1="180" x2="500" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#83b5c1" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#286b8a"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#286b8a"/>
+    </marker>
+  </defs>
+  <path fill="#f1f5f3" d="M0 0h640v360H0z"/>
+  <path fill="url(#channel)" d="M48 60h544v240H48z"/>
+  <path d="M48 60h544M48 300h544" stroke="#8aa4ac" stroke-width="5"/>
+  <g stroke="#b8cfd4" stroke-width="1" stroke-dasharray="3 7">
+    <path d="M60 90h520M60 120h520M60 150h520M60 180h520M60 210h520M60 240h520M60 270h520"/>
+  </g>
+  <path d="M231 60Q777 180 231 300" stroke="#5893a6" stroke-opacity=".4" stroke-width="2" stroke-dasharray="5 6"/>
+  <g stroke="url(#speed)" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M152 90h185"/><path d="M152 120h278"/>
+    <path d="M152 150h334"/><path d="M152 180h352"/>
+    <path d="M152 210h334"/><path d="M152 240h278"/>
+    <path d="M152 270h185"/>
+  </g>
+  <g fill="#286b8a" stroke="#f1f5f3" stroke-width="3">
+    <circle cx="231" cy="90" r="11"/><circle cx="286" cy="120" r="11"/>
+    <circle cx="326" cy="150" r="11"/><circle cx="347" cy="180" r="11"/>
+    <circle cx="326" cy="210" r="11"/><circle cx="286" cy="240" r="11"/>
+    <circle cx="231" cy="270" r="11"/>
+  </g>
+  <g stroke="white" stroke-width="2" stroke-linecap="round">
+    <path d="M227 90h8M282 120h8M322 150h8M343 180h8M322 210h8M282 240h8M227 270h8"/>
+  </g>
+</svg>
