@@ -1,0 +1,28 @@
+{
+  "R": 1.0,
+  "a": 1.5,
+  "D": 0.25,
+  "W": 1,
+  "L": 10,
+  "h": 0.045,
+  "triangles": 19967,
+  "dofs": 91517,
+  "sigma0": 1,
+  "outlet_profile_scale": 0.9999998457872133,
+  "flux_analytic": 0.7055131877334897,
+  "fluxes": [
+    0.7055092143375434,
+    0.7055094282307108,
+    0.7055095529341193,
+    0.7055092059332557
+  ],
+  "flux_relative_spread": 4.918417821690729e-07,
+  "divergence_rms": 0.06641600048131494,
+  "divergence_over_gradient": 0.031193767165908347,
+  "weak_divergence_max": 2.94076886300045e-15,
+  "wall_current_max": 0.0,
+  "streamfunction_current_relative_error": 0.0013683193795843498,
+  "psi_excess_over_Q": 0.0,
+  "closed_contours_above_wall": 0,
+  "straight_profile_max_error": null
+}

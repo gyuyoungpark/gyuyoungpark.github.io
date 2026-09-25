@@ -1,0 +1,16 @@
+{
+  "figure1": {
+    "momentum_sum_error": 0.0,
+    "equal_speed_error": 4.440892098500626e-16,
+    "environment_balance_error": 0.0
+  },
+  "figure2": {
+    "endpoint_error": 0.0,
+    "centre_error": 0.0,
+    "symmetry_error": 3.3306690738754696e-16,
+    "minimum": 0.0,
+    "mean": 0.666666,
+    "mean_error": 6.666666666488297e-07,
+    "integration_tolerance": 1e-06
+  }
+}

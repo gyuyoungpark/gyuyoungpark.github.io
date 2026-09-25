@@ -27,7 +27,6 @@ export function ColumnArticle() {
       <header className="mb-10 border-b border-zinc-300 pb-8">
         <time dateTime={column.date} className="mb-4 block text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
         <h1 ref={titleRef} tabIndex={-1} className="text-3xl font-semibold leading-snug tracking-tight outline-none sm:text-4xl">{column.title}</h1>
-        <p className="mt-5 text-sm text-zinc-500">Gyuyoung Park</p>
       </header>
       <div className="column-body">
         {column.blocks.map((block, index) => {
