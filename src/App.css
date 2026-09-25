@@ -1,4 +1,27 @@
 /* App-specific styles */
+.column-body, .column-article h1 {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.column-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.column-figure text {
+  font-family: 'Pretendard', system-ui, sans-serif;
+  fill: #52525b;
+  font-size: 15px;
+}
+
+.column-figure .diagram-heading {
+  font-weight: 600;
+  fill: #18181b;
+  font-size: 17px;
+}
+
 
 /* Smooth page transitions */
 .page-transition-enter {

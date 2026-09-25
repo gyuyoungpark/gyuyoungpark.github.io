@@ -54,7 +54,7 @@ export function Header() {
             isScrolled ? 'text-zinc-900' : 'text-zinc-900'
           )}
         >
-          <a href="#top" className="inline-flex items-center">
+          <a href="/#top" className="inline-flex items-center">
             <span className="text-[20px] font-semibold tracking-[0.01em] lg:text-[24px]">Gyuyoung Park</span>
           </a>
 
@@ -62,7 +62,7 @@ export function Header() {
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={`/${item.href}`}
                 className="text-[14px] font-semibold tracking-[0.02em] text-zinc-700 transition-colors hover:text-black lg:text-[16px]"
               >
                 {item.label}
@@ -131,7 +131,7 @@ export function Header() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`/${item.href}`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block border-b border-zinc-300 py-2 text-[18px] font-semibold tracking-[0.01em] text-zinc-700 transition-colors hover:text-black"
             >
