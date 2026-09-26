@@ -25,10 +25,7 @@ export function ColumnFigure({ number }: { number: number }) {
   );
   return (
     <figure className="column-figure my-10 border-y border-zinc-300 py-5" aria-labelledby={`${id}-caption`}>
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <p className="text-sm font-semibold text-zinc-800">그림 {number}. {titles[number - 1]}</p>
-        <span className="shrink-0 border border-zinc-300 px-2 py-1 text-[11px] text-zinc-500">개념도</span>
-      </div>
+      <p className="mb-4 text-sm font-semibold text-zinc-800">그림 {number}. {titles[number - 1]}</p>
       <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={`그림 ${number} 개념도 (좁은 화면에서는 좌우로 스크롤)`}>
         <svg style={{ minWidth: 560 }} viewBox="0 0 640 290" role="img" aria-labelledby={`${id}-title ${id}-desc`}>
           <title id={`${id}-title`}>{titles[number - 1]}</title>
