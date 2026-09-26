@@ -10,6 +10,7 @@ const articleTitles = { en: column.titleEn, ko: column.title };
 
 function ArticleText({ tokens }: { tokens: ColumnTextToken[] }) {
   return tokens.map((token, index) => {
+    if (token.type === 'strong') return <strong key={index} className="font-semibold text-zinc-900"><ArticleText tokens={token.children} /></strong>;
     if (token.type === 'math') return <span key={index} dangerouslySetInnerHTML={{ __html: katex.renderToString(token.text, { throwOnError: false, trust: false }) }} />;
     if (token.type === 'link') return (
       <a key={index} href={token.href} target="_blank" rel="noopener noreferrer"

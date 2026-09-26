@@ -4,6 +4,9 @@ export type ColumnTextToken = {
   type: 'text' | 'math' | 'link';
   text: string;
   href?: string;
+} | {
+  type: 'strong';
+  children: ColumnTextToken[];
 };
 
 const termMap = new Map(wikipediaTerms.map((entry) => [entry.term, entry.href]));
@@ -14,15 +17,19 @@ const termPattern = new RegExp(
 );
 
 // Parse the complete article once, so only the first occurrence is linked.
-// Keep math separate, and never change the article's text or whitespace.
+// Keep math separate and preserve text and whitespace inside emphasis.
 export function linkColumnParagraphs(blocks: { type: string; text?: string }[]) {
   const seen = new Set<string>();
-  return blocks.map((block): ColumnTextToken[] => {
-    if (block.type !== 'paragraph') return [];
+
+  function tokenize(text: string): ColumnTextToken[] {
     const tokens: ColumnTextToken[] = [];
-    for (const part of (block.text ?? '').split(/(\\\([\s\S]*?\\\))/g)) {
+    for (const part of text.split(/(\\\([\s\S]*?\\\)|\*\*[\s\S]+?\*\*)/g)) {
       if (part.startsWith('\\(')) {
         tokens.push({ type: 'math', text: part.slice(2, -2) });
+        continue;
+      }
+      if (part.startsWith('**') && part.endsWith('**')) {
+        tokens.push({ type: 'strong', children: tokenize(part.slice(2, -2)) });
         continue;
       }
       let cursor = 0;
@@ -39,5 +46,7 @@ export function linkColumnParagraphs(blocks: { type: string; text?: string }[]) 
       if (cursor < part.length) tokens.push({ type: 'text', text: part.slice(cursor) });
     }
     return tokens;
-  });
+  }
+
+  return blocks.map((block) => block.type === 'paragraph' ? tokenize(block.text ?? '') : []);
 }
