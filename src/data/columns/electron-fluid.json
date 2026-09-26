@@ -1,6 +1,8 @@
 {
   "id": "electron-fluid",
   "title": "전자는 언제 물처럼 흐를까?",
+  "titleEn": "When do electrons flow like water?",
+  "tags": ["Electron Hydrodynamics", "Electron Transport Theory", "Graphene"],
   "date": "2026-09-25",
   "description": "전자들이 운동량을 나누고 잃는 방식에서 출발해, 전류가 물처럼 흐르는 조건을 살펴봅니다.",
   "blocks": [

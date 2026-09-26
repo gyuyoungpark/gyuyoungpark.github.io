@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
-  <title>전자 유체의 흐름</title>
-  <desc>전자들의 평균 흐름이 채널 벽 근처에서는 느리고 중앙에서는 빠른 개념도. 화살표 길이는 평균 흐름의 상대적인 속도를 나타내며 실제 측정 데이터가 아니다.</desc>
+  <title>Electron fluid flow</title>
+  <desc>A schematic of electron flow, slower near the channel walls and faster at the center. Arrow lengths indicate relative average flow speeds, not measured data.</desc>
   <defs>
     <linearGradient id="channel" x1="320" y1="60" x2="320" y2="300" gradientUnits="userSpaceOnUse">
       <stop stop-color="#eaf1f2"/>

@@ -6,7 +6,7 @@ import { ColumnFigure } from './ColumnFigure';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
 
 const paragraphs = linkColumnParagraphs(column.blocks);
-const articleTitles = { en: 'When do electrons flow like water?', ko: column.title };
+const articleTitles = { en: column.titleEn, ko: column.title };
 
 function ArticleText({ tokens }: { tokens: ColumnTextToken[] }) {
   return tokens.map((token, index) => {
