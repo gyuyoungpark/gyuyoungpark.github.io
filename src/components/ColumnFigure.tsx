@@ -2,7 +2,7 @@ import { useId } from 'react';
 
 const captions = [
   '왼쪽에서는 전자가 원자핵의 인력으로 휘어지며 핵에 운동량을 전달한다. 오른쪽에서는 전자끼리 운동량을 주고받지만 두 전자의 총운동량은 유지된다. 아래 청록색 화살표는 전자계의 운동량, 주황색은 원자핵이 받아가는 운동량이다.',
-  '경계가 운동량을 흡수하고 점성이 그 영향을 내부로 전달하면, 이상적인 조건에서 포물선형 푸아죄유 흐름이 나타난다.',
+  '벽 가까이에서는 느리고 중앙에서는 빠른 전자 유체의 평균 흐름을 나타낸 도해다.',
   '수송 영역은 길이척도의 상대적 크기로 달라지며, 선형·비선형 여부는 이와 별도로 구분해야 한다.',
   '장치 크기와 운동량 전달 길이의 관계가 바뀌면 정상적인 전류 소용돌이가 나타나거나 사라질 수 있다.',
   '비선형 전기 응답은 흐름의 역학뿐 아니라 가열에 의해서도 나타날 수 있으므로, 원인을 분리해야 한다.',
@@ -40,6 +40,28 @@ export function ColumnFigure({ number }: { number: number }) {
       </figure>
     );
   }
+  if (number === 2) {
+    return (
+      <figure className="column-figure my-10 border-y border-zinc-300 py-5" aria-labelledby={`${id}-caption`}>
+        <p className="mb-4 text-sm font-semibold text-zinc-800">그림 2. {titles[1]}</p>
+        <img
+          src="/images/columns/electron-fluid.svg"
+          alt="채널의 벽 가까이에서는 짧고 중앙에서는 긴 화살표로 나타낸 전자 유체의 평균 흐름"
+          width={640}
+          height={360}
+          className="block h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption id={`${id}-caption`} className="mt-3 text-sm leading-6 text-zinc-500">
+          {captions[1]}
+          <span className="mt-2 block text-xs leading-5">
+            화살표는 전자의 평균 흐름 방향과 상대적 속도를 개념적으로 나타내며, 관습적인 전류 방향은 반대다.
+          </span>
+        </figcaption>
+      </figure>
+    );
+  }
   const marker = `url(#${id}-arrow)`;
   const arrow = (x1: number, y1: number, x2: number, y2: number, color = blue) => (
     <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="2.5" markerEnd={marker} />
@@ -56,21 +78,6 @@ export function ColumnFigure({ number }: { number: number }) {
               <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" />
             </marker>
           </defs>
-          {number === 2 && <>
-            <text x="160" y="30" textAnchor="middle" className="diagram-heading">채널 안의 전류밀도</text>
-            <path d="M 30 65 H 285 M 30 215 H 285" stroke="#949fa3" strokeWidth="7" />
-            {[0, 1, 2, 3, 4, 5, 6].map(i => {
-              const length = 150 * (1 - ((i - 3) / 3.5) ** 2);
-              return <g key={i}>{arrow(65, 80 + i * 20, 65 + length, 80 + i * 20)}</g>;
-            })}
-            <text x="350" y="30" className="diagram-heading">이상적인 속도 분포</text>
-            <text x="350" y="65">jₓ(y)</text>
-            {arrow(365, 215, 605, 215, '#71717a')}{arrow(380, 230, 380, 70, '#71717a')}
-            <path d="M 390 215 Q 490 -40 590 215" stroke={blue} strokeWidth="3" fill="none" />
-            <text x="390" y="242" textAnchor="middle">벽</text><text x="490" y="242" textAnchor="middle">중앙</text><text x="590" y="242" textAnchor="middle">벽</text>
-            <text x="612" y="220">y</text>
-            <text x="320" y="278" textAnchor="middle">벽에서 평균 흐름 ≈ 0 · 내부 운동량 손실이 약한 경우</text>
-          </>}
           {number === 3 && <>
             <text x="320" y="27" textAnchor="middle">ℓₑₑ ≪ Dν · 느린 내부 운동량 완화 · 운동량을 흡수하는 벽</text>
             <rect x="15" y="60" width="195" height="105" fill="#e7eff3" />
@@ -120,7 +127,7 @@ export function ColumnFigure({ number }: { number: number }) {
         </svg>
       </div>
       <figcaption id={`${id}-caption`} className="mt-3 text-sm leading-6 text-zinc-500">{captions[number - 1]}</figcaption>
-      {[2, 4, 5].includes(number) && <p className="mt-2 text-xs leading-5 text-zinc-500">화살표와 유선은 전류밀도 방향을 나타냅니다. 개별 전자의 궤적이 아니며, 전자의 평균 이동 방향은 반대입니다.</p>}
+      {[4, 5].includes(number) && <p className="mt-2 text-xs leading-5 text-zinc-500">화살표와 유선은 전류밀도 방향을 나타냅니다. 개별 전자의 궤적이 아니며, 전자의 평균 이동 방향은 반대입니다.</p>}
     </figure>
   );
 }
