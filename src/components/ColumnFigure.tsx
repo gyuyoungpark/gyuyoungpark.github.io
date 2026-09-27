@@ -1,24 +1,45 @@
 import { useId } from 'react';
 
 const captions = [
-  '개별 전자의 운동을 바꾸는 산란과 전자계 전체의 운동량을 줄이는 산란은 구별해야 한다.',
+  '왼쪽에서는 전자가 원자핵의 인력으로 휘어지며 핵에 운동량을 전달한다. 오른쪽에서는 전자끼리 운동량을 주고받지만 두 전자의 총운동량은 유지된다. 아래 청록색 화살표는 전자계의 운동량, 주황색은 원자핵이 받아가는 운동량이다.',
   '경계가 운동량을 흡수하고 점성이 그 영향을 내부로 전달하면, 이상적인 조건에서 포물선형 푸아죄유 흐름이 나타난다.',
   '수송 영역은 길이척도의 상대적 크기로 달라지며, 선형·비선형 여부는 이와 별도로 구분해야 한다.',
   '장치 크기와 운동량 전달 길이의 관계가 바뀌면 정상적인 전류 소용돌이가 나타나거나 사라질 수 있다.',
   '비선형 전기 응답은 흐름의 역학뿐 아니라 가열에 의해서도 나타날 수 있으므로, 원인을 분리해야 한다.',
 ];
 const titles = [
-  '운동량을 나누는 산란과 잃는 산란',
+  '원자핵으로의 운동량 전달과 전자 사이의 운동량 교환',
   '벽에서는 느리고 중앙에서는 빠른 흐름',
   '도선의 폭에 따라 달라지는 수송 영역',
   '곁방 안에서 생기고 사라지는 전류 소용돌이',
   '전압을 높일 때 함께 바뀔 수 있는 두 가지',
 ];
 const blue = '#286b8a';
-const orange = '#b87043';
 
 export function ColumnFigure({ number }: { number: number }) {
   const id = useId();
+  if (number === 1) {
+    return (
+      <figure className="column-figure my-10 border-y border-zinc-300 py-5" aria-labelledby={`${id}-caption`}>
+        <p className="mb-4 text-sm font-semibold text-zinc-800">그림 1. {titles[0]}</p>
+        <img
+          src="/images/columns/electron-fluid/figure-1-nuclear-scattering.svg"
+          alt="왼쪽은 양전하 원자핵을 향해 휘는 전자의 궤적, 오른쪽은 서로 밀어내는 두 전자의 궤적. 아래 벡터는 원자핵으로의 운동량 전달과 전자계 총운동량 보존을 비교한다."
+          width={1600}
+          height={900}
+          className="block h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption id={`${id}-caption`} className="mt-3 text-sm leading-6 text-zinc-500">
+          {captions[0]}
+          <span className="mt-2 block text-xs leading-5">
+            무거운 원자핵의 반동 에너지를 무시한 도해다. 이 근사에서는 전자의 운동량 크기는 유지되고 처음 진행하던 방향의 성분이 줄어든다. 아래 벡터는 산란 전후 충분히 멀리 떨어진 상태의 운동량을 나타낸다.
+          </span>
+        </figcaption>
+      </figure>
+    );
+  }
   const marker = `url(#${id}-arrow)`;
   const arrow = (x1: number, y1: number, x2: number, y2: number, color = blue) => (
     <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="2.5" markerEnd={marker} />
@@ -35,25 +56,6 @@ export function ColumnFigure({ number }: { number: number }) {
               <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" />
             </marker>
           </defs>
-          {number === 1 && <>
-            <text x="160" y="30" textAnchor="middle" className="diagram-heading">전자끼리 운동량 교환</text>
-            <text x="480" y="30" textAnchor="middle" className="diagram-heading">주변으로 운동량 전달</text>
-            <line x1="320" y1="50" x2="320" y2="270" stroke="#dde7e7" />
-            <text x="20" y="85">전</text><text x="20" y="170">후</text>
-            {[80, 165].map(y => <g key={y}>
-              <circle cx="80" cy={y} r="9" fill={blue} /><circle cx="200" cy={y} r="9" fill={orange} />
-              <text x="80" y={y + 30} textAnchor="middle">전자 A</text><text x="200" y={y + 30} textAnchor="middle">전자 B</text>
-            </g>)}
-            {arrow(95, 80, 155, 80)}{arrow(215, 80, 245, 80, orange)}
-            {arrow(95, 165, 125, 165)}{arrow(215, 165, 275, 165, orange)}
-            <text x="160" y="245" textAnchor="middle">전체 운동량 보존</text>
-            <circle cx="370" cy="115" r="10" fill={blue} />{arrow(385, 115, 450, 115)}
-            <circle cx="490" cy="115" r="10" fill={blue} />{arrow(505, 115, 535, 115)}
-            <path d="M 475 135 Q 465 180 520 185" fill="none" stroke={orange} strokeWidth="2.5" markerEnd={marker} />
-            <rect x="535" y="162" width="85" height="46" rx="4" fill="#f1e5d9" />
-            <text x="577" y="191" textAnchor="middle">주변 물질</text>
-            <text x="480" y="245" textAnchor="middle">전자계 운동량 감소</text>
-          </>}
           {number === 2 && <>
             <text x="160" y="30" textAnchor="middle" className="diagram-heading">채널 안의 전류밀도</text>
             <path d="M 30 65 H 285 M 30 215 H 285" stroke="#949fa3" strokeWidth="7" />
