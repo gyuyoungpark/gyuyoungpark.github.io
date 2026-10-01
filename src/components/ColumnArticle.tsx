@@ -69,7 +69,7 @@ export function ColumnArticle() {
         })}
       </div>
       <footer className="mt-12 border-t border-zinc-300 pt-6">
-        <a href="/#columns" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-black">Back to <VagueLogo className="w-[78px]" /></a>
+        <a href="/#columns" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-black">Back to <VagueLogo /></a>
       </footer>
     </article>
   );

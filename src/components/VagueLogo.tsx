@@ -5,9 +5,9 @@ export function VagueLogo({ className }: { className?: string }) {
     <img
       src="/images/brand/vague.svg"
       alt="VAGUE"
-      width={480}
-      height={112}
-      className={cn('inline-block h-auto shrink-0 align-middle', className)}
+      width={462}
+      height={96}
+      className={cn('inline-block h-[1cap] w-auto shrink-0 align-baseline', className)}
     />
   );
 }

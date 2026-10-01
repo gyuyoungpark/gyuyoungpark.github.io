@@ -220,7 +220,7 @@ export function EdgeNavigation({ externalLinks }: { externalLinks: ExternalLink[
                   }
                 }}
               >
-                {item.href === '#columns' ? <VagueLogo className="w-[118px]" /> : item.label}
+                {item.href === '#columns' ? <VagueLogo /> : item.label}
               </a>
             ))}
           </nav>

@@ -45,7 +45,7 @@ export function Header() {
                 href={`/${item.href}`}
                 className="text-[14px] font-semibold tracking-[0.02em] text-zinc-700 transition-colors hover:text-black lg:text-[16px]"
               >
-                {item.href === '#columns' ? <VagueLogo className="w-[86px]" /> : item.label}
+                {item.href === '#columns' ? <VagueLogo /> : item.label}
               </a>
             ))}
           </nav>
