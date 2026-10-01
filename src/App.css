@@ -1,4 +1,8 @@
 /* App-specific styles */
+#keywords:focus {
+  outline: none;
+}
+
 .column-body, .column-article h1 {
   word-break: keep-all;
   overflow-wrap: anywhere;
