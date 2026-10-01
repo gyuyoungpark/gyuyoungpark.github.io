@@ -1,0 +1,424 @@
+{
+  "ell_ee_over_Dnu": 0.001,
+  "W_over_Dnu": [
+    2e-05,
+    0.2,
+    12
+  ],
+  "displayed_channel_heights": [
+    124,
+    258,
+    420
+  ],
+  "geometry_to_physical_scale": false,
+  "profiles": [
+    {
+      "W_over_Dnu": 0.2,
+      "wall_values": [
+        0.0,
+        0.0
+      ],
+      "center": 1.0,
+      "symmetry_error": 4.440892098500626e-14,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "relative_ode_residual_finite_difference": 1.040969210355268e-06,
+      "ode_tolerance": 2e-06,
+      "numerical_mean": 0.6667777314362335,
+      "exact_mean": 0.6667777381084451,
+      "mean_error": 6.6722115610318156e-09,
+      "mean_tolerance": 3e-08,
+      "parabola_max_difference": 0.0002082639052674029,
+      "samples": [
+        {
+          "s": -0.43,
+          "f": 0.26056045253148175,
+          "tail": [
+            642,
+            540.94
+          ],
+          "tip": [
+            722.7737402847594,
+            540.94
+          ],
+          "length": 80.77374028475934,
+          "electron_center": [
+            674.3094961139037,
+            540.94
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": -0.33,
+          "f": 0.5646048045330564,
+          "tail": [
+            642,
+            515.14
+          ],
+          "tip": [
+            817.0274894052475,
+            515.14
+          ],
+          "length": 175.02748940524748,
+          "electron_center": [
+            712.010995762099,
+            515.14
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": -0.23,
+          "f": 0.7885389615165437,
+          "tail": [
+            642,
+            489.34000000000003
+          ],
+          "tip": [
+            886.4470780701286,
+            489.34000000000003
+          ],
+          "length": 244.44707807012855,
+          "electron_center": [
+            739.7788312280514,
+            489.34000000000003
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": -0.115,
+          "f": 0.9471417311933478,
+          "tail": [
+            642,
+            459.67
+          ],
+          "tip": [
+            935.6139366699379,
+            459.67
+          ],
+          "length": 293.6139366699378,
+          "electron_center": [
+            759.4455746679752,
+            459.67
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.0,
+          "f": 1.0,
+          "tail": [
+            642,
+            430.0
+          ],
+          "tip": [
+            952.0,
+            430.0
+          ],
+          "length": 310.0,
+          "electron_center": [
+            766.0,
+            430.0
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.115,
+          "f": 0.9471417311933478,
+          "tail": [
+            642,
+            400.33
+          ],
+          "tip": [
+            935.6139366699379,
+            400.33
+          ],
+          "length": 293.6139366699378,
+          "electron_center": [
+            759.4455746679752,
+            400.33
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.23,
+          "f": 0.7885389615165437,
+          "tail": [
+            642,
+            370.65999999999997
+          ],
+          "tip": [
+            886.4470780701286,
+            370.65999999999997
+          ],
+          "length": 244.44707807012855,
+          "electron_center": [
+            739.7788312280514,
+            370.65999999999997
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.33,
+          "f": 0.5646048045330564,
+          "tail": [
+            642,
+            344.86
+          ],
+          "tip": [
+            817.0274894052475,
+            344.86
+          ],
+          "length": 175.02748940524748,
+          "electron_center": [
+            712.010995762099,
+            344.86
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.43,
+          "f": 0.26056045253148175,
+          "tail": [
+            642,
+            319.06
+          ],
+          "tip": [
+            722.7737402847594,
+            319.06
+          ],
+          "length": 80.77374028475934,
+          "electron_center": [
+            674.3094961139037,
+            319.06
+          ],
+          "electron_radius": 12
+        }
+      ]
+    },
+    {
+      "W_over_Dnu": 12.0,
+      "wall_values": [
+        0.0,
+        0.0
+      ],
+      "center": 1.0,
+      "symmetry_error": 1.9827889330414905e-15,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "relative_ode_residual_finite_difference": 1.203603150303813e-07,
+      "ode_tolerance": 2e-06,
+      "numerical_mean": 0.8374871822338963,
+      "exact_mean": 0.8374872023332922,
+      "mean_error": 2.009939592539922e-08,
+      "mean_tolerance": 3e-08,
+      "parabola_max_difference": 0.3450646827980556,
+      "samples": [
+        {
+          "s": -0.43,
+          "f": 0.5711091556420745,
+          "tail": [
+            1142,
+            610.6
+          ],
+          "tip": [
+            1319.0438382490431,
+            610.6
+          ],
+          "length": 177.04383824904312,
+          "electron_center": [
+            1212.8175352996172,
+            610.6
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": -0.33,
+          "f": 0.8742589515233501,
+          "tail": [
+            1142,
+            568.6
+          ],
+          "tip": [
+            1413.0202749722384,
+            568.6
+          ],
+          "length": 271.02027497223855,
+          "electron_center": [
+            1250.4081099888954,
+            568.6
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": -0.23,
+          "f": 0.9654657330528993,
+          "tail": [
+            1142,
+            526.6
+          ],
+          "tip": [
+            1441.2943772463987,
+            526.6
+          ],
+          "length": 299.29437724639877,
+          "electron_center": [
+            1261.7177508985594,
+            526.6
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": -0.115,
+          "f": 0.9944536454070869,
+          "tail": [
+            1142,
+            478.3
+          ],
+          "tip": [
+            1450.280630076197,
+            478.3
+          ],
+          "length": 308.2806300761969,
+          "electron_center": [
+            1265.3122520304787,
+            478.3
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.0,
+          "f": 1.0,
+          "tail": [
+            1142,
+            430.0
+          ],
+          "tip": [
+            1452.0,
+            430.0
+          ],
+          "length": 310.0,
+          "electron_center": [
+            1266.0,
+            430.0
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.115,
+          "f": 0.9944536454070869,
+          "tail": [
+            1142,
+            381.7
+          ],
+          "tip": [
+            1450.280630076197,
+            381.7
+          ],
+          "length": 308.2806300761969,
+          "electron_center": [
+            1265.3122520304787,
+            381.7
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.23,
+          "f": 0.9654657330528993,
+          "tail": [
+            1142,
+            333.4
+          ],
+          "tip": [
+            1441.2943772463987,
+            333.4
+          ],
+          "length": 299.29437724639877,
+          "electron_center": [
+            1261.7177508985594,
+            333.4
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.33,
+          "f": 0.8742589515233501,
+          "tail": [
+            1142,
+            291.4
+          ],
+          "tip": [
+            1413.0202749722384,
+            291.4
+          ],
+          "length": 271.02027497223855,
+          "electron_center": [
+            1250.4081099888954,
+            291.4
+          ],
+          "electron_radius": 12
+        },
+        {
+          "s": 0.43,
+          "f": 0.5711091556420745,
+          "tail": [
+            1142,
+            249.4
+          ],
+          "tip": [
+            1319.0438382490431,
+            249.4
+          ],
+          "length": 177.04383824904312,
+          "electron_center": [
+            1212.8175352996172,
+            249.4
+          ],
+          "electron_radius": 12
+        }
+      ]
+    }
+  ],
+  "ballistic_paths": [
+    [
+      [
+        119.0,
+        410.0
+      ],
+      [
+        249.0,
+        492.0
+      ],
+      [
+        331.0,
+        368.0
+      ],
+      [
+        478.0,
+        433.0
+      ]
+    ],
+    [
+      [
+        121.0,
+        463.0
+      ],
+      [
+        184.0,
+        368.0
+      ],
+      [
+        385.0,
+        492.0
+      ],
+      [
+        479.0,
+        395.0
+      ]
+    ]
+  ],
+  "ballistic_interpretation": "Illustrative paths with diffuse wall scattering; no directional arrowheads.",
+  "vector_meaning": "Electron mean velocity, normalized separately by the center value in each continuum panel.",
+  "flow_electron_count": 18,
+  "electron_symbol_meaning": "One illustrative electron per mean-drift arrow; positions are not simulated trajectories or density samples.",
+  "all_regimes_can_be_linear": true,
+  "visible_badges": false
+}

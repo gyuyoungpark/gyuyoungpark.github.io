@@ -3,7 +3,7 @@ import { useId } from 'react';
 const captions = [
   '왼쪽에서는 전자가 원자핵의 인력으로 휘어지며 핵에 운동량을 전달한다. 오른쪽에서는 전자끼리 운동량을 주고받지만 두 전자의 총운동량은 유지된다. 아래 청록색 화살표는 전자계의 운동량, 주황색은 원자핵이 받아가는 운동량이다.',
   '벽 가까이에서는 느리고 중앙에서는 빠른 전자 유체의 평균 흐름을 나타낸 도해다.',
-  '수송 영역은 길이척도의 상대적 크기로 달라지며, 선형·비선형 여부는 이와 별도로 구분해야 한다.',
+  '채널 폭이 커지면서 개별 궤적이 중요한 탄도 수송, 점성에 의한 운동량 전달이 중요한 흐름, 내부 운동량 완화가 중요한 흐름으로 바뀌는 예다. 오른쪽에서는 중앙의 평균 속도가 거의 고르고 벽 근처에서 느려진다.',
   '장치 크기와 운동량 전달 길이의 관계가 바뀌면 정상적인 전류 소용돌이가 나타나거나 사라질 수 있다.',
   '비선형 전기 응답은 흐름의 역학뿐 아니라 가열에 의해서도 나타날 수 있으므로, 원인을 분리해야 한다.',
 ];
@@ -62,6 +62,28 @@ export function ColumnFigure({ number }: { number: number }) {
       </figure>
     );
   }
+  if (number === 3) {
+    return (
+      <figure className="column-figure my-10 border-y border-zinc-300 py-5" aria-labelledby={`${id}-caption`}>
+        <p className="mb-4 text-sm font-semibold text-zinc-800">그림 3. {titles[2]}</p>
+        <img
+          src="/images/columns/electron-fluid/figure-3-transport-regimes.svg"
+          alt="폭이 다른 세 채널에서 탄도 궤적, 중앙이 빠른 점성 흐름, 중앙의 속도가 거의 고른 내부 운동량 완화 지배 흐름을 비교한다. 아래 화살표는 채널 폭의 증가를 나타낸다."
+          width={1600}
+          height={900}
+          className="block h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption id={`${id}-caption`} className="mt-3 text-sm leading-6 text-zinc-500">
+          {captions[2]}
+          <span className="mt-2 block text-xs leading-5">
+            회색 점선은 개별 궤적의 도식이고, 청록색 화살표는 각 패널의 중앙 속도로 정규화한 전자의 평균 흐름이다. 관습적인 전류 방향은 반대다. 채널 폭은 실제 비율대로 그리지 않았다. 작은 구동에서는 세 영역 모두 선형 응답이 가능하며, 오른쪽에서도 빈번한 전자 간 충돌과 국소 평형은 유지될 수 있다.
+          </span>
+        </figcaption>
+      </figure>
+    );
+  }
   const marker = `url(#${id}-arrow)`;
   const arrow = (x1: number, y1: number, x2: number, y2: number, color = blue) => (
     <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="2.5" markerEnd={marker} />
@@ -78,23 +100,6 @@ export function ColumnFigure({ number }: { number: number }) {
               <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" />
             </marker>
           </defs>
-          {number === 3 && <>
-            <text x="320" y="27" textAnchor="middle">ℓₑₑ ≪ Dν · 느린 내부 운동량 완화 · 운동량을 흡수하는 벽</text>
-            <rect x="15" y="60" width="195" height="105" fill="#e7eff3" />
-            <rect x="222" y="60" width="195" height="105" fill="#e5eee8" />
-            <rect x="429" y="60" width="195" height="105" fill="#f1e9df" />
-            <path d="M 216 50 V 180 M 423 50 V 180" stroke="#a1a1aa" strokeDasharray="4 6" />
-            <text x="112" y="102" textAnchor="middle" className="diagram-heading">탄도 수송</text>
-            <text x="320" y="102" textAnchor="middle" className="diagram-heading">점성 지배 수송</text>
-            <text x="527" y="102" textAnchor="middle" className="diagram-heading">확산 지배 수송</text>
-            <text x="112" y="140" textAnchor="middle">W ≪ ℓₑₑ</text>
-            <text x="320" y="140" textAnchor="middle">ℓₑₑ ≪ W ≪ Dν</text>
-            <text x="527" y="140" textAnchor="middle">W ≫ Dν</text>
-            {arrow(25, 196, 615, 196, '#71717a')}
-            <text x="320" y="220" textAnchor="middle">채널 폭 W 증가 · 경계는 점진적인 크로스오버</text>
-            <rect x="15" y="240" width="609" height="38" rx="3" fill="#eae9e3" />
-            <text x="320" y="265" textAnchor="middle">작은 구동에서는 세 영역 모두 선형 응답 가능</text>
-          </>}
           {number === 4 && <>
             <text x="160" y="28" textAnchor="middle" className="diagram-heading">순환하는 전류가 있는 경우</text>
             <text x="480" y="28" textAnchor="middle" className="diagram-heading">더 큰 곁방과 입구</text>

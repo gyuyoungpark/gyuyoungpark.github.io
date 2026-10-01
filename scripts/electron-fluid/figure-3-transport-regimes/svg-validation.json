@@ -1,0 +1,19 @@
+{
+  "arrow_count": 18,
+  "max_svg_arrow_length_error_pixels": 4.972238571099297e-06,
+  "flow_electron_count": 18,
+  "all_flow_arrows_have_one_electron": true,
+  "minimum_electron_wall_clearance_pixels": 2.0599999999999454,
+  "minimum_electron_pair_clearance_pixels": 3.3853493089169753,
+  "tolerance_pixels": 1e-05,
+  "labels": [
+    "Ballistic",
+    "Viscous",
+    "Bulk momentum",
+    "relaxation",
+    "Increasing W"
+  ],
+  "gradients_use_explicit_coordinates": true,
+  "ballistic_paths_have_no_arrowheads": true,
+  "viewBox": "0 0 1600 900"
+}
