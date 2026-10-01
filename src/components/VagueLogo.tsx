@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 export function VagueLogo({ className }: { className?: string }) {
   return (
     <img
-      src="/images/brand/vague.svg"
+      src="/images/brand/vague.svg?v=2"
       alt="VAGUE"
       width={462}
       height={96}
