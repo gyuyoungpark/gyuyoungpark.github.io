@@ -16,7 +16,7 @@ export interface Article {
   title: string;
   authors: Author[];
   description: string;
-  tags: Tag[];
+  tags: (string | Tag)[];
   image?: string;
   date?: string;
   category?: string;
@@ -29,6 +29,7 @@ export interface Producer {
   bio: string;
   image?: string;
   role?: string;
+  tags?: (string | Tag)[];
 }
 
 export interface CabinetItem {

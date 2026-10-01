@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
-import column from '@/data/columns/electron-fluid.json';
+import type { Column } from '@/data/columns';
 import { ColumnFigure } from './ColumnFigure';
 import { VagueLogo } from './VagueLogo';
+import { KeywordTags } from './KeywordTags';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
-
-const paragraphs = linkColumnParagraphs(column.blocks);
-const articleTitles = { en: column.titleEn, ko: column.title };
 
 function ArticleText({ tokens }: { tokens: ColumnTextToken[] }) {
   return tokens.map((token, index) => {
@@ -24,7 +22,9 @@ function ArticleText({ tokens }: { tokens: ColumnTextToken[] }) {
   });
 }
 
-export function ColumnArticle() {
+export function ColumnArticle({ column }: { column: Column }) {
+  const paragraphs = linkColumnParagraphs(column.blocks);
+  const articleTitles = { en: column.titleEn, ko: column.title };
   const [language, setLanguage] = useState<'en' | 'ko'>('en');
   const titleRef = useRef<HTMLHeadingElement>(null);
   const title = articleTitles[language];
@@ -69,6 +69,7 @@ export function ColumnArticle() {
         })}
       </div>
       <footer className="mt-12 border-t border-zinc-300 pt-6">
+        <KeywordTags tags={column.tags} className="mb-6" />
         <a href="/#columns" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-black">Back to <VagueLogo /></a>
       </footer>
     </article>

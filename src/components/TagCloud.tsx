@@ -1,145 +1,83 @@
-import { useEffect, useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { keywordIndex } from '@/data/keywordIndex';
+import { keywordHref, keywordStyle } from '@/lib/keywords';
 
-const themeKeywords = [
-  { label: 'Magnetism', color: '#0072B2', textColor: '#ffffff' }, // Okabe-Ito blue
-  { label: 'Spintronics', color: '#009E73', textColor: '#ffffff' }, // Okabe-Ito bluish green
-  { label: 'Chaos', color: '#D55E00', textColor: '#ffffff' }, // Okabe-Ito vermillion
-  { label: 'Magnetic Skyrmion', color: '#CC79A7', textColor: '#ffffff' }, // Okabe-Ito reddish purple
-  { label: 'Spin-Orbit Torque', color: '#E69F00', textColor: '#111827' }, // Okabe-Ito orange
-  { label: 'Probabilistic Computing', color: '#56B4E9', textColor: '#111827' }, // Okabe-Ito sky blue
-];
-
-const journalKeywords = [
-  { label: 'Physical Review B', color: 'rgb(205, 37, 68)', textColor: '#ffffff' },
-  { label: 'Scientific Reports', color: 'rgb(206, 221, 228)', textColor: '#111827' },
-  { label: 'arXiv', color: 'rgb(179, 27, 27)', textColor: '#ffffff' },
-  { label: 'Communications Physics', color: 'rgb(255, 204, 0)', textColor: '#111827' },
-  { label: 'npj spintronics', color: 'rgb(227, 6, 19)', textColor: '#ffffff' },
-  { label: 'Journal of Materials Chemistry C', color: 'rgb(0, 69, 114)', textColor: '#ffffff' },
-  { label: 'ACS Applied Electronic Materials', color: 'rgb(0, 82, 165)', textColor: '#ffffff' },
-];
-
-function getCollapsedHeight(container: HTMLDivElement | null): number {
-  if (!container) return 0;
-
-  const children = Array.from(container.children) as HTMLElement[];
-  if (children.length === 0) return 0;
-
-  const rowBottomByTop = new Map<number, number>();
-  children.forEach((child) => {
-    const top = child.offsetTop;
-    const bottom = top + child.offsetHeight;
-    const currentBottom = rowBottomByTop.get(top) ?? 0;
-    rowBottomByTop.set(top, Math.max(currentBottom, bottom));
-  });
-
-  const rowTops = Array.from(rowBottomByTop.keys()).sort((a, b) => a - b);
-  if (rowTops.length <= 3) {
-    return container.scrollHeight;
-  }
-
-  const thirdRowTop = rowTops[2];
-  return rowBottomByTop.get(thirdRowTop) ?? container.scrollHeight;
+interface TagCloudProps {
+  selectedKeyword?: string | null;
 }
 
-function getCollapsedStyle(expanded: boolean, collapsedHeight: number | null) {
-  if (expanded || collapsedHeight === null) {
-    return undefined;
-  }
-
-  return { maxHeight: `${collapsedHeight}px` };
-}
-
-export function TagCloud() {
-  const [isThemeExpanded, setIsThemeExpanded] = useState(false);
-  const [isJournalExpanded, setIsJournalExpanded] = useState(false);
-  const [themeCollapsedHeight, setThemeCollapsedHeight] = useState<number | null>(null);
-  const [journalCollapsedHeight, setJournalCollapsedHeight] = useState<number | null>(null);
-  const themeRef = useRef<HTMLDivElement>(null);
-  const journalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const updateCollapsedHeights = () => {
-      setThemeCollapsedHeight(getCollapsedHeight(themeRef.current));
-      setJournalCollapsedHeight(getCollapsedHeight(journalRef.current));
-    };
-
-    updateCollapsedHeights();
-    window.addEventListener('resize', updateCollapsedHeights);
-    return () => window.removeEventListener('resize', updateCollapsedHeights);
-  }, []);
+export function TagCloud({ selectedKeyword }: TagCloudProps) {
+  const hasSelection = selectedKeyword !== undefined && selectedKeyword !== null;
+  const selected = keywordIndex.find((keyword) => keyword.id === selectedKeyword);
+  const relatedContents = selected?.contents ?? [];
 
   return (
-    <section id="keywords" className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
+    <section id="keywords" tabIndex={-1} className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 outline-none sm:px-6 lg:px-8">
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Keywords</h2>
 
-        <div className="space-y-5">
-          <div className="flex items-end gap-3">
-            <div
-              ref={themeRef}
-              className="flex flex-1 flex-wrap gap-2 overflow-hidden transition-[max-height] duration-300"
-              style={getCollapsedStyle(isThemeExpanded, themeCollapsedHeight)}
-            >
-              {themeKeywords.map((keyword) => (
-                <button
-                  key={keyword.label}
-                  type="button"
-                  className="inline-flex w-fit rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm leading-5"
-                  style={{
-                    backgroundColor: keyword.color,
-                    color: keyword.textColor,
-                  }}
-                >
-                  {keyword.label}
-                </button>
-              ))}
-            </div>
+        <div className="flex flex-wrap gap-2" aria-label="Content keywords">
+          {keywordIndex.map((keyword) => {
+            const isSelected = keyword.id === selectedKeyword;
 
-            <button
-              type="button"
-              onClick={() => setIsThemeExpanded((prev) => !prev)}
-              className="inline-flex h-6 w-6 items-center justify-center p-0"
-              aria-label={isThemeExpanded ? 'Collapse theme keywords' : 'Expand theme keywords'}
-            >
-              <ChevronDown className={`h-5 w-5 transition-transform ${isThemeExpanded ? 'rotate-180' : ''}`} />
-            </button>
-          </div>
-
-          <div className="h-px w-full bg-zinc-300" aria-hidden="true" />
-
-          <div className="flex items-end gap-3">
-            <div
-              ref={journalRef}
-              className="flex flex-1 flex-wrap gap-2 overflow-hidden transition-[max-height] duration-300"
-              style={getCollapsedStyle(isJournalExpanded, journalCollapsedHeight)}
-            >
-              {journalKeywords.map((keyword) => (
-                <button
-                  key={keyword.label}
-                  type="button"
-                  className="inline-flex w-fit whitespace-nowrap rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm font-medium leading-5"
-                  style={{
-                    backgroundColor: keyword.color,
-                    color: keyword.textColor,
-                  }}
-                >
-                  {keyword.label}
-                </button>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setIsJournalExpanded((prev) => !prev)}
-              className="inline-flex h-6 w-6 items-center justify-center p-0"
-              aria-label={isJournalExpanded ? 'Collapse journal keywords' : 'Expand journal keywords'}
-            >
-              <ChevronDown className={`h-5 w-5 transition-transform ${isJournalExpanded ? 'rotate-180' : ''}`} />
-            </button>
-          </div>
+            return (
+              <a
+                key={keyword.id}
+                href={keywordHref(keyword.label)}
+                aria-current={isSelected ? 'true' : undefined}
+                className={`inline-flex w-fit rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm leading-5 transition-shadow hover:ring-2 hover:ring-zinc-400 hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2 ${isSelected ? 'ring-2 ring-zinc-900 ring-offset-2' : ''}`}
+                style={keywordStyle(keyword.label)}
+              >
+                {keyword.label}
+              </a>
+            );
+          })}
         </div>
+
+        {hasSelection && (
+          <div className="border-t border-zinc-300 pt-5">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-zinc-900">
+                  {selected ? selected.label : 'Unknown keyword'}
+                </h3>
+                <p className="mt-1 text-sm text-zinc-500" aria-live="polite">
+                  {relatedContents.length} related {relatedContents.length === 1 ? 'item' : 'items'}
+                </p>
+              </div>
+              <a
+                href="/#keywords"
+                className="rounded-sm text-sm text-zinc-600 underline underline-offset-4 hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900"
+                aria-label="Clear keyword selection"
+              >
+                Clear
+              </a>
+            </div>
+
+            {relatedContents.length > 0 ? (
+              <ul className="mt-4 divide-y divide-zinc-200">
+                {relatedContents.map((content) => (
+                  <li key={`${content.section}:${content.id}`} className="py-3 first:pt-0 last:pb-0">
+                    <a
+                      href={content.href}
+                      className="group flex flex-col gap-1 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-900 sm:flex-row sm:items-baseline sm:gap-4"
+                    >
+                      <span className="w-20 shrink-0 text-xs font-medium uppercase tracking-wide text-zinc-500">
+                        {content.section}
+                      </span>
+                      <span className="text-sm leading-6 text-zinc-800 group-hover:underline group-hover:underline-offset-4">
+                        {content.title}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-4 text-sm text-zinc-600">
+                {selected ? 'No content yet.' : 'This keyword is not registered yet.'}
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

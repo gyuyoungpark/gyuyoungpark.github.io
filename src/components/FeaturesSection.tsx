@@ -1,5 +1,6 @@
 ﻿import type { Article } from '@/types';
 import { ArticleCard } from './ArticleCard';
+import { KeywordTags } from './KeywordTags';
 
 interface FeaturesSectionProps {
   articles: Article[];
@@ -22,7 +23,7 @@ export function FeaturesSection({ articles, limit }: FeaturesSectionProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Research</h2>
 
         <div className="grid gap-[7px] lg:grid-cols-12">
-          <article className="border-l border-t border-zinc-300 p-6 lg:col-span-8">
+          <article id={`research-item-${leadArticle.id}`} className="scroll-mt-28 border-l border-t border-zinc-300 p-6 lg:col-span-8">
             <a href={`/features/${leadArticle.id}`} className="block">
               <p className="text-[11px] tracking-[0.12em] text-zinc-500">{leadArticle.category}</p>
               <h3 className="mt-3 text-3xl font-semibold leading-tight text-zinc-900">
@@ -30,17 +31,19 @@ export function FeaturesSection({ articles, limit }: FeaturesSectionProps) {
               </h3>
               <p className="mt-4 text-base leading-7 text-zinc-700">{leadArticle.description}</p>
             </a>
+            <KeywordTags tags={leadArticle.tags} className="mt-4" />
           </article>
 
           <div className="space-y-[7px] lg:col-span-4">
             {sideArticles.map((article) => (
-              <article key={article.id} className="border-l border-t border-zinc-300 p-4">
+              <article key={article.id} id={`research-item-${article.id}`} className="scroll-mt-28 border-l border-t border-zinc-300 p-4">
                 <a href={`/features/${article.id}`} className="block">
                   <p className="text-[10px] tracking-[0.12em] text-zinc-500">{article.category}</p>
                   <h4 className="mt-2 text-sm font-semibold leading-6 text-zinc-900">
                     {article.title}
                   </h4>
                 </a>
+                <KeywordTags tags={article.tags} className="mt-4" />
               </article>
             ))}
           </div>

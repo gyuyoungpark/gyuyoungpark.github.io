@@ -1,5 +1,7 @@
 ﻿import type { Producer } from '@/types';
 
+import { KeywordTags } from './KeywordTags';
+
 interface ProducersSectionProps {
   producers: Producer[];
 }
@@ -12,15 +14,18 @@ export function ProducersSection({ producers }: ProducersSectionProps) {
 
         <div className="grid gap-[7px] sm:grid-cols-2 xl:grid-cols-4">
           {producers.map((producer) => (
-            <a
+            <article
               key={producer.id}
-              href={`/producers/${producer.id}`}
-              className="border-l border-t border-zinc-300 p-5 transition-colors hover:bg-zinc-50"
+              id={`activity-item-${producer.id}`}
+              className="scroll-mt-28 border-l border-t border-zinc-300 p-5 transition-colors hover:bg-zinc-50"
             >
-              <p className="text-[10px] tracking-[0.12em] text-zinc-500">{producer.role}</p>
-              <h3 className="mt-2 text-lg font-semibold text-zinc-900">{producer.name}</h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-6 text-zinc-600">{producer.bio}</p>
-            </a>
+              <a href={`/producers/${producer.id}`} className="block">
+                <p className="text-[10px] tracking-[0.12em] text-zinc-500">{producer.role}</p>
+                <h3 className="mt-2 text-lg font-semibold text-zinc-900">{producer.name}</h3>
+                <p className="mt-3 line-clamp-3 text-sm leading-6 text-zinc-600">{producer.bio}</p>
+              </a>
+              <KeywordTags tags={producer.tags} className="mt-4" />
+            </article>
           ))}
         </div>
       </div>
