@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="112" viewBox="0 0 480 112" role="img" aria-labelledby="vague-title">
+  <title id="vague-title">VAGUE</title>
+  <defs>
+    <linearGradient id="vague-fade" x1="8" y1="56" x2="470" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#242629"/>
+      <stop offset="0.16" stop-color="#242629" stop-opacity="0.98"/>
+      <stop offset="0.35" stop-color="#242629" stop-opacity="0.82"/>
+      <stop offset="0.55" stop-color="#242629" stop-opacity="0.63"/>
+      <stop offset="0.74" stop-color="#242629" stop-opacity="0.42"/>
+      <stop offset="0.86" stop-color="#242629" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#242629" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#vague-fade)">
+    <path d="M8 11H20L48 87L76 11H88L54 103H42Z"/>
+    <path fill-rule="evenodd" d="M100 103L136 11H149L185 103H172L162 76H123L113 103ZM128 64H158L143 23Z"/>
+    <path d="M287 31L277 38C270 26 260 20 245 20C222 20 209 35 209 57C209 80 222 94 245 94C258 94 269 90 278 82V65H249V54H290V87C279 100 263 105 245 105C216 105 197 86 197 57C197 29 216 9 245 9C263 9 278 17 287 31Z"/>
+    <path d="M307 11H319V70C319 86 329 94 344 94C359 94 369 86 369 70V11H381V70C381 94 367 105 344 105C321 105 307 94 307 70Z"/>
+    <path d="M405 11H470V22H417V50H462V61H417V92H470V103H405Z"/>
+  </g>
+</svg>

@@ -3,9 +3,8 @@ import type { Tag, Author, Article, Producer, CabinetItem, NavItem } from '@/typ
 export const navItems: NavItem[] = [
   { label: 'Keywords', href: '#keywords' },
   { label: 'Research', href: '#research' },
-  { label: 'Columns', href: '#columns' },
+  { label: 'VAGUE', href: '#columns' },
   { label: 'Activities', href: '#activities' },
-  { label: 'Collaborator', href: '#collaborator' },
 ];
 
 export const tagColors = [

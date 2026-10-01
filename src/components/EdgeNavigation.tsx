@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Menu, X } from 'lucide-react';
 import { navItems } from '@/data/content';
+import { VagueLogo } from './VagueLogo';
 import './EdgeNavigation.css';
 
 type ExternalLink = { label: string; href: string; icon: string };
@@ -219,7 +220,7 @@ export function EdgeNavigation({ externalLinks }: { externalLinks: ExternalLink[
                   }
                 }}
               >
-                {item.label}
+                {item.href === '#columns' ? <VagueLogo className="w-[118px]" /> : item.label}
               </a>
             ))}
           </nav>

@@ -3,6 +3,7 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import column from '@/data/columns/electron-fluid.json';
 import { ColumnFigure } from './ColumnFigure';
+import { VagueLogo } from './VagueLogo';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
 
 const paragraphs = linkColumnParagraphs(column.blocks);
@@ -68,7 +69,7 @@ export function ColumnArticle() {
         })}
       </div>
       <footer className="mt-12 border-t border-zinc-300 pt-6">
-        <a href="/#columns" className="text-sm text-zinc-600 hover:text-black">Back to Columns</a>
+        <a href="/#columns" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-black">Back to <VagueLogo className="w-[78px]" /></a>
       </footer>
     </article>
   );

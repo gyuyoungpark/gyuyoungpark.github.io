@@ -6,9 +6,8 @@ import { ColumnsSection } from '@/components/ColumnsSection';
 import { ColumnArticle } from '@/components/ColumnArticle';
 import { useEffect, useState } from 'react';
 import { ProducersSection } from '@/components/ProducersSection';
-import { CabinetSection } from '@/components/CabinetSection';
 import { StatsSection } from '@/components/StatsSection';
-import { articles, cabinetItems, producers } from '@/data/content';
+import { articles, producers } from '@/data/content';
 import './App.css';
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
         <FeaturesSection articles={articles} />
         <ColumnsSection />
         <ProducersSection producers={producers} />
-        <CabinetSection items={cabinetItems} />
         <StatsSection />
         </>}
       </main>
