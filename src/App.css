@@ -1,4 +1,14 @@
 /* App-specific styles */
+.vague-wordmark {
+  display: inline-block;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  vertical-align: baseline;
+  -webkit-mask-image: linear-gradient(to right, #000, rgb(0 0 0 / 98%) 16%, rgb(0 0 0 / 82%) 35%, rgb(0 0 0 / 63%) 55%, rgb(0 0 0 / 42%) 74%, rgb(0 0 0 / 26%) 86%, rgb(0 0 0 / 12%));
+  mask-image: linear-gradient(to right, #000, rgb(0 0 0 / 98%) 16%, rgb(0 0 0 / 82%) 35%, rgb(0 0 0 / 63%) 55%, rgb(0 0 0 / 42%) 74%, rgb(0 0 0 / 26%) 86%, rgb(0 0 0 / 12%));
+}
+
 #keywords:focus {
   outline: none;
 }
