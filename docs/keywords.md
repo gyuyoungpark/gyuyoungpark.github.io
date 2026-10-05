@@ -3,7 +3,7 @@
 Keywords are derived from content metadata. Register a topic once in a content item's `tags`; the homepage keyword list, keyword results, and links on that content then use the same index. There is no second keyword list to maintain.
 
 - **VAGUE:** add or edit a JSON article in `src/data/columns/`. Each file has `id`, `title`, `titleEn`, `date` (YYYY-MM-DD), `description`, `tags`, and `blocks`. Optional `thumbnail` and `thumbnailAlt` set its preview image. Files are discovered automatically and sorted newest first.
-- **Research:** add `tags` to the article in `src/data/content.ts`, using strings or existing `{ id, name, color }` objects; `name` identifies the keyword.
+- **Research:** add `tags` to the paper in `src/data/research-papers.json`, using English topic strings. Papers are sorted newest first and use the same keyword index as other content.
 - **Activities:** add `tags` to the activity in `src/data/content.ts`, using strings or tag objects with a `name` field.
 
 Use English topic names, for example `"Electron Hydrodynamics"`. Journal names are not seeded as keywords; keep publication details in the content's publication metadata instead. The six existing physics themes remain available even before related content is published.

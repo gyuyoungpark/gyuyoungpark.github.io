@@ -19,6 +19,14 @@ export interface Article {
   tags: (string | Tag)[];
   image?: string;
   date?: string;
+  journal?: string;
+  url?: string;
+  doi?: string;
+  imageAlt?: string;
+  caption?: string;
+  figureNumber?: string;
+  figureSourceUrl?: string;
+  status?: 'published' | 'preprint';
   category?: string;
   isNew?: boolean;
 }

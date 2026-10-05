@@ -1,4 +1,4 @@
-import type { Tag, Author, Article, Producer, CabinetItem, NavItem } from '@/types';
+import type { Tag, Author, Producer, CabinetItem, NavItem } from '@/types';
 
 export const navItems: NavItem[] = [
   { label: 'Keywords', href: '#keywords' },
@@ -111,15 +111,7 @@ export const authors: Author[] = [
   { id: '8', name: 'Yeju Son', bio: 'Coordinator supporting research and publishing programs.' },
 ];
 
-// TODO: 실제 Research 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
-export const articles: Article[] = [
-  { id: '1', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
-  { id: '2', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
-  { id: '3', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
-  { id: '4', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
-  { id: '5', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
-  { id: '6', title: '', authors: [], description: '', tags: [], category: '', isNew: false },
-];
+export { researchArticles as articles } from './research';
 
 
 // TODO: 실제 Activities 항목으로 채우기 — 타일은 유지, 내용은 비워 둠

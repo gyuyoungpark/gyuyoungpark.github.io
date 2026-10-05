@@ -1,0 +1,275 @@
+[
+  {
+    "id": "probabilistic-multiplication-2026",
+    "title": "Probabilistic multiplication operation via chaotic polarity switching in a single magnetic vortex",
+    "journal": "Scientific Reports",
+    "date": "2026-08-31",
+    "doi": "10.1038/s41598-026-68180-8",
+    "url": "https://www.nature.com/articles/s41598-026-68180-8",
+    "image": "/images/research/probabilistic-multiplication-2026-fig4.webp",
+    "imageAlt": "Raw-bit generation-rate map versus normalized field amplitude H and frequency F, with a Gbit/s color scale and a marked operating point.",
+    "caption": "Chaotic vortex polarity switching produces a drive-dependent raw-bit generation rate.",
+    "tags": [
+      "Magnetic Vortex",
+      "Chaos",
+      "Stochastic Computing",
+      "Micromagnetics"
+    ],
+    "figureNumber": "Figure 4",
+    "figureSourceUrl": "https://www.nature.com/articles/s41598-026-68180-8_reference.pdf",
+    "status": "published"
+  },
+  {
+    "id": "moire-chaos-2026",
+    "title": "Emergence of moiré magnetic chaos in twisted bilayer CrI3",
+    "journal": "arXiv",
+    "date": "2026-08-13",
+    "doi": "10.48550/arXiv.2608.13062",
+    "url": "https://arxiv.org/abs/2608.13062",
+    "image": "/images/research/moire-chaos-2026.webp",
+    "imageAlt": "Moiré interlayer-exchange map and complementary magnetic-domain textures in twisted bilayer CrI3.",
+    "caption": "Competing interlayer exchange creates frustrated magnetic domains and sensitive relaxation dynamics.",
+    "tags": [
+      "Moiré Magnetism",
+      "Chaos",
+      "Van der Waals Materials",
+      "Micromagnetics"
+    ],
+    "figureNumber": "Figure 1",
+    "figureSourceUrl": "https://arxiv.org/html/2608.13062v1/fig1_new.png",
+    "status": "preprint"
+  },
+  {
+    "id": "field-like-torque-2026",
+    "title": "Field-like spin-orbit torque associated with out-of-plane spin polarization in Py/van der Waals heterostructures",
+    "journal": "Scientific Reports",
+    "date": "2026-07-23",
+    "doi": "10.1038/s41598-026-62886-5",
+    "url": "https://www.nature.com/articles/s41598-026-62886-5",
+    "image": "/images/research/field-like-torque-2026.webp",
+    "imageAlt": "Py/Pt, Py/WTe2, and Py/MoTe2 layer structures and a spin-torque ferromagnetic-resonance setup.",
+    "caption": "Low-symmetry van der Waals layers generate out-of-plane spin polarization and a sizable field-like torque.",
+    "tags": [
+      "Spin-Orbit Torque",
+      "Van der Waals Materials",
+      "Spintronics",
+      "Ferromagnetic Resonance"
+    ],
+    "figureNumber": "Figure 2",
+    "figureSourceUrl": "https://www.nature.com/articles/s41598-026-62886-5_reference.pdf",
+    "status": "published"
+  },
+  {
+    "id": "saw-magnetorotation-2026",
+    "title": "Magneto-rotation coupling dominates surface acoustic wave driven ferromagnetic resonance in the longitudinal geometry",
+    "journal": "arXiv",
+    "date": "2026-03-18",
+    "doi": "10.48550/arXiv.2603.17758",
+    "url": "https://arxiv.org/abs/2603.17758",
+    "image": "/images/research/saw-magnetorotation-2026.webp",
+    "imageAlt": "Spatial magnon spectra and coupling profiles in a standing surface-acoustic-wave cavity.",
+    "caption": "Lattice rotation drives the magnon response when longitudinal magnetoelastic torque vanishes.",
+    "tags": [
+      "Surface Acoustic Waves",
+      "Magnonics",
+      "Magneto-Rotation",
+      "Micromagnetics"
+    ],
+    "figureNumber": "Figure 6",
+    "figureSourceUrl": "https://arxiv.org/html/2603.17758v1/fig_standing_saw_ep.png",
+    "status": "preprint"
+  },
+  {
+    "id": "cavity-magnonics-2026",
+    "title": "Multimode cavity magnonics in mumax+: from coherent to dissipative coupling in ferromagnets and antiferromagnets",
+    "journal": "arXiv",
+    "date": "2026-03-04",
+    "doi": "10.48550/arXiv.2603.03706",
+    "url": "https://arxiv.org/abs/2603.03706",
+    "image": "/images/research/cavity-magnonics-2026.webp",
+    "imageAlt": "A microwave cavity containing a YIG sphere and a diagram of bright and dark cavity-magnon modes.",
+    "caption": "Coupled cavity photons and magnons form bright polaritons and a dark mode in multimode simulations.",
+    "tags": [
+      "Cavity Magnonics",
+      "Magnonics",
+      "Photon-Magnon Coupling",
+      "Micromagnetics"
+    ],
+    "figureNumber": "Figure 1",
+    "figureSourceUrl": "https://arxiv.org/html/2603.03706v1/fig1_schematic_hires.png",
+    "status": "preprint"
+  },
+  {
+    "id": "standing-spin-waves-2025",
+    "title": "Perpendicular standing spin waves in AuPt/GdFeCo induced by spin-orbit torques",
+    "journal": "Communications Physics",
+    "date": "2025-11-26",
+    "doi": "10.1038/s42005-025-02433-2",
+    "url": "https://www.nature.com/articles/s42005-025-02433-2",
+    "image": "/images/research/standing-spin-waves-2025.webp",
+    "imageAlt": "Perpendicular standing spin-wave modes p equals zero through three in an AuPt/GdFeCo/Ta multilayer.",
+    "caption": "Spin-orbit torques excite quantized spin-wave modes in GdFeCo, stabilized by a protective Ta cap.",
+    "tags": [
+      "Spin Waves",
+      "Spin-Orbit Torque",
+      "Ferrimagnets",
+      "Spintronics"
+    ],
+    "figureNumber": "Figure 1",
+    "figureSourceUrl": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs42005-025-02433-2/MediaObjects/42005_2025_2433_Fig1_HTML.png",
+    "status": "published"
+  },
+  {
+    "id": "vortex-chaos-2025",
+    "title": "From trochoidal symmetry to chaotic vortex-core reversal in magnetic nanostructures",
+    "journal": "npj Spintronics",
+    "date": "2025-10-13",
+    "doi": "10.1038/s44306-025-00108-w",
+    "url": "https://doi.org/10.1038/s44306-025-00108-w",
+    "image": "/images/research/vortex-chaos-2025.png",
+    "imageAlt": "Trochoidal trajectories of vortex and antivortex cores driven by rotating magnetic fields.",
+    "caption": "Rotating magnetic fields generate trochoidal vortex-core orbits whose symmetry depends on core polarity and field rotation.",
+    "tags": [
+      "Magnetic Vortex",
+      "Chaos",
+      "Spintronics"
+    ],
+    "figureNumber": "Figure 2",
+    "figureSourceUrl": "https://www.nature.com/articles/s44306-025-00108-w/figures/2",
+    "status": "published"
+  },
+  {
+    "id": "multilevel-probabilistic-2025",
+    "title": "Multi-level probabilistic computing: application to the multiway number partitioning problems",
+    "journal": "Scientific Reports",
+    "date": "2025-08-07",
+    "doi": "10.1038/s41598-025-14531-w",
+    "url": "https://doi.org/10.1038/s41598-025-14531-w",
+    "image": "/images/research/multilevel-probabilistic-2025.png",
+    "imageAlt": "Schematic of binary p-bits, three-state p-trits, and higher-level probabilistic units.",
+    "caption": "Probabilistic units extend from binary p-bits to multilevel states, providing a framework for multiway number partitioning.",
+    "tags": [
+      "Probabilistic Computing",
+      "Optimization",
+      "Spintronics"
+    ],
+    "figureNumber": "Figure 2",
+    "figureSourceUrl": "https://www.nature.com/articles/s41598-025-14531-w/figures/2",
+    "status": "published"
+  },
+  {
+    "id": "pdco-fieldlike-sot-2025",
+    "title": "Exceptional Field-like Spin–Orbit Torques in Pd/Co Heterostructures Enabled by Interfacial Spin–Orbit Coupling",
+    "journal": "ACS Applied Electronic Materials",
+    "date": "2025-05-12",
+    "doi": "10.1021/acsaelm.5c00339",
+    "url": "https://doi.org/10.1021/acsaelm.5c00339",
+    "image": "/images/research/pdco-fieldlike-sot-2025.png",
+    "imageAlt": "Graphical abstract showing Pd/ferromagnet torque measurements and enhanced field-like spin–orbit torque.",
+    "caption": "Strong interfacial spin–orbit coupling in Pd/Co enhances field-like torque beyond the damping-like contribution.",
+    "tags": [
+      "Spin-Orbit Torque",
+      "Magnetization Switching",
+      "Spintronics"
+    ],
+    "figureNumber": "Graphical abstract",
+    "figureSourceUrl": "https://drive.google.com/file/d/1RLRRu4A-TBlcT7HL5PF9AkxHKkK71aQW/view",
+    "status": "published"
+  },
+  {
+    "id": "reconfigurable-skyrmion-2024",
+    "title": "Reconfigurable all-in-one chaotic computing with skyrmions: Leveraging periodic modulations of perpendicular magnetic anisotropy",
+    "journal": "Physical Review B",
+    "date": "2024-05-09",
+    "doi": "10.1103/PhysRevB.109.174420",
+    "url": "https://doi.org/10.1103/PhysRevB.109.174420",
+    "image": "/images/research/reconfigurable-skyrmion-2024.jpg",
+    "imageAlt": "Logic outputs and logic-operation map for a skyrmion initialized using different current densities.",
+    "caption": "Controlling a skyrmion’s initial state selects among all sixteen two-input logic operations under magnetic-anisotropy modulation.",
+    "tags": [
+      "Magnetic Skyrmion",
+      "Chaos",
+      "Logic Computing",
+      "Spintronics"
+    ],
+    "figureNumber": "Figure 5",
+    "figureSourceUrl": "https://drive.google.com/file/d/1cbWn8zHOm2oVyT_GnhmtWL_LGOKdVhA4/view",
+    "status": "published"
+  },
+  {
+    "id": "skyrmion-chaos-2023",
+    "title": "Emergence of chaos in magnetic-field-driven skyrmions",
+    "journal": "Physical Review B",
+    "date": "2023-11-28",
+    "doi": "10.1103/PhysRevB.108.174441",
+    "url": "https://doi.org/10.1103/PhysRevB.108.174441",
+    "image": "/images/research/skyrmion-chaos-2023.png",
+    "imageAlt": "Skyrmion orbital trajectories and their evolution under an oscillating magnetic field.",
+    "caption": "Field-driven skyrmion trajectories develop complex hypotrochoidal patterns as nonlinear dynamics evolve.",
+    "tags": [
+      "Magnetic Skyrmion",
+      "Nonlinear Dynamics",
+      "Chaos"
+    ],
+    "figureNumber": "Figure 2",
+    "figureSourceUrl": "https://arxiv.org/abs/2309.04243",
+    "status": "published"
+  },
+  {
+    "id": "magnetosome-chains-2023",
+    "title": "Magnetization reversals in magnetosome linear-chain assemblies extracted from magnetotactic bacteria: an experimental and micromagnetic simulation study",
+    "journal": "Journal of Materials Chemistry C",
+    "date": "2023-06-26",
+    "doi": "10.1039/D3TC01517C",
+    "url": "https://doi.org/10.1039/D3TC01517C",
+    "image": "/images/research/magnetosome-chains-2023.jpg",
+    "imageAlt": "TEM images, electron diffraction, and a hysteresis loop characterize extracted magnetosome chains.",
+    "caption": "Electron microscopy and magnetic hysteresis characterize magnetite nanoparticle chains extracted from magnetotactic bacteria.",
+    "tags": [
+      "Magnetic Nanoparticles",
+      "Magnetosomes",
+      "Magnetization Reversal"
+    ],
+    "figureNumber": "Figure 1",
+    "figureSourceUrl": "https://drive.google.com/file/d/12ra4f4XSJCaCWUJ205dJgMtsWJtrRALK/view",
+    "status": "published"
+  },
+  {
+    "id": "antidot-fractals-2021",
+    "title": "Recursive evolution of spin-wave multiplets in magnonic crystals of antidot-lattice fractals",
+    "journal": "Scientific Reports",
+    "date": "2021-11-19",
+    "doi": "10.1038/s41598-021-00417-0",
+    "url": "https://doi.org/10.1038/s41598-021-00417-0",
+    "image": "/images/research/antidot-fractals-2021.png",
+    "imageAlt": "Self-similar antidot lattices combine into fractal magnonic crystals.",
+    "caption": "Self-similar antidot lattices combine recursively to form fractal magnonic crystals.",
+    "tags": [
+      "Magnonics",
+      "Spin Waves",
+      "Fractals"
+    ],
+    "figureNumber": "Figure 1",
+    "figureSourceUrl": "https://www.nature.com/articles/s41598-021-00417-0/figures/1",
+    "status": "published"
+  },
+  {
+    "id": "hemispherical-shells-2021",
+    "title": "Robust formation of skyrmion and skyrmionium in magnetic hemispherical shells and their dynamic switching",
+    "journal": "Physical Review B",
+    "date": "2021-10-25",
+    "doi": "10.1103/PhysRevB.104.134427",
+    "url": "https://doi.org/10.1103/PhysRevB.104.134427",
+    "image": "/images/research/hemispherical-shells-2021.png",
+    "imageAlt": "Phase diagrams and representative vortex, skyrmion, skyrmionium, and surface-normal spin textures in hemispherical shells.",
+    "caption": "Magnetic anisotropy and DMI select vortex, skyrmion, and skyrmionium states in hemispherical shells.",
+    "tags": [
+      "Magnetic Skyrmion",
+      "Skyrmionium",
+      "Curved Magnetism"
+    ],
+    "figureNumber": "Figure 2",
+    "figureSourceUrl": "https://fun.univie.ac.at/fileadmin/user_upload/p_fun/PhysRevB.104.134427.pdf",
+    "status": "published"
+  }
+]
