@@ -5,9 +5,8 @@ import { FeaturesSection } from '@/components/FeaturesSection';
 import { ColumnsSection } from '@/components/ColumnsSection';
 import { ColumnArticle } from '@/components/ColumnArticle';
 import { useEffect, useState } from 'react';
-import { ProducersSection } from '@/components/ProducersSection';
-import { StatsSection } from '@/components/StatsSection';
-import { articles, producers } from '@/data/content';
+import { ActivitiesSection } from '@/components/ActivitiesSection';
+import { articles, activities } from '@/data/content';
 import { getColumnById } from '@/data/columns';
 import { keywordFromHash } from '@/lib/keywords';
 import './App.css';
@@ -48,8 +47,7 @@ function App() {
         <TagCloud selectedKeyword={selectedKeyword} />
         <FeaturesSection articles={articles} />
         <ColumnsSection />
-        <ProducersSection producers={producers} />
-        <StatsSection />
+        <ActivitiesSection activities={activities} />
         </>}
       </main>
     </div>

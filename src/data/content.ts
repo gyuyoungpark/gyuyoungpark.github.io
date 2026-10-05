@@ -1,4 +1,4 @@
-import type { Tag, Author, Producer, CabinetItem, NavItem } from '@/types';
+import type { Tag, Author, CabinetItem, NavItem } from '@/types';
 
 export const navItems: NavItem[] = [
   { label: 'Keywords', href: '#keywords' },
@@ -114,17 +114,7 @@ export const authors: Author[] = [
 export { researchArticles as articles } from './research';
 
 
-// TODO: 실제 Activities 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
-export const producers: Producer[] = [
-  { id: '1', name: '', bio: '', role: '' },
-  { id: '2', name: '', bio: '', role: '' },
-  { id: '3', name: '', bio: '', role: '' },
-  { id: '4', name: '', bio: '', role: '' },
-  { id: '5', name: '', bio: '', role: '' },
-  { id: '6', name: '', bio: '', role: '' },
-  { id: '7', name: '', bio: '', role: '' },
-  { id: '8', name: '', bio: '', role: '' },
-];
+export { activities } from './activities';
 
 // TODO: 실제 Collaborator 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
 export const cabinetItems: CabinetItem[] = [
@@ -143,28 +133,6 @@ The project connects writing, conversation, and documentation into one evolving 
 It is built as a living structure: open to updates, collaborative references, and long-term editorial experimentation.`,
 };
 
-// Site statistics shown in the closing block (mirrors the Hero block at the top).
-// - Visitor count is fetched live from GoatCounter (requires "Allow visitor counter"
-//   enabled in GoatCounter Settings).
-// - Documents = ORCID public works, fetched live from the ORCID public API (CORS-enabled).
-//   `worksFallback` is a real snapshot used only if the API is unreachable.
-// - Citation metrics are a manual snapshot: Google Scholar has no public API and blocks
-//   client-side fetching (CORS), so these are real values copied from the profile.
-//   Source: https://scholar.google.com/citations?user=FAUWfAcAAAAJ
-//   Refresh periodically and update `asOf`.
-export const siteStats = {
-  goatcounterCode: 'gyuyoungpark',
-  orcidId: '0009-0001-8492-4299',
-  orcidUrl: 'https://orcid.org/0009-0001-8492-4299',
-  scholarUrl: 'https://scholar.google.com/citations?user=FAUWfAcAAAAJ&hl=ko',
-  worksFallback: 8,
-  scholar: {
-    citations: 46,
-    hIndex: 5,
-    i10Index: 1,
-    asOf: '2026-06-11',
-  },
-};
 
 export const footerCredits = {
   publisher: 'Gyuyoung Park',

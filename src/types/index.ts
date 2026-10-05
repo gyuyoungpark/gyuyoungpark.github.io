@@ -31,13 +31,21 @@ export interface Article {
   isNew?: boolean;
 }
 
-export interface Producer {
+export interface Activity {
   id: string;
-  name: string;
-  bio: string;
+  title: string;
+  event: string;
+  date: string;
+  dateLabel?: string;
+  location?: string;
+  kind: string;
+  url: string;
+  caption: string;
   image?: string;
-  role?: string;
-  tags?: (string | Tag)[];
+  imageAlt?: string;
+  imageLabel?: string;
+  imageSourceUrl?: string;
+  tags: (string | Tag)[];
 }
 
 export interface CabinetItem {

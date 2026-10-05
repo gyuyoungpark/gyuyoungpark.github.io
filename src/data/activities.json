@@ -1,0 +1,97 @@
+[
+  {
+    "id": "pm26-moire-chaos",
+    "title": "Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers",
+    "event": "Physics of Magnetism 2026 (PM26)",
+    "date": "2026-06-23",
+    "location": "Poznań, Poland",
+    "kind": "Oral presentation",
+    "url": "https://www.ifmpan.poznan.pl/pm26/abst/2354-proslaw_kist_re_kr-2026-01-15-12-05-45.pdf",
+    "caption": "Chaotic spin textures in moiré CrI3 bilayers combine stability against thermal fluctuations with sensitivity to weak magnetic fields.",
+    "image": "/images/research/moire-chaos-2026.webp",
+    "imageAlt": "Moiré interlayer-exchange map and complementary magnetic-domain textures in twisted bilayer CrI3.",
+    "imageLabel": "Related research · Figure 1",
+    "imageSourceUrl": "https://arxiv.org/html/2608.13062v1/fig1_new.png",
+    "tags": [
+      "Moiré Magnetism",
+      "Chaos",
+      "Micromagnetics"
+    ]
+  },
+  {
+    "id": "apctp-sat-2026",
+    "title": "Hamiltonian Reformulation of Boolean Satisfiability",
+    "event": "APCTP Seminar",
+    "date": "2026-03-11",
+    "location": "Room 512, APCTP",
+    "kind": "Seminar",
+    "url": "https://apctp.org/theme/d/html/activities/activities02_read.php?id=2714&page=2",
+    "caption": "A quadratic Hamiltonian formulation of Boolean satisfiability using only the original problem variables, without auxiliary spins.",
+    "image": "/images/activities/apctp-sat-2026.png",
+    "imageAlt": "Official APCTP seminar poster for Gyuyoung Park's Hamiltonian Reformulation of Boolean Satisfiability, March 11, 2026.",
+    "imageLabel": "Official seminar poster",
+    "imageSourceUrl": "https://apctp.org/data/upload/program/seminar_poster_0002714",
+    "tags": [
+      "Boolean Satisfiability",
+      "Ising Model",
+      "Optimization"
+    ]
+  },
+  {
+    "id": "ibs-pcs-chaos-2024",
+    "title": "Chaos Computing Using Spintronics",
+    "event": "IBS PCS Seminar",
+    "date": "2024-11-28",
+    "location": "IBS Center for Theoretical Physics of Complex Systems, Daejeon, South Korea",
+    "kind": "Seminar",
+    "url": "https://pcs.ibs.re.kr/PCS_Talks/PCS_Chaos_Computing_Using_Spintronics.html",
+    "caption": "An overview of chaos computing, algorithmic improvements, and spintronic implementations using magnetic skyrmions.",
+    "image": "/images/research/reconfigurable-skyrmion-2024.jpg",
+    "imageAlt": "Logic outputs and logic-operation map for a skyrmion initialized using different current densities.",
+    "imageLabel": "Related research · Figure 5",
+    "imageSourceUrl": "https://drive.google.com/file/d/1cbWn8zHOm2oVyT_GnhmtWL_LGOKdVhA4/view",
+    "tags": [
+      "Chaos",
+      "Spintronics",
+      "Magnetic Skyrmion"
+    ]
+  },
+  {
+    "id": "kms-2023-skyrmion-chaos",
+    "title": "Chaotic Dynamics of Magnetic Skyrmions Under Oscillating Magnetic Fields",
+    "event": "2023 KMS Summer Conference",
+    "date": "2023-05-25",
+    "location": "Udo Room, Jeju Shinhwa World, Jeju, Republic of Korea",
+    "kind": "Oral presentation",
+    "url": "https://www.magnetics.or.kr/upload/board_files/upfile_230518114132728.pdf#page=33",
+    "caption": "Oscillating magnetic fields drive skyrmions into chaotic motion, with Lyapunov exponents identifying the transition and its potential for computation.",
+    "image": "/images/research/skyrmion-chaos-2023.png",
+    "imageAlt": "Skyrmion orbital trajectories and their evolution under an oscillating magnetic field.",
+    "imageLabel": "Related research · Figure 2",
+    "imageSourceUrl": "https://arxiv.org/abs/2309.04243",
+    "tags": [
+      "Magnetic Skyrmion",
+      "Chaos",
+      "Spintronics"
+    ]
+  },
+  {
+    "id": "kms-2022-skyrmion-chaos",
+    "title": "Controlling Chaos in Skyrmion Dynamics",
+    "event": "2022 KMS Summer Conference",
+    "date": "2022-05-26",
+    "location": "Diamond Room, Sono Calm Jeju, Jeju, Republic of Korea",
+    "kind": "Oral presentation",
+    "url": "https://magnetics.or.kr/upload/downImg/host92377094.pdf#page=28",
+    "caption": "A presentation on controlling chaotic motion in magnetic skyrmions.",
+    "image": "/images/research/skyrmion-chaos-2023.png",
+    "imageAlt": "Skyrmion orbital trajectories and their evolution under an oscillating magnetic field.",
+    "imageLabel": "Related research · Figure 2",
+    "imageSourceUrl": "https://arxiv.org/abs/2309.04243",
+    "tags": [
+      "Magnetic Skyrmion",
+      "Chaos",
+      "Spintronics"
+    ]
+  }
+]

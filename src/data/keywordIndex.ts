@@ -1,4 +1,4 @@
-import { articles, producers } from './content';
+import { articles, activities } from './content';
 import { columns } from './columns';
 import { buildKeywordIndex, normalizeKeyword, type KeywordContent } from '@/lib/keywords';
 
@@ -26,12 +26,12 @@ export const keywordContents: KeywordContent[] = [
     href: `/#/columns/${encodeURIComponent(column.id)}`,
     tags: column.tags,
   })),
-  ...producers.map((producer): KeywordContent => ({
-    id: producer.id,
-    title: producer.name,
+  ...activities.map((activity): KeywordContent => ({
+    id: activity.id,
+    title: activity.title,
     section: 'Activities',
-    href: `/#activity-item-${producer.id}`,
-    tags: producer.tags ?? [],
+    href: `/#activity-item-${activity.id}`,
+    tags: activity.tags,
   })),
 ];
 
