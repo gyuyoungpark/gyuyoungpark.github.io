@@ -19,7 +19,7 @@ interface ContentCardProps {
 export function ContentCard({ id, title, href, external = true, metadata, image, imageAlt, caption, imageLabel = 'Figure', imageSourceUrl, tags }: ContentCardProps) {
   const linkProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
   return (
-    <article id={id} className="flex h-full scroll-mt-28 flex-col border-l border-t border-zinc-300 bg-white p-5 transition-colors hover:bg-zinc-50">
+    <article id={id} className="flex h-full scroll-mt-28 flex-col border-l border-t border-zinc-300 bg-white p-5">
       <a href={href} {...linkProps} className="block">
         <div className="text-xs leading-5 text-zinc-500">{metadata}</div>
         <h3 className="mt-3 text-lg font-semibold leading-7 text-zinc-900">{title}</h3>

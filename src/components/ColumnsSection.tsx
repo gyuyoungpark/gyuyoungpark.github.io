@@ -10,7 +10,7 @@ export function ColumnsSection({ columns = allColumns }: { columns?: Column[] })
       <h2 className="text-2xl font-semibold tracking-tight text-zinc-900"><VagueLogo /></h2>
       <div className="mt-6 grid gap-[7px] sm:grid-cols-2 xl:grid-cols-3">
         {columns.map((column) => (
-          <article key={column.id} className="border-l border-t border-zinc-300 p-5 transition-colors hover:bg-zinc-50">
+          <article key={column.id} className="border-l border-t border-zinc-300 bg-white p-5">
             <a href={`#/columns/${encodeURIComponent(column.id)}`} className="block" aria-label={column.titleEn}>
               <time dateTime={column.date} className="text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
               <h3 className="mt-3 text-xl font-semibold leading-8 text-zinc-900">{column.titleEn}</h3>

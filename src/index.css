@@ -60,9 +60,6 @@
     border-right: 1px solid var(--line-color);
   }
 
-  .site-shell .bg-white {
-    background-color: var(--inner-bg) !important;
-  }
 }
 
 [class*='border-zinc-300'],
