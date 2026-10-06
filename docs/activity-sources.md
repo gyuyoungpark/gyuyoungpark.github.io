@@ -1,33 +1,32 @@
 # Talk and seminar sources
 
-Checked on 2026-10-05. This inventory contains only publicly verified talks delivered by Gyuyoung Park, the SNU/KIST magnetism researcher. A conference coauthor entry alone does not establish a speaking engagement. Poster presentations, talks by other coauthors, and unrelated namesakes are excluded. It is not a complete private CV.
+Checked on 2026-10-06. This inventory contains selected publicly verified talks delivered by Gyuyoung Park, the SNU/KIST magnetism researcher. A conference coauthor entry alone does not establish a speaking engagement. Talks by other coauthors and unrelated namesakes are excluded. It is not a complete private CV.
 
-Official event posters are used when available. Other thumbnails are credited figures from closely related research; they are illustrative research images, not photographs or slides from the event. Captions are short original summaries grounded in the official abstracts.
+Conference-abstract thumbnails are full-page PNG renders of the supplied abstract PDFs. Official event posters are used when available. Other thumbnails are credited figures from closely related research; they are illustrative research images, not photographs or slides from the event. Captions are short original summaries grounded in the official abstracts.
 
 | Date | Talk | Event | Type | Thumbnail source |
 | --- | --- | --- | --- | --- |
-| 2026-06-23 | [Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers](https://www.ifmpan.poznan.pl/pm26/abst/2354-proslaw_kist_re_kr-2026-01-15-12-05-45.pdf) | Physics of Magnetism 2026 (PM26) | Oral presentation | [Related research · Figure 1](https://arxiv.org/html/2608.13062v1/fig1_new.png) |
+| 2026-06-23 | [Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers](https://www.ifmpan.poznan.pl/pm26/abst/2354-proslaw_kist_re_kr-2026-01-15-12-05-45.pdf) | Physics of Magnetism 2026 (PM26) | Oral presentation | [Conference abstract](https://www.ifmpan.poznan.pl/pm26/abst/2354-proslaw_kist_re_kr-2026-01-15-12-05-45.pdf) |
 | 2026-03-11 | [Hamiltonian Reformulation of Boolean Satisfiability](https://apctp.org/theme/d/html/activities/activities02_read.php?id=2714&page=2) | APCTP Seminar | Seminar | [Official seminar poster](https://apctp.org/data/upload/program/seminar_poster_0002714) |
 | 2024-11-28 | [Chaos Computing Using Spintronics](https://pcs.ibs.re.kr/PCS_Talks/PCS_Chaos_Computing_Using_Spintronics.html) | IBS PCS Seminar | Seminar | [Related research · Figure 5](https://drive.google.com/file/d/1cbWn8zHOm2oVyT_GnhmtWL_LGOKdVhA4/view) |
-| 2023-05-25 | [Chaotic Dynamics of Magnetic Skyrmions Under Oscillating Magnetic Fields](https://www.magnetics.or.kr/upload/board_files/upfile_230518114132728.pdf#page=33) | 2023 KMS Summer Conference | Oral presentation | [Related research · Figure 2](https://arxiv.org/abs/2309.04243) |
-| 2022-05-26 | [Controlling Chaos in Skyrmion Dynamics](https://magnetics.or.kr/upload/downImg/host92377094.pdf#page=28) | 2022 KMS Summer Conference | Oral presentation | [Related research · Figure 2](https://arxiv.org/abs/2309.04243) |
+| 2023-08-30 | [Field-Driven Chaos of Magnetic Skyrmions and its Potential Application to Dynamics-Based Computation](https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642) | Joint European Magnetic Symposia 2023 (JEMS) | Oral presentation | [Conference abstract](https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642) |
 
 ## Verification
 
 ### Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers
 
 Official accepted-abstract table identifies Gyuyoung Park / G. Park as presenting author of oral contribution S3A-3. The June 15 detailed schedule places it on Tuesday 23 June 2026 at 10:00-10:15 in Session 3A. The abstract lists KIST and APCTP affiliations, matching the researcher.
+The thumbnail is a complete page rendered from the supplied `PoM 초록.pdf`, including the S3A-3 / ORAL header, abstract, references, and printed page number 30. It replaces the related-paper figure as this activity's thumbnail; the research figure remains in use by the Research entry.
 - [Source](https://www.ifmpan.poznan.pl/pm26/ab.html)
 - [Source](https://www.ifmpan.poznan.pl/pm26/pub/Schedule_PM26_15-06-2026.pdf)
 - [Source](https://www.ifmpan.poznan.pl/pm26/schedule.html)
 
-### Chaotic Dynamics of Magnetic Skyrmions Under Oscillating Magnetic Fields
+### Field-Driven Chaos of Magnetic Skyrmions and its Potential Application to Dynamics-Based Computation
 
-S-7-9, Gyuyoung Park* and Sang-Koog Kim; dated schedule names 박규영(서울대) at 16:10. No invited prefix.
-
-### Controlling Chaos in Skyrmion Dynamics
-
-O-2-2 in Session 2 Oral Presentations II; Gyuyoung Park marked as speaker and Korean schedule lists 박규영(서울대).
+- [Official JEMS 2023 abstract book, page 642](https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642): Exact title, authors Gyuyoung Park and Sang-Koog Kim, Seoul National University affiliation, and `SYMPOSIUM 13. ORAL PRESENTATIONS` classification. The supplied `JEMS 초록.pdf` is the same page and is rendered in full for the thumbnail.
+- [European Magnetism Association event record](https://magnetism.eu/232-jems2023.htm): JEMS 2023 took place August 27–September 1, 2023 in Madrid, Spain.
+- [Archived official JEMS 2023 programme, pages 30–31](https://web.archive.org/web/20240406060339/https://jems2023.es/images/site/JEMS_2023_-_PROGRAMME.pdf#page=31): Page 30 starts Wednesday, August 30; page 31 lists this exact title and speaker Gyuyoung Park in S13, Grados room, in the 11:30–11:45 slot. This independently confirms the exact date and oral presentation. The original conference domain is no longer available; the archived organizer PDF was downloaded in validated byte ranges and visually checked.
+- [SNU research-group conference record](https://www.sdsw.snu.ac.kr/publications/international-conferences): Exact title, authors, location, and date August 30, 2023 agree with the official programme. This secondary record says poster; the official programme and abstract book take precedence for the displayed oral classification.
 
 ### Hamiltonian Reformulation of Boolean Satisfiability
 

@@ -1,8 +1,9 @@
-import { columns } from '@/data/columns';
+import { columns as allColumns, type Column } from '@/data/columns';
 import { VagueLogo } from './VagueLogo';
 import { KeywordTags } from './KeywordTags';
 
-export function ColumnsSection() {
+export function ColumnsSection({ columns = allColumns }: { columns?: Column[] }) {
+  if (!columns.length) return null;
   return (
     <section id="columns" lang="en" className="relative scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
       <span id="studies" className="absolute top-0 scroll-mt-28" aria-hidden="true" />

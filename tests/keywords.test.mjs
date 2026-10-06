@@ -2,12 +2,16 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   buildKeywordIndex,
+  filterByKeywords,
   keywordFromHash,
   keywordHref,
+  keywordSelectionHref,
+  keywordsFromHash,
   keywordPalette,
   keywordStyle,
   keywordTextColor,
   normalizeKeyword,
+  toggleKeyword,
 } from '../src/lib/keywords.ts';
 
 function content(overrides = {}) {
@@ -70,6 +74,33 @@ test('missing, unrelated or malformed keyword routes are rejected without throwi
   for (const hash of ['', '#columns', '#/columns/electron-fluid', '#/keywords/', '#/keywords/%20', '#/keywords/%', '#/keywords/%E0%A4%A']) {
     assert.equal(keywordFromHash(hash), null, hash);
   }
+});
+
+test('multiple keyword routes round-trip distinct topics, including literal commas', () => {
+  const href = keywordSelectionHref(['Chaos', 'A,B / C%', ' CHAOS ', '전자의 흐름']);
+  assert.deepEqual(keywordsFromHash(href.slice(1)), ['chaos', 'a,b / c%', '전자의 흐름']);
+  assert.equal(keywordSelectionHref([]), '/#keywords');
+  assert.deepEqual(keywordsFromHash('#/keywords/chaos,%'), []);
+});
+
+test('toggling permits multiple selection, individual removal, and removal of the last topic', () => {
+  const selected = toggleKeyword(['Chaos'], 'Spintronics');
+  assert.deepEqual(selected, ['chaos', 'spintronics']);
+  assert.deepEqual(toggleKeyword(selected, ' ＣＨＡＯＳ '), ['spintronics']);
+  assert.deepEqual(toggleKeyword(['Spintronics'], 'spintronics'), []);
+  assert.deepEqual(selected, ['chaos', 'spintronics'], 'input is not mutated');
+});
+
+test('filters match any selected topic across metadata formats without duplicating posts', () => {
+  const entries = [
+    content({ id: 'chaos', tags: ['Chaos', 'Spintronics'] }),
+    content({ id: 'spin', tags: [{ name: 'Ｓｐｉｎｔｒｏｎｉｃｓ' }] }),
+    content({ id: 'fluid', tags: ['Electron Hydrodynamics'] }),
+  ];
+  assert.deepEqual(filterByKeywords(entries, ['chaos']).map(({ id }) => id), ['chaos']);
+  assert.deepEqual(filterByKeywords(entries, [' CHAOS ', 'Spintronics']).map(({ id }) => id), ['chaos', 'spin']);
+  assert.deepEqual(filterByKeywords(entries, []), entries, 'Clear restores all posts');
+  assert.deepEqual(filterByKeywords(entries, ['Unknown']), []);
 });
 
 test('keyword colors stay consistent within the page as content changes', () => {

@@ -21,18 +21,43 @@ export function normalizeKeyword(value: string): string {
 }
 
 export function keywordHref(label: string): string {
-  return `/#/keywords/${encodeURIComponent(normalizeKeyword(label))}`;
+  return keywordSelectionHref([label]);
+}
+
+export function keywordSelectionHref(labels: readonly string[]): string {
+  const ids = [...new Set(labels.map(normalizeKeyword).filter(Boolean))];
+  return ids.length ? `/#/keywords/${ids.map(encodeURIComponent).join(',')}` : '/#keywords';
+}
+
+export function keywordsFromHash(hash: string): string[] {
+  const prefix = '#/keywords/';
+  if (!hash.startsWith(prefix)) return [];
+  try {
+    return [...new Set(hash.slice(prefix.length).split(',')
+      .map((part) => normalizeKeyword(decodeURIComponent(part))).filter(Boolean))];
+  } catch {
+    return [];
+  }
 }
 
 export function keywordFromHash(hash: string): string | null {
-  const prefix = '#/keywords/';
-  if (!hash.startsWith(prefix)) return null;
-  try {
-    const keyword = normalizeKeyword(decodeURIComponent(hash.slice(prefix.length)));
-    return keyword || null;
-  } catch {
-    return null;
-  }
+  return keywordsFromHash(hash)[0] ?? null;
+}
+
+export function toggleKeyword(selected: readonly string[], label: string): string[] {
+  const id = normalizeKeyword(label);
+  const ids = [...new Set(selected.map(normalizeKeyword).filter(Boolean))];
+  if (!id) return ids;
+  return ids.includes(id) ? ids.filter((keyword) => keyword !== id) : [...ids, id];
+}
+
+export function filterByKeywords<T extends { tags: readonly (string | { name: string })[] }>(
+  items: readonly T[], selected: readonly string[],
+): T[] {
+  const ids = new Set(selected.map(normalizeKeyword).filter(Boolean));
+  return items.filter((item) => !ids.size || item.tags.some((tag) =>
+    ids.has(normalizeKeyword(typeof tag === 'string' ? tag : tag.name)),
+  ));
 }
 
 // RGB samples from the centers of the 90 swatches in the supplied Munsell chart.

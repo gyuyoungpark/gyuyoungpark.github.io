@@ -1,10 +1,13 @@
-import { keywordHref, keywordStyle, normalizeKeyword } from '@/lib/keywords';
+import { useContext } from 'react';
+import { keywordSelectionHref, keywordStyle, normalizeKeyword } from '@/lib/keywords';
+import { KeywordSelectionContext } from '@/lib/keywordSelection';
 import { cn } from '@/lib/utils';
 
 export function KeywordTags({ tags = [], className }: {
   tags?: readonly (string | { name: string })[];
   className?: string;
 }) {
+  const selectedKeywords = useContext(KeywordSelectionContext);
   const labels = new Map<string, string>();
   tags.forEach((tag) => {
     const label = (typeof tag === 'string' ? tag : tag.name).trim().replace(/\s+/g, ' ');
@@ -17,9 +20,9 @@ export function KeywordTags({ tags = [], className }: {
     <ul aria-label="Topics" className={cn('flex flex-wrap gap-2', className)}>
       {Array.from(labels, ([id, label]) => (
         <li key={id}>
-          <a href={keywordHref(label)}
+          <a href={keywordSelectionHref([...selectedKeywords, label])}
             onClick={() => {
-              if (window.location.hash === keywordHref(label).slice(1)) {
+              if (window.location.hash === keywordSelectionHref([...selectedKeywords, label]).slice(1)) {
                 const target = document.getElementById('keywords');
                 target?.scrollIntoView();
                 target?.focus({ preventScroll: true });

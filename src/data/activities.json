@@ -8,10 +8,10 @@
     "kind": "Oral presentation",
     "url": "https://www.ifmpan.poznan.pl/pm26/abst/2354-proslaw_kist_re_kr-2026-01-15-12-05-45.pdf",
     "caption": "Chaotic spin textures in moiré CrI3 bilayers combine stability against thermal fluctuations with sensitivity to weak magnetic fields.",
-    "image": "/images/research/moire-chaos-2026.webp",
-    "imageAlt": "Moiré interlayer-exchange map and complementary magnetic-domain textures in twisted bilayer CrI3.",
-    "imageLabel": "Related research · Figure 1",
-    "imageSourceUrl": "https://arxiv.org/html/2608.13062v1/fig1_new.png",
+    "image": "/images/activities/pm26-abstract.png",
+    "imageAlt": "Physics of Magnetism 2026 oral-presentation abstract S3A-3 for Thermally Locked Chaotic Spin Textures in Moire CrI3 Bilayers.",
+    "imageLabel": "Conference abstract",
+    "imageSourceUrl": "https://www.ifmpan.poznan.pl/pm26/abst/2354-proslaw_kist_re_kr-2026-01-15-12-05-45.pdf",
     "tags": [
       "Moiré Magnetism",
       "Chaos",
@@ -57,41 +57,23 @@
     ]
   },
   {
-    "id": "kms-2023-skyrmion-chaos",
-    "title": "Chaotic Dynamics of Magnetic Skyrmions Under Oscillating Magnetic Fields",
-    "event": "2023 KMS Summer Conference",
-    "date": "2023-05-25",
-    "location": "Udo Room, Jeju Shinhwa World, Jeju, Republic of Korea",
+    "id": "jems2023-skyrmion-chaos",
+    "title": "Field-Driven Chaos of Magnetic Skyrmions and its Potential Application to Dynamics-Based Computation",
+    "event": "Joint European Magnetic Symposia 2023 (JEMS)",
+    "date": "2023-08-30",
+    "location": "Madrid, Spain",
     "kind": "Oral presentation",
-    "url": "https://www.magnetics.or.kr/upload/board_files/upfile_230518114132728.pdf#page=33",
-    "caption": "Oscillating magnetic fields drive skyrmions into chaotic motion, with Lyapunov exponents identifying the transition and its potential for computation.",
-    "image": "/images/research/skyrmion-chaos-2023.png",
-    "imageAlt": "Skyrmion orbital trajectories and their evolution under an oscillating magnetic field.",
-    "imageLabel": "Related research · Figure 2",
-    "imageSourceUrl": "https://arxiv.org/abs/2309.04243",
+    "url": "https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642",
+    "caption": "Micromagnetic simulations explore field-driven skyrmion chaos, reconfigurable logic gates, and dynamics-based computation near the transition to chaos.",
+    "image": "/images/activities/jems2023-abstract.png",
+    "imageAlt": "JEMS 2023 oral-presentation abstract, page 642, for Field-Driven Chaos of Magnetic Skyrmions and its Potential Application to Dynamics-Based Computation by Gyuyoung Park and Sang-Koog Kim.",
+    "imageLabel": "Conference abstract",
+    "imageSourceUrl": "https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642",
     "tags": [
       "Magnetic Skyrmion",
       "Chaos",
-      "Spintronics"
-    ]
-  },
-  {
-    "id": "kms-2022-skyrmion-chaos",
-    "title": "Controlling Chaos in Skyrmion Dynamics",
-    "event": "2022 KMS Summer Conference",
-    "date": "2022-05-26",
-    "location": "Diamond Room, Sono Calm Jeju, Jeju, Republic of Korea",
-    "kind": "Oral presentation",
-    "url": "https://magnetics.or.kr/upload/downImg/host92377094.pdf#page=28",
-    "caption": "A presentation on controlling chaotic motion in magnetic skyrmions.",
-    "image": "/images/research/skyrmion-chaos-2023.png",
-    "imageAlt": "Skyrmion orbital trajectories and their evolution under an oscillating magnetic field.",
-    "imageLabel": "Related research · Figure 2",
-    "imageSourceUrl": "https://arxiv.org/abs/2309.04243",
-    "tags": [
-      "Magnetic Skyrmion",
-      "Chaos",
-      "Spintronics"
+      "Logic Computing",
+      "Micromagnetics"
     ]
   }
 ]
