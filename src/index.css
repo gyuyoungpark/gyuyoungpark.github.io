@@ -76,14 +76,18 @@
   .trimmed-borders::before,
   .trimmed-top-border::before {
     top: 0;
-    left: var(--border-trim);
+    left: 0;
     right: var(--border-trim);
     height: 1px;
   }
 
+  .trimmed-top-border::before {
+    left: var(--border-trim);
+  }
+
   .trimmed-borders::after {
     left: 0;
-    top: var(--border-trim);
+    top: 0;
     bottom: var(--border-trim);
     width: 1px;
   }
