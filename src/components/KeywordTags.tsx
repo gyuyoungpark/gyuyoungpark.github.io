@@ -25,7 +25,7 @@ export function KeywordTags({ tags = [], className }: {
                 target?.focus({ preventScroll: true });
               }
             }}
-            className="inline-flex max-w-full rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm leading-5 transition-opacity hover:opacity-80"
+            className="inline-flex max-w-full rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm leading-5 transition-shadow hover:ring-2 hover:ring-zinc-400 hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
             style={keywordStyle(label)}>
             {label}
           </a>

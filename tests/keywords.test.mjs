@@ -4,7 +4,9 @@ import {
   buildKeywordIndex,
   keywordFromHash,
   keywordHref,
+  keywordPalette,
   keywordStyle,
+  keywordTextColor,
   normalizeKeyword,
 } from '../src/lib/keywords.ts';
 
@@ -23,10 +25,9 @@ test('new content keywords are collected across all sections and link back to th
     content({ id: '1', title: 'A seminar', section: 'Activities', href: '/#activity-item-1', tags: ['New Topic'] }),
   ];
   const index = buildKeywordIndex(inputs, ['Magnetism']);
-  assert.deepEqual(index.map(({ label }) => label), ['Magnetism', 'Electron Hydrodynamics', 'New Topic']);
-  assert.deepEqual(index[0].contents, []);
-  assert.deepEqual(index[1].contents.map(({ href }) => href), ['/#/columns/electron-fluid']);
-  assert.deepEqual(index[2].contents.map(({ href }) => href), ['/#research-item-1', '/#activity-item-1']);
+  assert.deepEqual(index.map(({ label }) => label), ['Electron Hydrodynamics', 'New Topic']);
+  assert.deepEqual(index[0].contents.map(({ href }) => href), ['/#/columns/electron-fluid']);
+  assert.deepEqual(index[1].contents.map(({ href }) => href), ['/#research-item-1', '/#activity-item-1']);
 });
 
 test('case, extra whitespace, unicode width and repeated content do not duplicate keywords or results', () => {
@@ -47,9 +48,14 @@ test('empty or untitled placeholder content cannot create keywords or misleading
     content({ href: ' ', tags: ['Placeholder'] }),
     content({ tags: ['', '   ', { name: '\n' }] }),
   ];
-  assert.deepEqual(buildKeywordIndex(entries, ['', 'Magnetism']), [
-    { id: 'magnetism', label: 'Magnetism', contents: [] },
-  ]);
+  assert.deepEqual(buildKeywordIndex(entries, ['', 'Magnetism']), []);
+});
+
+test('removing the last related item removes its keyword even when it is seeded', () => {
+  const entry = content({ tags: ['Spintronics'] });
+  const seeds = ['Magnetism', 'Spintronics'];
+  assert.deepEqual(buildKeywordIndex([entry], seeds).map(({ label }) => label), ['Spintronics']);
+  assert.deepEqual(buildKeywordIndex([], seeds), []);
 });
 
 test('keyword links round-trip punctuation, non-Latin text, slashes and encoded percent signs', () => {
@@ -66,22 +72,37 @@ test('missing, unrelated or malformed keyword routes are rejected without throwi
   }
 });
 
-test('keyword colors preserve established topics and stay stable as content changes', () => {
-  const expected = {
-    Magnetism: '#0072B2', Spintronics: '#009E73', Chaos: '#D55E00',
-    'Magnetic Skyrmion': '#CC79A7', 'Spin-Orbit Torque': '#E69F00',
-    'Probabilistic Computing': '#56B4E9', 'Electron Hydrodynamics': '#0072B2',
-    'Electron Transport Theory': '#56B4E9', Graphene: '#E69F00',
-  };
-  for (const [label, background] of Object.entries(expected)) {
-    assert.equal(keywordStyle(label).backgroundColor, background);
-    assert.deepEqual(keywordStyle(` ${label.toUpperCase()} `), keywordStyle(label));
-  }
+test('keyword colors stay consistent within the page as content changes', () => {
   const before = keywordStyle('A new physics topic');
   const index = buildKeywordIndex([content({ tags: ['Unrelated tag', 'A new physics topic'] })]);
   assert.deepEqual(keywordStyle(index[1].label), before);
   assert.deepEqual(keywordStyle('A   NEW\nphysics topic'), before);
   for (const label of ['constructor', 'toString', '__proto__']) {
     assert.match(keywordStyle(label).backgroundColor, /^#[a-f\d]{6}$/iu);
+  }
+});
+
+test('random selection can reach every supplied swatch and is cached per keyword', (t) => {
+  assert.equal(keywordPalette.length, 90);
+  for (const [i, background] of keywordPalette.entries()) {
+    const random = t.mock.method(Math, 'random', () => (i + 0.5) / keywordPalette.length);
+    const label = `Palette selection ${i}`;
+    assert.equal(keywordStyle(label).backgroundColor, background);
+    assert.deepEqual(keywordStyle(` ${label.toUpperCase()} `), keywordStyle(label));
+    assert.equal(random.mock.callCount(), 1, 'rerenders and matching badges do not reroll colors');
+    random.mock.restore();
+  }
+});
+
+test('every chart color uses the stronger black or white contrast and meets 4.5:1', () => {
+  for (const background of keywordPalette) {
+    assert.match(background, /^#[A-F\d]{6}$/u);
+    const rgb = background.slice(1).match(/../gu).map((channel) => parseInt(channel, 16) / 255);
+    const linear = rgb.map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4);
+    const light = linear.reduce((sum, channel, i) => sum + channel * [0.2126, 0.7152, 0.0722][i], 0);
+    const contrast = { '#000000': (light + 0.05) / 0.05, '#FFFFFF': 1.05 / (light + 0.05) };
+    const foreground = keywordTextColor(background);
+    assert.ok(contrast[foreground] >= 4.5, `${background} with ${foreground}`);
+    assert.equal(contrast[foreground], Math.max(...Object.values(contrast)));
   }
 });

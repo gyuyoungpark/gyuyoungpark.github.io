@@ -3,7 +3,6 @@ import { columns } from './columns';
 import { buildKeywordIndex, normalizeKeyword, type KeywordContent } from '@/lib/keywords';
 
 const themeKeywords = [
-  'Magnetism',
   'Spintronics',
   'Chaos',
   'Magnetic Skyrmion',

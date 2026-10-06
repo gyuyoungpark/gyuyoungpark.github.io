@@ -6,9 +6,11 @@ Keywords are derived from content metadata. Register a topic once in a content i
 - **Research:** add `tags` to the paper in `src/data/research-papers.json`, using English topic strings. Papers are sorted newest first and use the same keyword index as other content.
 - **Activities:** add `tags` to the talk or seminar in `src/data/activities.json`, using English topic strings.
 
-Use English topic names, for example `"Electron Hydrodynamics"`. Journal names are not seeded as keywords; keep publication details in the content's publication metadata instead. The six existing physics themes remain available even before related content is published.
+Use English topic names, for example `"Electron Hydrodynamics"`. Journal names are not seeded as keywords; keep publication details in the content's publication metadata instead. Only keywords with at least one valid related content item are displayed. Removing the last related item also removes its keyword automatically, including preferred physics themes.
 
-Matching ignores letter case, extra whitespace, and equivalent Unicode width forms. Each content item appears only once per keyword. Blank or `Untitled` placeholders do not publish keywords. The first registered spelling is displayed, with the existing physics-theme spelling taking priority. Topic colors are stable across content additions and ordering changes.
+Matching ignores letter case, extra whitespace, and equivalent Unicode width forms. Each content item appears only once per keyword. Blank or `Untitled` placeholders do not publish keywords. The first registered spelling is displayed, with the existing physics-theme spelling taking priority.
+
+Backgrounds are randomly selected from the 90 color swatches sampled from the user-supplied Munsell chart. The palette uses representative RGB values from the chart image, not a conversion of the printed Munsell coordinates. A keyword keeps the same background across all badges and rerenders within one page load; reloading chooses colors again. Text is pure black or white, whichever gives the higher sRGB contrast ratio (at least 4.5:1 for all palette colors). Hover and focus use rings so the selected colors retain their contrast.
 
 Keyword URLs use `/#/keywords/<encoded keyword>`. Links in a keyword result point to the article or the relevant Research/Activities card. Keyword data is rebuilt as part of the normal website build; deploy content updates as usual.
 
