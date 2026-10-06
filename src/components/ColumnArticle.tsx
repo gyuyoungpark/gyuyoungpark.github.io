@@ -3,6 +3,8 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import type { Column } from '@/data/columns';
 import { ColumnFigure } from './ColumnFigure';
+import { ColumnPaperFigure } from './ColumnPaperFigure';
+import { ColumnReferences, ReferenceMark } from './ColumnReferences';
 import { VagueLogo } from './VagueLogo';
 import { KeywordTags } from './KeywordTags';
 import { BackLink } from './BackLink';
@@ -66,11 +68,24 @@ export function ColumnArticle({ column }: { column: Column }) {
           <p className="text-base leading-8 text-zinc-500">The English version is coming soon. Select KOR to read the Korean version.</p>
         ) : column.blocks.map((block, index) => {
           if (block.type === 'figure') return <ColumnFigure key={index} number={block.number!} />;
+          if (block.type === 'paperFigure') {
+            const referenceIndex = column.references?.findIndex((reference) => reference.id === block.referenceId) ?? -1;
+            return <ColumnPaperFigure key={index} columnId={column.id} block={block}
+              reference={column.references?.[referenceIndex]} referenceNumber={referenceIndex + 1} />;
+          }
           if (block.type === 'heading') return <h2 key={index} className="mb-6 mt-14 text-2xl font-semibold leading-relaxed">{block.text}</h2>;
           if (block.type === 'equation') return <div key={index} className="my-8 overflow-x-auto py-2" dangerouslySetInnerHTML={{ __html: katex.renderToString(block.text!, { displayMode: true, throwOnError: false, trust: false }) }} />;
-          return <p key={index} className="mb-6 text-base leading-[1.95] text-zinc-700 sm:text-[17px]"><ArticleText tokens={paragraphs[index]} /></p>;
+          return <p key={index} className="mb-6 text-base leading-[1.95] text-zinc-700 sm:text-[17px]">
+            <ArticleText tokens={paragraphs[index]} />
+            {block.references?.map((referenceId) => {
+              const referenceIndex = column.references?.findIndex((reference) => reference.id === referenceId) ?? -1;
+              const reference = column.references?.[referenceIndex];
+              return reference ? <ReferenceMark key={referenceId} columnId={column.id} reference={reference} number={referenceIndex + 1} /> : null;
+            })}
+          </p>;
         })}
       </div>
+      <ColumnReferences columnId={column.id} references={column.references ?? []} />
       <footer className="mt-12 border-t border-zinc-300 pt-6">
         <KeywordTags tags={column.tags} className="mb-6" />
         <BackLink href="/#columns"><VagueLogo /></BackLink>

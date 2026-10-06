@@ -1,6 +1,33 @@
 export type ColumnBlock =
-  | { type: 'paragraph' | 'heading' | 'equation'; text: string }
-  | { type: 'figure'; number: number };
+  | { type: 'paragraph' | 'heading' | 'equation'; text: string; references?: string[] }
+  | { type: 'figure'; number: number }
+  | {
+    type: 'paperFigure';
+    referenceId: string;
+    image: string;
+    width: number;
+    height: number;
+    alt: string;
+    caption: string;
+    figureLabel: string;
+    sourceUrl: string;
+    credit: string;
+    license: string;
+    licenseUrl: string;
+  };
+
+export interface ColumnReference {
+  id: string;
+  authors: string;
+  title: string;
+  journal: string;
+  volume?: string;
+  pages?: string;
+  articleNumber?: string;
+  year: number;
+  doi?: string;
+  url: string;
+}
 
 export interface Column {
   id: string;
@@ -10,6 +37,7 @@ export interface Column {
   tags: string[];
   description: string;
   blocks: ColumnBlock[];
+  references?: ColumnReference[];
   thumbnail?: string;
   thumbnailAlt?: string;
 }
