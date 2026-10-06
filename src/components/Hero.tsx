@@ -27,7 +27,7 @@ function CopyEmail({ email }: { email: string }) {
       type="button"
       onClick={handleCopy}
       title="Click to copy"
-      aria-label={`Copy ${email} to clipboard`}
+      aria-label={copied ? `${email} copied to clipboard` : `Copy ${email} to clipboard`}
       className="group flex w-full items-center gap-1.5 text-left text-[15px] leading-6 text-zinc-700 transition-colors hover:text-black"
     >
       <span className="underline-offset-2 group-hover:underline">{email}</span>
@@ -36,7 +36,6 @@ function CopyEmail({ email }: { email: string }) {
       ) : (
         <Copy className="h-3.5 w-3.5 shrink-0 text-zinc-400 opacity-0 transition-opacity group-hover:opacity-100" />
       )}
-      {copied && <span className="text-[11px] text-green-600">Copied!</span>}
     </button>
   );
 }
@@ -57,15 +56,25 @@ export function Hero() {
           <p className="text-[15px] font-medium leading-6 text-zinc-700">DEGREE</p>
           <p className="text-[15px] leading-6 text-zinc-700">
             <span className="block">Ph.D. in Materials Science and Engineering</span>
-            <span className="block">Seoul National University</span>
+            <span className="block">computational physics and material scientist</span>
           </p>
         </div>
 
         <div className="space-y-1">
-          <p className="text-[15px] font-medium leading-6 text-zinc-700">CURRENT AFILLIATION</p>
+          <p className="text-[15px] font-medium leading-6 text-zinc-700">CURRENT AFFILIATION</p>
           <p className="text-[15px] leading-6 text-zinc-700">
-            <span className="block">Post-silicon Semiconductor Institute</span>
-            <span className="block">Korea Institute of Science and Technology</span>
+            <a
+              href="https://www.kist.re.kr/eng/research/post-silicon-semiconductor-institute.do"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block underline-offset-2 hover:underline"
+            >Post-Silicon Semiconductor Institute</a>
+            <a
+              href="https://www.kist.re.kr/eng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block underline-offset-2 hover:underline"
+            >Korea Institute of Science and Technology</a>
           </p>
         </div>
 
