@@ -1,0 +1,64 @@
+[
+  {
+    "id": "outstanding-oral-presentation-kps",
+    "title": "Outstanding Oral Presentation",
+    "organization": "Korean Physics Society",
+    "date": "2024-04",
+    "dateLabel": "Apr 2022 · Apr 2024",
+    "tags": []
+  },
+  {
+    "id": "best-graduate-student-2023",
+    "title": "Best Graduate Student Award",
+    "organization": "Korean Magnetics Society",
+    "date": "2023-11",
+    "dateLabel": "Nov 2023",
+    "tags": []
+  },
+  {
+    "id": "best-patents-2023",
+    "title": "Best Patents Award",
+    "organization": "Samsung Electronics, Ltd.",
+    "date": "2023-08",
+    "dateLabel": "Aug 2023",
+    "tags": []
+  },
+  {
+    "id": "bk-excellent-research-talent-2022",
+    "title": "BK Excellent Research Talent Fellowship",
+    "organization": "Brain Korea 21",
+    "date": "2022-05",
+    "dateLabel": "May 2022",
+    "tags": []
+  },
+  {
+    "id": "academic-excellence-scholarship",
+    "title": "Academic Excellence Scholarship",
+    "date": "2018",
+    "dateLabel": "Spring 2015 · Fall 2015 · Spring 2018",
+    "tags": []
+  },
+  {
+    "id": "education-research-foundation-2017",
+    "title": "Scholarship from Education and Research Foundation",
+    "organization": "College of Engineering, SNU",
+    "date": "2017-06",
+    "dateLabel": "Jun 2017",
+    "tags": []
+  },
+  {
+    "id": "national-science-technology-2016",
+    "title": "National Science & Technology Scholarship",
+    "organization": "Korea Student Aid Foundation",
+    "date": "2016",
+    "dateLabel": "Spring & Fall 2016",
+    "tags": []
+  },
+  {
+    "id": "merit-based-scholarship-2014",
+    "title": "Merit Based Scholarship",
+    "date": "2014",
+    "dateLabel": "Spring & Fall 2014",
+    "tags": []
+  }
+]

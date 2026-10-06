@@ -5,6 +5,7 @@ export const navItems: NavItem[] = [
   { label: 'Research', href: '#research' },
   { label: 'VAGUE', href: '#columns' },
   { label: 'Activities', href: '#activities' },
+  { label: 'Achievements', href: '#achievements' },
 ];
 
 export const tagColors = [
@@ -115,6 +116,7 @@ export { researchArticles as articles } from './research';
 
 
 export { activities } from './activities';
+export { achievements } from './achievements';
 
 // TODO: 실제 Collaborator 항목으로 채우기 — 타일은 유지, 내용은 비워 둠
 export const cabinetItems: CabinetItem[] = [

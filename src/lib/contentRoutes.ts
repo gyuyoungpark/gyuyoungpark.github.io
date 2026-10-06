@@ -1,11 +1,11 @@
-export type ContentSection = 'research' | 'activities' | 'columns';
+export type ContentSection = 'research' | 'activities' | 'columns' | 'achievements';
 
 export function contentHref(section: ContentSection, id: string): string {
   return `/#/${section}/${encodeURIComponent(id)}`;
 }
 
 export function contentRouteFromHash(hash: string): { section: ContentSection; id: string } | null {
-  const match = /^#\/(research|activities|columns)\/([^/]+)$/.exec(hash);
+  const match = /^#\/(research|activities|columns|achievements)\/([^/]+)$/.exec(hash);
   if (!match) return null;
   try {
     const id = decodeURIComponent(match[2]);

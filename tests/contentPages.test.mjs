@@ -25,7 +25,7 @@ test('content detail pages render from the actual app', async (t) => {
   try {
     globalThis.window = { location: { hash: '#top' }, history: { state: null } };
     const { default: App } = await server.ssrLoadModule('/src/App.tsx');
-    const { articles, activities } = await server.ssrLoadModule('/src/data/content.ts');
+    const { articles, activities, achievements } = await server.ssrLoadModule('/src/data/content.ts');
     const { columns } = await server.ssrLoadModule('/src/data/columns/index.ts');
     function render(hash, keywordSelection = []) {
       window.location.hash = hash;
@@ -35,11 +35,11 @@ test('content detail pages render from the actual app', async (t) => {
 
     await t.test('every homepage card points to its internal detail page', () => {
       const html = render('#top');
-      for (const [section, items] of [['research', articles], ['activities', activities], ['columns', columns]]) {
+      for (const [section, items] of [['research', articles], ['activities', activities], ['columns', columns], ['achievements', achievements]]) {
         for (const item of items) assert.ok(html.includes(`href="/#/${section}/${encodeURIComponent(item.id)}"`));
       }
       const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
-      assert.equal(cards.length, articles.length + activities.length + columns.length);
+      assert.equal(cards.length, articles.length + activities.length + columns.length + achievements.length);
       for (const card of cards) assert.ok(!card.includes('target="_blank"'), 'card clicks stay on the site');
     });
 
@@ -57,6 +57,19 @@ test('content detail pages render from the actual app', async (t) => {
         }
       }
       for (const column of columns) assert.ok(render(`#/columns/${column.id}`).includes(column.titleEn));
+    });
+
+    await t.test('CV achievements show all recorded periods and open their own pages', () => {
+      const html = render('#achievements');
+      assert.ok(html.indexOf('id="achievements"') > html.indexOf('id="activities"'));
+      for (const achievement of achievements) {
+        const detail = render(`#/achievements/${achievement.id}`);
+        assert.ok(detail.includes(achievement.title.replaceAll('&', '&amp;')));
+        assert.ok(detail.includes(achievement.dateLabel.replaceAll('&', '&amp;')));
+        if (achievement.organization) assert.ok(detail.includes(achievement.organization));
+        assert.ok(detail.includes('href="/#achievements"'));
+        assert.ok(!detail.includes('DOI:'), 'awards do not invent DOI links');
+      }
     });
 
     await t.test('section return routes retain the selected OR filter', () => {

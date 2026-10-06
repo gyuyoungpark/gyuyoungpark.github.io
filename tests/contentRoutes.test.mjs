@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { contentHref, contentRouteFromHash, doiHref } from '../src/lib/contentRoutes.ts';
 
 test('detail links preserve IDs and distinguish sections', () => {
-  for (const section of ['research', 'activities', 'columns']) {
+  for (const section of ['research', 'activities', 'columns', 'achievements']) {
     for (const id of ['moire-chaos-2026', '전자의 흐름', 'A/B + 100%']) {
       const href = contentHref(section, id);
       assert.deepEqual(contentRouteFromHash(href.slice(1)), { section, id });
@@ -13,7 +13,7 @@ test('detail links preserve IDs and distinguish sections', () => {
 });
 
 test('section anchors, keyword filters and malformed detail URLs do not become detail routes', () => {
-  for (const hash of ['', '#research', '#activities', '#columns', '#/keywords/chaos',
+  for (const hash of ['', '#research', '#activities', '#columns', '#achievements', '#/keywords/chaos',
     '#/research/', '#/research/%20', '#/activities/%', '#/columns/%E0%A4%A',
     '#/research/id/extra', '#/unknown/id']) {
     assert.equal(contentRouteFromHash(hash), null, hash);

@@ -1,7 +1,7 @@
 export interface KeywordContent {
   id: string;
   title: string;
-  section: 'Research' | 'VAGUE' | 'Activities';
+  section: 'Research' | 'VAGUE' | 'Activities' | 'Achievements';
   href: string;
   tags: readonly (string | { name: string })[];
 }

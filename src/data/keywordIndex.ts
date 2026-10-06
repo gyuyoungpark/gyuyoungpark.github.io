@@ -1,4 +1,4 @@
-import { articles, activities } from './content';
+import { articles, activities, achievements } from './content';
 import { columns } from './columns';
 import { buildKeywordIndex, normalizeKeyword, type KeywordContent } from '@/lib/keywords';
 import { contentHref } from '@/lib/contentRoutes';
@@ -32,6 +32,13 @@ export const keywordContents: KeywordContent[] = [
     section: 'Activities',
     href: contentHref('activities', activity.id),
     tags: activity.tags,
+  })),
+  ...achievements.map((achievement): KeywordContent => ({
+    id: achievement.id,
+    title: achievement.title,
+    section: 'Achievements',
+    href: contentHref('achievements', achievement.id),
+    tags: achievement.tags,
   })),
 ];
 

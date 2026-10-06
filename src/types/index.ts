@@ -49,6 +49,15 @@ export interface Activity {
   tags: (string | Tag)[];
 }
 
+export interface Achievement {
+  id: string;
+  title: string;
+  organization?: string;
+  date: string;
+  dateLabel: string;
+  tags: (string | Tag)[];
+}
+
 export interface CabinetItem {
   id: string;
   title: string;
