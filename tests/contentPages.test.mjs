@@ -53,7 +53,8 @@ test('content detail pages render from the actual app', async (t) => {
           assert.ok(html.includes(`href="/#${section}"`), `return link: ${item.id}`);
           const source = item.doi ? `https://doi.org/${item.doi}` : item.url;
           assert.ok(html.includes(`href="${source.replaceAll('&', '&amp;')}" target="_blank"`), `external source: ${item.id}`);
-          if (item.image) assert.ok(html.includes(`src="${item.image}"`), `image: ${item.id}`);
+          const image = item.detailImage?.src ?? item.image;
+          if (image) assert.ok(html.includes(`src="${image}"`), `image: ${item.id}`);
           assert.ok(!html.includes('id="keywords"'), 'detail pages replace the index');
         }
       }
@@ -131,8 +132,13 @@ test('content detail pages render from the actual app', async (t) => {
         assert.ok(!detail.includes(escaped(article.caption)), `${article.id}: short caption replaced in the body`);
       }
       for (const activity of activities) {
-        assert.ok(render(`#/activities/${activity.id}`).includes(escaped(activity.caption)), `${activity.id}: activity description retained`);
+        if (!activity.detailImage) assert.ok(render(`#/activities/${activity.id}`).includes(escaped(activity.caption)), `${activity.id}: activity description retained`);
       }
+      const pom = render('#/activities/pm26-moire-chaos');
+      assert.ok(homepage.includes('src="/images/activities/pm26-photo.jpg"'), 'PoM thumbnail keeps the supplied photo');
+      assert.ok(pom.includes('src="/images/activities/pm26-abstract.png"'), 'PoM detail displays the submitted abstract');
+      assert.ok(pom.includes('href="/documents/activities/pm26-abstract.pdf"'), 'original abstract PDF is available');
+      assert.ok(!pom.includes('src="/images/activities/pm26-photo.jpg"'), 'detail page uses the abstract in place of the photo');
     });
 
     await t.test('section return routes retain the selected OR filter', () => {

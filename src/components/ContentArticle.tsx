@@ -12,10 +12,13 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
   const sectionHash = isActivity ? 'activities' : 'research';
   const titleRef = useRef<HTMLHeadingElement>(null);
   const doiUrl = doiHref(item.doi);
-  const sourceUrl = isActivity ? item.imageSourceUrl : item.figureSourceUrl;
-  const imageLabel = isActivity ? item.imageLabel : item.figureNumber;
+  const detailImage = isActivity ? item.detailImage : undefined;
+  const image = detailImage?.src ?? item.image;
+  const imageAlt = detailImage?.alt ?? item.imageAlt ?? item.title;
+  const sourceUrl = detailImage?.sourceUrl ?? (isActivity ? item.imageSourceUrl : item.figureSourceUrl);
+  const imageLabel = detailImage?.label ?? (isActivity ? item.imageLabel : item.figureNumber);
   const summary = isActivity ? undefined : item.summary;
-  const caption = summary?.length ? undefined : item.caption ?? ('description' in item ? item.description : undefined);
+  const caption = summary?.length || detailImage ? undefined : item.caption ?? ('description' in item ? item.description : undefined);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -48,9 +51,9 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
       {summary && summary.length > 0 && <section aria-label="Research overview" className="mb-8 space-y-5 text-base leading-8 text-zinc-700">
         {summary.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
       </section>}
-      {item.image ? <figure>
-        <a href={item.image} target="_blank" rel="noopener noreferrer" aria-label="View full image" className="block">
-          <img src={item.image} alt={item.imageAlt ?? item.title} className="max-h-[80vh] w-full object-contain" decoding="async" />
+      {image ? <figure>
+        <a href={image} target="_blank" rel="noopener noreferrer" aria-label="View full image" className="block">
+          <img src={image} alt={imageAlt} className={`${detailImage ? '' : 'max-h-[80vh] '}w-full object-contain`} decoding="async" />
         </a>
         {caption && <figcaption className="mt-5 text-base leading-8 text-zinc-700">{caption}</figcaption>}
         {sourceUrl && <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 hover:text-black">{imageLabel ?? 'Image'} · Source</a>}

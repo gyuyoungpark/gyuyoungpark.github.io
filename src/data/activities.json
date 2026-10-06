@@ -12,6 +12,12 @@
     "imageAlt": "Three-panel Physics of Magnetism 2026 conference photo collage showing a participant speaking with a microphone in a lecture hall.",
     "imageLabel": "Conference photo",
     "imageSourceUrl": "/images/activities/pm26-photo.jpg",
+    "detailImage": {
+      "src": "/images/activities/pm26-abstract.png",
+      "alt": "Complete submitted PoM 2026 abstract for Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers, including authors, affiliations, abstract and references.",
+      "label": "PoM abstract",
+      "sourceUrl": "/documents/activities/pm26-abstract.pdf"
+    },
     "tags": [
       "Moiré Magnetism",
       "Chaos",

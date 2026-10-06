@@ -51,6 +51,12 @@ export interface Activity {
   imageAlt?: string;
   imageLabel?: string;
   imageSourceUrl?: string;
+  detailImage?: {
+    src: string;
+    alt: string;
+    label: string;
+    sourceUrl: string;
+  };
   tags: (string | Tag)[];
 }
 

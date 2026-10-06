@@ -2,7 +2,7 @@
 
 Checked on 2026-10-06. This inventory contains selected publicly verified talks delivered by Gyuyoung Park, the SNU/KIST magnetism researcher. A conference coauthor entry alone does not establish a speaking engagement. Talks by other coauthors and unrelated namesakes are excluded. It is not a complete private CV.
 
-The IBS PCS seminar and PM26 thumbnails are user-supplied event images, copied without changing their contents. JEMS uses a full-page PNG render of the supplied abstract PDF, and APCTP uses its official event poster. Captions are short original summaries grounded in the official abstracts. Event-image source links open the full uploaded image; talk-title links retain the official event or abstract page.
+The IBS PCS seminar and PM26 thumbnails are user-supplied event images, copied without changing their contents. JEMS uses a full-page PNG render of the supplied abstract PDF, and APCTP uses its official event poster. Captions are short original summaries grounded in the official abstracts. Talk-title links open activity detail pages, which retain an official-source link.
 
 | Date | Talk | Event | Type | Thumbnail source |
 | --- | --- | --- | --- | --- |
@@ -16,7 +16,7 @@ The IBS PCS seminar and PM26 thumbnails are user-supplied event images, copied w
 ### Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers
 
 Official accepted-abstract table identifies Gyuyoung Park / G. Park as presenting author of oral contribution S3A-3. The June 15 detailed schedule places it on Tuesday 23 June 2026 at 10:00-10:15 in Session 3A. The abstract lists KIST and APCTP affiliations, matching the researcher.
-The thumbnail is the complete three-panel conference photo collage supplied as `13873.jpg`, copied to `public/images/activities/pm26-photo.jpg`. It replaces the abstract thumbnail at the user's request. The official abstract remains the talk-title destination.
+The thumbnail is the complete three-panel conference photo collage supplied as `13873.jpg`, copied to `public/images/activities/pm26-photo.jpg`. The detail page displays `public/images/activities/pm26-abstract.png` instead. Its 1191 × 1684 pixels exactly match the supplied one-page `PoM 초록.pdf` rendered at scale 2, including the title, authors, affiliations, full abstract, and references. The original PDF is copied byte-for-byte to `public/documents/activities/pm26-abstract.pdf` and linked beneath the image. The full-page detail image uses its natural aspect ratio without a viewport-height cap so the text remains readable.
 - [Source](https://www.ifmpan.poznan.pl/pm26/ab.html)
 - [Source](https://www.ifmpan.poznan.pl/pm26/pub/Schedule_PM26_15-06-2026.pdf)
 - [Source](https://www.ifmpan.poznan.pl/pm26/schedule.html)
@@ -45,3 +45,5 @@ The thumbnail is the seminar recording screenshot supplied as `13847.jpg`, copie
 ## Updating
 
 Edit `src/data/activities.json` with a stable `id`, exact `title`, `event`, ISO `date`, optional `location`, verified `kind`, official `url`, short `caption`, original `image`, descriptive `imageAlt`, `imageLabel`, `imageSourceUrl`, and English topic `tags`. Dates are never filled with guessed days. Related-paper figures must be identified as related research. New tags automatically enter Keywords and link back to the activity card.
+
+Use optional `detailImage` (`src`, `alt`, `label`, `sourceUrl`) when a detail page should display a document instead of its thumbnail image. This leaves the card's image and short caption intact.
