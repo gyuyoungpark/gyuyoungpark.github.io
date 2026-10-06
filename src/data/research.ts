@@ -3,7 +3,7 @@ import papers from './research-papers.json';
 
 export const researchArticles: Article[] = papers.map((paper): Article => ({
   ...paper,
-  authors: [],
+  authors: paper.authors.map((name, index) => ({ id: `${paper.id}-author-${index}`, name })),
   description: paper.caption,
   status: paper.status === 'preprint' ? 'preprint' : 'published',
 })).sort((first, second) => (second.date ?? '').localeCompare(first.date ?? ''));

@@ -5,6 +5,8 @@ import type { Column } from '@/data/columns';
 import { ColumnFigure } from './ColumnFigure';
 import { VagueLogo } from './VagueLogo';
 import { KeywordTags } from './KeywordTags';
+import { BackLink } from './BackLink';
+import { formatDetailDate } from '@/lib/detailDate';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
 
 function ArticleText({ tokens }: { tokens: ColumnTextToken[] }) {
@@ -41,7 +43,8 @@ export function ColumnArticle({ column }: { column: Column }) {
   return (
     <article lang={language} className="column-article mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
       <header className="mb-10 border-b border-zinc-300 pb-8">
-        <time dateTime={column.date} className="mb-4 block text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
+        <BackLink href="/#columns" className="mb-6"><VagueLogo /></BackLink>
+        <time dateTime={column.date} className="mb-4 block text-xs tabular-nums tracking-[0.08em] text-zinc-500">{formatDetailDate(column.date)}</time>
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-4">
           <h1 ref={titleRef} tabIndex={-1} className="min-w-0 flex-[1_1_260px] text-3xl font-semibold leading-snug tracking-tight outline-none focus-visible:outline-none sm:text-4xl">{title}</h1>
           <div role="group" aria-label="Article language" lang="en" className="inline-flex shrink-0 items-center gap-1 text-xs tracking-[0.08em]">
@@ -70,7 +73,7 @@ export function ColumnArticle({ column }: { column: Column }) {
       </div>
       <footer className="mt-12 border-t border-zinc-300 pt-6">
         <KeywordTags tags={column.tags} className="mb-6" />
-        <a href="/#columns" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-black">Back to <VagueLogo /></a>
+        <BackLink href="/#columns"><VagueLogo /></BackLink>
       </footer>
     </article>
   );

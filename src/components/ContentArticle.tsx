@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react';
 import type { Activity, Article } from '@/types';
 import { doiHref } from '@/lib/contentRoutes';
 import { KeywordTags } from './KeywordTags';
+import { BackLink } from './BackLink';
+import { PublicationCitation } from './PublicationCitation';
+import { formatDetailDate } from '@/lib/detailDate';
 
 export function ContentArticle({ item }: { item: Article | Activity }) {
   const isActivity = 'event' in item;
@@ -24,16 +27,17 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
   return (
     <article lang="en" className="mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
       <header className="mb-8">
-        <a href={`/#${sectionHash}`} className="mb-6 inline-block text-sm text-zinc-600 hover:text-black">← Back to {section}</a>
-        <div className="mb-4 space-y-1 text-sm leading-6 text-zinc-500">
-          <p className="font-medium text-zinc-700">{isActivity ? item.event : item.journal ?? item.category}</p>
+        <BackLink href={`/#${sectionHash}`} className="mb-6">{section}</BackLink>
+        <h1 ref={titleRef} tabIndex={-1} className="text-3xl font-semibold leading-snug tracking-tight [overflow-wrap:anywhere] outline-none sm:text-4xl">{item.title}</h1>
+        {!isActivity && item.authors.length > 0 && <p className="mt-4 text-sm leading-6 text-zinc-700">{item.authors.map((author) => author.name).join(', ')}</p>}
+        <div className="mt-4 space-y-1 text-sm leading-6 text-zinc-500">
+          {isActivity ? <p className="font-medium text-zinc-700">{item.event}</p> : <PublicationCitation article={item} />}
           {item.date && <p>
-            <time dateTime={item.date}>{isActivity ? item.dateLabel ?? item.date.replace(/-/g, '.') : item.date.replace(/-/g, '.')}</time>
+            <time dateTime={item.date}>{formatDetailDate(item.date)}</time>
             {isActivity ? ` · ${item.kind}` : item.status === 'preprint' ? ' · Preprint' : ''}
           </p>}
           {isActivity && item.location && <p>{item.location}</p>}
         </div>
-        <h1 ref={titleRef} tabIndex={-1} className="text-3xl font-semibold leading-snug tracking-tight [overflow-wrap:anywhere] outline-none sm:text-4xl">{item.title}</h1>
         {(doiUrl || item.url) && <p className="mt-6 text-sm leading-6 [overflow-wrap:anywhere]">
           <a href={doiUrl ?? item.url} target="_blank" rel="noopener noreferrer" className="text-zinc-700 underline decoration-zinc-400 underline-offset-4 hover:text-black">
             {doiUrl ? `DOI: ${item.doi}` : 'Official source'}
@@ -49,7 +53,7 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
       </figure> : caption && <p className="text-base leading-8 text-zinc-700">{caption}</p>}
       <footer className="trimmed-top-border mt-10 pt-6">
         <KeywordTags tags={item.tags} className="mb-6" />
-        <a href={`/#${sectionHash}`} className="inline-block text-sm text-zinc-600 hover:text-black">Back to {section}</a>
+        <BackLink href={`/#${sectionHash}`}>{section}</BackLink>
       </footer>
     </article>
   );

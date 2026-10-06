@@ -25,4 +25,20 @@ Thumbnail assets reproduce original paper figures from publisher pages, preprint
 
 ## Updating
 
-Edit `src/data/research-papers.json` and place original figure assets under `public/images/research/`. Each entry has a stable `id`, `title`, `journal`, ISO `date`, `doi`, publication `url`, local `image`, `imageAlt`, short `caption`, English topic `tags`, `figureNumber`, `figureSourceUrl`, and `status` (`published` or `preprint`). Journal names remain publication metadata; they are not keywords.
+Bibliographic details were rechecked on 2026-10-06 against publisher pages and the publisher-deposited [Crossref records](https://api.crossref.org/works/10.1103%2FPhysRevB.109.174420). Detail pages include the complete author list, italic journal title, bold volume, article number or page range, year, DOI, and online publication date. arXiv entries use their repository identifier and first submission date.
+
+The two 2026 Scientific Reports publisher citations ([probabilistic multiplication](https://www.nature.com/articles/s41598-026-68180-8), [field-like torque](https://www.nature.com/articles/s41598-026-62886-5)) currently omit both volume and article number. Those fields are intentionally left absent until the publisher supplies them. Their dates and complete author lists are available in publisher metadata. RSC's first publication date is 26 June 2023; Crossref records only the year, so the more precise publisher date is retained. The ACS online date is 12 May 2025, rather than its 27 May issue date.
+
+| Paper ID | Verified volume and article number / pages |
+| --- | --- |
+| standing-spin-waves-2025 | 8, 516 (2025) |
+| vortex-chaos-2025 | 3, 42 (2025) |
+| multilevel-probabilistic-2025 | 15, 28881 (2025) |
+| pdco-fieldlike-sot-2025 | 7, 4501–4509 (2025) |
+| reconfigurable-skyrmion-2024 | 109, 174420 (2024) |
+| skyrmion-chaos-2023 | 108, 174441 (2023) |
+| magnetosome-chains-2023 | 11, 9794–9803 (2023) |
+| antidot-fractals-2021 | 11, 22604 (2021) |
+| hemispherical-shells-2021 | 104, 134427 (2021) |
+
+Edit `src/data/research-papers.json` and place original figure assets under `public/images/research/`. Each entry has a stable `id`, `title`, `journal`, ordered `authors`, optional `volume`, `articleNumber` or `pages`, optional `preprintId`, ISO `date`, `doi`, publication `url`, local `image`, `imageAlt`, short `caption`, English topic `tags`, `figureNumber`, `figureSourceUrl`, and `status` (`published` or `preprint`). Journal names remain publication metadata; they are not keywords.

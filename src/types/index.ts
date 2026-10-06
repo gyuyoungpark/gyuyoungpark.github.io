@@ -20,6 +20,10 @@ export interface Article {
   image?: string;
   date?: string;
   journal?: string;
+  volume?: string;
+  articleNumber?: string;
+  pages?: string;
+  preprintId?: string;
   url?: string;
   doi?: string;
   imageAlt?: string;
