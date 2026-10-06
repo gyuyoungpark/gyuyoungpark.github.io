@@ -16,6 +16,7 @@ export interface Article {
   title: string;
   authors: Author[];
   description: string;
+  summary?: string[];
   tags: (string | Tag)[];
   image?: string;
   date?: string;

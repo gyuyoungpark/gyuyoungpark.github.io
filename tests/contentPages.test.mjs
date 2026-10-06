@@ -113,6 +113,28 @@ test('content detail pages render from the actual app', async (t) => {
       }
     });
 
+    await t.test('research overviews replace detail captions while thumbnail captions stay short', () => {
+      const homepage = render('#research');
+      const escaped = (text) => renderToStaticMarkup(React.createElement('p', null, text)).slice(3, -4);
+      for (const article of articles) {
+        assert.ok(article.summary?.length >= 2, `${article.id}: substantive overview`);
+        const words = article.summary.join(' ').trim().split(/\s+/);
+        assert.ok(words.length <= 300, `${article.id}: ${words.length} words exceeds limit`);
+        assert.ok(words.length >= 80, `${article.id}: overview is longer than a thumbnail caption`);
+        const detail = render(`#/research/${article.id}`);
+        assert.ok(detail.includes('aria-label="Research overview"'));
+        for (const paragraph of article.summary) {
+          assert.ok(detail.includes(`<p>${escaped(paragraph)}</p>`), `${article.id}: complete overview renders`);
+          assert.ok(!homepage.includes(escaped(paragraph)), `${article.id}: overview stays off the thumbnail`);
+        }
+        assert.ok(homepage.includes(escaped(article.caption)), `${article.id}: original thumbnail caption retained`);
+        assert.ok(!detail.includes(escaped(article.caption)), `${article.id}: short caption replaced in the body`);
+      }
+      for (const activity of activities) {
+        assert.ok(render(`#/activities/${activity.id}`).includes(escaped(activity.caption)), `${activity.id}: activity description retained`);
+      }
+    });
+
     await t.test('section return routes retain the selected OR filter', () => {
       const html = render('#research', ['chaos', 'graphene']);
       assert.equal((html.match(/<article\b/g) ?? []).length, 9);

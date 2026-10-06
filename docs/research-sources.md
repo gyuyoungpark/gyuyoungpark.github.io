@@ -42,3 +42,5 @@ The two 2026 Scientific Reports publisher citations ([probabilistic multiplicati
 | hemispherical-shells-2021 | 104, 134427 (2021) |
 
 Edit `src/data/research-papers.json` and place original figure assets under `public/images/research/`. Each entry has a stable `id`, `title`, `journal`, ordered `authors`, optional `volume`, `articleNumber` or `pages`, optional `preprintId`, ISO `date`, `doi`, publication `url`, local `image`, `imageAlt`, short `caption`, English topic `tags`, `figureNumber`, `figureSourceUrl`, and `status` (`published` or `preprint`). Journal names remain publication metadata; they are not keywords.
+
+Detail-page overviews are stored separately in `src/data/research-summaries.json` as `{ id, paragraphs }`, with no more than 300 English words per paper. Keep the short `caption` for the homepage thumbnail; the overview replaces it in the detail-page body. Source reading and claim-scope notes are recorded in [research-summaries-sources.md](research-summaries-sources.md). Review results and discussion in the full paper before editing an overview, and distinguish measured results, simulations, model assumptions, and proposed applications.

@@ -14,7 +14,8 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
   const doiUrl = doiHref(item.doi);
   const sourceUrl = isActivity ? item.imageSourceUrl : item.figureSourceUrl;
   const imageLabel = isActivity ? item.imageLabel : item.figureNumber;
-  const caption = item.caption ?? ('description' in item ? item.description : undefined);
+  const summary = isActivity ? undefined : item.summary;
+  const caption = summary?.length ? undefined : item.caption ?? ('description' in item ? item.description : undefined);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -44,6 +45,9 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
           </a>
         </p>}
       </header>
+      {summary && summary.length > 0 && <section aria-label="Research overview" className="mb-8 space-y-5 text-base leading-8 text-zinc-700">
+        {summary.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+      </section>}
       {item.image ? <figure>
         <a href={item.image} target="_blank" rel="noopener noreferrer" aria-label="View full image" className="block">
           <img src={item.image} alt={item.imageAlt ?? item.title} className="max-h-[80vh] w-full object-contain" decoding="async" />
