@@ -1,6 +1,7 @@
 import { articles, activities } from './content';
 import { columns } from './columns';
 import { buildKeywordIndex, normalizeKeyword, type KeywordContent } from '@/lib/keywords';
+import { contentHref } from '@/lib/contentRoutes';
 
 const themeKeywords = [
   'Spintronics',
@@ -15,21 +16,21 @@ export const keywordContents: KeywordContent[] = [
     id: article.id,
     title: article.title,
     section: 'Research',
-    href: `/#research-item-${article.id}`,
+    href: contentHref('research', article.id),
     tags: article.tags,
   })),
   ...columns.map((column): KeywordContent => ({
     id: column.id,
     title: column.titleEn.trim() || column.title,
     section: 'VAGUE',
-    href: `/#/columns/${encodeURIComponent(column.id)}`,
+    href: contentHref('columns', column.id),
     tags: column.tags,
   })),
   ...activities.map((activity): KeywordContent => ({
     id: activity.id,
     title: activity.title,
     section: 'Activities',
-    href: `/#activity-item-${activity.id}`,
+    href: contentHref('activities', activity.id),
     tags: activity.tags,
   })),
 ];

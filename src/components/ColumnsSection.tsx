@@ -1,6 +1,7 @@
 import { columns as allColumns, type Column } from '@/data/columns';
 import { VagueLogo } from './VagueLogo';
 import { KeywordTags } from './KeywordTags';
+import { contentHref } from '@/lib/contentRoutes';
 
 export function ColumnsSection({ columns = allColumns }: { columns?: Column[] }) {
   if (!columns.length) return null;
@@ -11,7 +12,7 @@ export function ColumnsSection({ columns = allColumns }: { columns?: Column[] })
       <div className="mt-6 grid gap-[7px] sm:grid-cols-2 xl:grid-cols-3">
         {columns.map((column) => (
           <article key={column.id} className="trimmed-borders bg-white p-5">
-            <a href={`#/columns/${encodeURIComponent(column.id)}`} className="block" aria-label={column.titleEn}>
+            <a href={contentHref('columns', column.id)} className="block after:absolute after:inset-0 after:z-[1] after:content-['']" aria-label={column.titleEn}>
               <time dateTime={column.date} className="text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
               <h3 className="mt-3 text-xl font-semibold leading-8 text-zinc-900">{column.titleEn}</h3>
               {column.thumbnail && <img src={column.thumbnail} alt={column.thumbnailAlt ?? ''} width="640" height="360" className="mt-5 w-full" />}

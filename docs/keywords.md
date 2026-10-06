@@ -10,14 +10,16 @@ Use English topic names, for example `"Electron Hydrodynamics"`. Journal names a
 
 Matching ignores letter case, extra whitespace, and equivalent Unicode width forms. Each content item appears only once per keyword. Blank or `Untitled` placeholders do not publish keywords. The first registered spelling is displayed, with the existing physics-theme spelling taking priority.
 
-Backgrounds are randomly selected from the 90 color swatches sampled from the user-supplied Munsell chart. The palette uses representative RGB values from the chart image, not a conversion of the printed Munsell coordinates. A keyword keeps the same background across all badges and rerenders within one page load; reloading chooses colors again. Text is pure black or white, whichever gives the higher sRGB contrast ratio (at least 4.5:1 for all palette colors). Hover and focus use rings so the selected colors retain their contrast.
+Backgrounds are randomly selected from the 90 color swatches sampled from the user-supplied Munsell chart. The palette uses representative RGB values from the chart image, not a conversion of the printed Munsell coordinates. A keyword keeps the same background across all badges and rerenders within one page load; reloading chooses colors again. Text is pure black or white, whichever gives the higher sRGB contrast ratio (at least 4.5:1 for all palette colors). Badges have no borders; hover changes opacity, selected keywords show a check mark, and keyboard focus uses a ring.
 
 Click keywords to toggle multiple topics. Selected topics appear as removable chips below the keyword cloud; Clear restores all posts. Research, VAGUE, and Activities show only posts matching at least one selected topic (OR), without duplicates, and hide sections with no results. Section navigation keeps the selection. Content badges add their topic to the current selection.
 
 Keyword URLs use `/#/keywords/<encoded keyword>,<encoded keyword>`, so selections can be bookmarked and browser Back/Forward restores previous selections. Each topic is encoded separately, including any literal comma in its name. An empty selection uses `/#keywords`. Keyword data is rebuilt as part of the normal website build; deploy content updates as usual.
 
-Run the dependency-free index checks with Node 24 or later:
+Content cards open internal detail pages at `/#/research/<id>`, `/#/activities/<id>`, or `/#/columns/<id>`. The detail page keeps the keyword selection when returning to a section. Research pages link out through the record's DOI at `https://doi.org/<doi>`; records without a DOI use their official source URL. Image source links are on detail pages. Keyword badges remain separate filter links within each card.
+
+Run the keyword, route, and rendered page checks with Node 24 or later:
 
 ```sh
-node --test tests/keywords.test.mjs
+node --test tests/keywords.test.mjs tests/contentRoutes.test.mjs tests/contentPages.test.mjs
 ```

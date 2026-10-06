@@ -40,6 +40,7 @@ export interface Activity {
   location?: string;
   kind: string;
   url: string;
+  doi?: string;
   caption: string;
   image?: string;
   imageAlt?: string;

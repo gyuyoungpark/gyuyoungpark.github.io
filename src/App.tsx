@@ -4,22 +4,15 @@ import { TagCloud } from '@/components/TagCloud';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { ColumnsSection } from '@/components/ColumnsSection';
 import { ColumnArticle } from '@/components/ColumnArticle';
+import { ContentArticle } from '@/components/ContentArticle';
 import { useEffect, useRef, useState } from 'react';
 import { ActivitiesSection } from '@/components/ActivitiesSection';
 import { articles, activities } from '@/data/content';
 import { columns, getColumnById } from '@/data/columns';
 import { filterByKeywords, keywordSelectionHref, keywordsFromHash, toggleKeyword } from '@/lib/keywords';
 import { KeywordSelectionContext } from '@/lib/keywordSelection';
+import { contentRouteFromHash } from '@/lib/contentRoutes';
 import './App.css';
-
-function columnIdFromHash(hash: string) {
-  if (!hash.startsWith('#/columns/')) return '';
-  try {
-    return decodeURIComponent(hash.slice('#/columns/'.length));
-  } catch {
-    return '';
-  }
-}
 
 function savedKeywords(state: unknown): string[] | undefined {
   const saved = (state as { keywordSelection?: unknown } | null)?.keywordSelection;
@@ -34,8 +27,11 @@ function App() {
       ? keywordsFromHash(initialHash) : savedKeywords(window.history.state) ?? [];
   });
   const selectionRef = useRef(selectedKeywords);
-  const column = getColumnById(columnIdFromHash(hash));
-  const isColumn = hash.startsWith('#/columns/') && Boolean(column);
+  const route = contentRouteFromHash(hash);
+  const column = route?.section === 'columns' ? getColumnById(route.id) : undefined;
+  const item = route?.section === 'research' ? articles.find((article) => article.id === route.id)
+    : route?.section === 'activities' ? activities.find((activity) => activity.id === route.id) : undefined;
+  const isDetail = Boolean(route);
   const filteredArticles = filterByKeywords(articles, selectedKeywords);
   const filteredColumns = filterByKeywords(columns, selectedKeywords);
   const filteredActivities = filterByKeywords(activities, selectedKeywords);
@@ -76,19 +72,24 @@ function App() {
     };
   }, []);
   useEffect(() => {
-    if (!isColumn && hash.startsWith('#')) {
+    if (!isDetail && hash.startsWith('#')) {
       const target = hash.startsWith('#/keywords/') ? 'keywords' : hash.slice(1);
       const element = document.getElementById(target);
       element?.scrollIntoView();
       if (target === 'keywords') element?.focus({ preventScroll: true });
     }
-  }, [hash, isColumn]);
+  }, [hash, isDetail]);
   return (
     <KeywordSelectionContext.Provider value={selectedKeywords}>
     <div className="min-h-screen text-zinc-900">
       <Header />
       <main className="site-shell bg-white">
-        {isColumn && column ? <ColumnArticle key={column.id} column={column} /> : <>
+        {route ? column ? <ColumnArticle key={column.id} column={column} />
+          : item ? <ContentArticle key={`${route.section}-${item.id}`} item={item} />
+          : <article className="mx-auto max-w-[820px] px-5 py-14 sm:px-10">
+            <h1 className="text-3xl font-semibold">Page not found</h1>
+            <a href="/#top" className="mt-6 inline-block text-sm underline underline-offset-4">Back to home</a>
+          </article> : <>
         <Hero />
         <TagCloud selectedKeywords={selectedKeywords} matchingCount={matchingCount}
           onToggle={(keyword) => selectKeywords(toggleKeyword(selectedKeywords, keyword))}

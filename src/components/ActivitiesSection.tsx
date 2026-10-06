@@ -1,5 +1,6 @@
 import type { Activity } from '@/types';
 import { ContentCard } from './ContentCard';
+import { contentHref } from '@/lib/contentRoutes';
 
 export function ActivitiesSection({ activities }: { activities: Activity[] }) {
   if (!activities.length) return null;
@@ -12,7 +13,7 @@ export function ActivitiesSection({ activities }: { activities: Activity[] }) {
             key={activity.id}
             id={`activity-item-${activity.id}`}
             title={activity.title}
-            href={activity.url}
+            href={contentHref('activities', activity.id)}
             metadata={<>
               <span className="font-medium text-zinc-700">{activity.event}</span>
               <p><time dateTime={activity.date}>{activity.dateLabel ?? activity.date.replace(/-/g, '.')}</time> · {activity.kind}</p>
@@ -21,8 +22,6 @@ export function ActivitiesSection({ activities }: { activities: Activity[] }) {
             image={activity.image}
             imageAlt={activity.imageAlt}
             caption={activity.caption}
-            imageLabel={activity.imageLabel}
-            imageSourceUrl={activity.imageSourceUrl}
             tags={activity.tags}
           />
         ))}
