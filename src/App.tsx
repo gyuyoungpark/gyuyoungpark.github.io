@@ -86,7 +86,7 @@ function App() {
   return (
     <KeywordSelectionContext.Provider value={selectedKeywords}>
     <div className="min-h-screen text-zinc-900">
-      <Header />
+      <Header bordered={!isDetail} />
       <main className="site-shell bg-white">
         {route ? column ? <ColumnArticle key={column.id} column={column} />
           : item ? <ContentArticle key={`${route.section}-${item.id}`} item={item} />

@@ -30,10 +30,10 @@ const externalLinks = [
   },
 ];
 
-export function Header() {
+export function Header({ bordered = true }: { bordered?: boolean }) {
   return (
     <header className="site-header sticky top-0 z-50 backdrop-blur-sm">
-      <div className="site-shell trimmed-borders">
+      <div className={bordered ? 'site-shell trimmed-borders' : 'site-shell'}>
         <div className="grid grid-cols-[1fr_auto] items-center gap-3 px-4 py-4 text-zinc-900 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
           <a href="/#top" className="inline-flex items-center">
             <span className="text-[20px] font-semibold tracking-[0.01em] lg:text-[24px]">Gyuyoung Park</span>

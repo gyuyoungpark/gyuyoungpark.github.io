@@ -22,7 +22,7 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
   }, [item.title]);
 
   return (
-    <article lang="en" className="trimmed-borders mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
+    <article lang="en" className="mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
       <header className="mb-8">
         <a href={`/#${sectionHash}`} className="mb-6 inline-block text-sm text-zinc-600 hover:text-black">← Back to {section}</a>
         <div className="mb-4 space-y-1 text-sm leading-6 text-zinc-500">

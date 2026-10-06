@@ -13,7 +13,7 @@ export function AchievementArticle({ achievement }: { achievement: Achievement }
   }, [achievement.title]);
 
   return (
-    <article lang="en" className="trimmed-borders mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
+    <article lang="en" className="mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
       <a href="/#achievements" className="mb-6 inline-block text-sm text-zinc-600 hover:text-black">← Back to Achievements</a>
       <p className="mb-4 text-sm leading-6 text-zinc-500">{achievement.dateLabel}</p>
       <h1 ref={titleRef} tabIndex={-1} className="text-3xl font-semibold leading-snug tracking-tight outline-none sm:text-4xl">{achievement.title}</h1>
