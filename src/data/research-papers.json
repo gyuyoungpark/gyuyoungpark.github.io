@@ -26,8 +26,8 @@
     "date": "2026-08-13",
     "doi": "10.48550/arXiv.2608.13062",
     "url": "https://arxiv.org/abs/2608.13062",
-    "image": "/images/research/moire-chaos-2026.webp",
-    "imageAlt": "Moiré interlayer-exchange map and complementary magnetic-domain textures in twisted bilayer CrI3.",
+    "image": "/images/research/moire-chaos-2026-cover.png",
+    "imageAlt": "Moiré magnetic-domain patterns arranged in a perspective grid, with an enlarged red-and-blue domain texture.",
     "caption": "Competing interlayer exchange creates frustrated magnetic domains and sensitive relaxation dynamics.",
     "tags": [
       "Moiré Magnetism",
@@ -35,8 +35,8 @@
       "Van der Waals Materials",
       "Micromagnetics"
     ],
-    "figureNumber": "Figure 1",
-    "figureSourceUrl": "https://arxiv.org/html/2608.13062v1/fig1_new.png",
+    "figureNumber": "Cover image",
+    "figureSourceUrl": "/images/research/moire-chaos-2026-cover.png",
     "status": "preprint"
   },
   {

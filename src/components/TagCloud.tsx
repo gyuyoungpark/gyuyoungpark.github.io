@@ -19,8 +19,10 @@ export function TagCloud({ selectedKeywords, matchingCount, onToggle, onClear }:
             return (
               <button key={keyword.id} type="button" onClick={() => onToggle(keyword.id)}
                 aria-pressed={isSelected}
-                className={`inline-flex w-fit rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm leading-5 transition-shadow hover:ring-2 hover:ring-zinc-400 hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2 ${isSelected ? 'ring-2 ring-zinc-900 ring-offset-2' : ''}`}
-                style={keywordStyle(keyword.label)}>{keyword.label}</button>
+                className={`inline-flex w-fit items-center gap-1.5 rounded-md border-0 px-3 py-1.5 text-sm leading-5 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2 ${isSelected ? 'font-semibold' : ''}`}
+                style={keywordStyle(keyword.label)}>
+                {isSelected && <span aria-hidden="true">✓</span>}{keyword.label}
+              </button>
             );
           })}
         </div>
@@ -35,7 +37,7 @@ export function TagCloud({ selectedKeywords, matchingCount, onToggle, onClear }:
                     return (
                       <button key={id} type="button" onClick={() => onToggle(id)}
                         aria-label={`Remove ${label} keyword`}
-                        className="inline-flex items-center gap-2 rounded-md border-l border-t border-zinc-300 px-3 py-1.5 text-sm leading-5 hover:ring-2 hover:ring-zinc-400 hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
+                        className="inline-flex items-center gap-2 rounded-md border-0 px-3 py-1.5 text-sm leading-5 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
                         style={keywordStyle(label)}>
                         {label}<span aria-hidden="true">×</span>
                       </button>
