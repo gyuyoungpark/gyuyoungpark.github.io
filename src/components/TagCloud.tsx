@@ -10,7 +10,7 @@ interface TagCloudProps {
 
 export function TagCloud({ selectedKeywords, matchingCount, onToggle, onClear }: TagCloudProps) {
   return (
-    <section id="keywords" tabIndex={-1} className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 outline-none sm:px-6 lg:px-8">
+    <section id="keywords" tabIndex={-1} className="trimmed-borders scroll-mt-28 px-4 py-10 outline-none sm:px-6 lg:px-8">
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Keywords</h2>
         <div className="flex flex-wrap gap-2" aria-label="Content keywords">
@@ -25,7 +25,7 @@ export function TagCloud({ selectedKeywords, matchingCount, onToggle, onClear }:
           })}
         </div>
         {selectedKeywords.length > 0 && (
-          <div className="border-t border-zinc-300 pt-5">
+          <div className="trimmed-top-border pt-5">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-sm font-semibold text-zinc-900">Selected keywords</h3>

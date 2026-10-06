@@ -9,6 +9,7 @@
     --outer-bg: rgb(244, 243, 238);
     --inner-bg: #f8f7f2;
     --line-color: #dde7e7;
+    --border-trim: 0.5cm;
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
     --card: 0 0% 100%;
@@ -56,10 +57,36 @@
     width: min(100%, 1280px);
     margin-inline: auto;
     background: var(--inner-bg);
-    border-left: 1px solid var(--line-color);
-    border-right: 1px solid var(--line-color);
   }
 
+  .trimmed-borders,
+  .trimmed-top-border {
+    position: relative;
+  }
+
+  .trimmed-borders::before,
+  .trimmed-borders::after,
+  .trimmed-top-border::before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    background-color: var(--line-color);
+  }
+
+  .trimmed-borders::before,
+  .trimmed-top-border::before {
+    top: 0;
+    left: var(--border-trim);
+    right: var(--border-trim);
+    height: 1px;
+  }
+
+  .trimmed-borders::after {
+    left: 0;
+    top: var(--border-trim);
+    bottom: var(--border-trim);
+    width: 1px;
+  }
 }
 
 [class*='border-zinc-300'],

@@ -5,12 +5,12 @@ import { KeywordTags } from './KeywordTags';
 export function ColumnsSection({ columns = allColumns }: { columns?: Column[] }) {
   if (!columns.length) return null;
   return (
-    <section id="columns" lang="en" className="relative scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
+    <section id="columns" lang="en" className="trimmed-borders scroll-mt-28 px-4 py-10 sm:px-6 lg:px-8">
       <span id="studies" className="absolute top-0 scroll-mt-28" aria-hidden="true" />
       <h2 className="text-2xl font-semibold tracking-tight text-zinc-900"><VagueLogo /></h2>
       <div className="mt-6 grid gap-[7px] sm:grid-cols-2 xl:grid-cols-3">
         {columns.map((column) => (
-          <article key={column.id} className="border-l border-t border-zinc-300 bg-white p-5">
+          <article key={column.id} className="trimmed-borders bg-white p-5">
             <a href={`#/columns/${encodeURIComponent(column.id)}`} className="block" aria-label={column.titleEn}>
               <time dateTime={column.date} className="text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
               <h3 className="mt-3 text-xl font-semibold leading-8 text-zinc-900">{column.titleEn}</h3>

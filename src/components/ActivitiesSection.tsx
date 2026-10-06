@@ -4,7 +4,7 @@ import { ContentCard } from './ContentCard';
 export function ActivitiesSection({ activities }: { activities: Activity[] }) {
   if (!activities.length) return null;
   return (
-    <section id="activities" lang="en" className="scroll-mt-28 border-b border-zinc-300 px-4 py-10 sm:px-6 lg:px-8">
+    <section id="activities" lang="en" className="trimmed-borders scroll-mt-28 px-4 py-10 sm:px-6 lg:px-8">
       <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Activities</h2>
       <div className="mt-6 grid gap-[7px] md:grid-cols-2 xl:grid-cols-3">
         {activities.map(activity => (

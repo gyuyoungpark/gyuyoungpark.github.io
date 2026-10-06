@@ -59,7 +59,7 @@ export function filterByKeywords<T extends { tags: readonly (string | { name: st
     const topics = new Set(item.tags.map((tag) =>
       normalizeKeyword(typeof tag === 'string' ? tag : tag.name),
     ));
-    return ids.every((id) => topics.has(id));
+    return !ids.length || ids.some((id) => topics.has(id));
   });
 }
 
