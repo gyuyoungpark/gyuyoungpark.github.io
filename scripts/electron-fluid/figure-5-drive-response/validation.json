@@ -1,0 +1,15 @@
+{
+  "model": "Illustrative streamfunction, not a solved momentum or thermal field",
+  "flux_spread": 0.0,
+  "max_finite_difference_divergence": 2.5928390023129827e-15,
+  "wall_current_density_zero": true,
+  "minimum_half_width": 60.0,
+  "center_to_wide_axial_current_density_ratio": 2.3684192953303116,
+  "arrow_convention": "Conventional current; mean electron motion is opposite",
+  "thermal_map": false,
+  "visible_labels": [
+    "Stronger drive",
+    "Flow acceleration",
+    "Electron heating"
+  ]
+}
