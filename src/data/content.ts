@@ -145,7 +145,7 @@ export const footerCredits = {
   guestEditor: { name: 'Invited Collaborators', note: 'Rotating contributors' },
   webDirector: { name: 'Gyuyoung Park', company: 'Archive Studio' },
   logoDesign: 'Custom wordmark',
-  typeface: 'Helvetica',
+  typeface: 'Pretendard',
   publisherOrg: 'Archive of Gyuyoung Park',
   issn: '2799-3892 (Online)',
   copyright:

@@ -184,7 +184,7 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="16
 <desc id="desc">Left: an electron bends toward a positive heavy nucleus and transfers momentum to it. Right: two electrons repel and redistribute momentum while their total momentum is conserved. Curves follow classical analytic Coulomb orbits. Lower vectors compare asymptotic momenta with a common scale.</desc>
 <defs>{''.join(gradients)}</defs>
 <rect width="1600" height="900" fill="#f1f5f3"/>
-<g font-family="Helvetica, Arial, sans-serif" font-weight="400">{content}</g>
+<g font-family="Segoe UI, Arial, sans-serif" font-weight="400">{content}</g>
 </svg>'''
 (ROOT/'figure-1.svg').write_text(svg,encoding='utf-8')
 (ROOT/'validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
