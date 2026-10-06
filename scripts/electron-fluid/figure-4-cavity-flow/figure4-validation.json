@@ -1,0 +1,695 @@
+{
+  "provenance": "Archived local solve_flow.py results from electron-fluid-figures. PDE solver was not rerun for the design revision.",
+  "current_scope": "NPZ contains mesh, vertex current, vertex streamfunction, and geometry. Current rechecks use linear nodal interpolation; they cannot independently reconstruct original P2 quadrature residuals.",
+  "tolerances": {
+    "finite_fields": true,
+    "nodal_wall_current": 1e-12,
+    "nodal_flux_relative_spread_finest_mesh_only": 0.003,
+    "closed_contour_closure": 1e-07,
+    "arrow_alignment_minimum": 0.98,
+    "outside_mesh_midpoints": 0
+  },
+  "archived_fem_reports_not_rerun": {
+    "R0-h0.0225": {
+      "R": 0.0,
+      "a": 0.0,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.0225,
+      "triangles": 62632,
+      "dofs": 284512,
+      "sigma0": 1,
+      "outlet_profile_scale": 1.0000000144563366,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055096712709843,
+        0.7055096709335804,
+        0.7055096783512753,
+        0.7055096719121632
+      ],
+      "flux_relative_spread": 1.051389971403068e-08,
+      "divergence_rms": 0.0002181268850858323,
+      "divergence_over_gradient": 8.82804813668831e-05,
+      "weak_divergence_max": 2.9003022105340523e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.0001946477119578997,
+      "psi_excess_over_Q": 0,
+      "closed_contours_above_wall": 0,
+      "straight_profile_max_error": 6.365719804057868e-06
+    },
+    "R0-h0.045": {
+      "R": 0.0,
+      "a": 0.0,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.045,
+      "triangles": 15703,
+      "dofs": 72004,
+      "sigma0": 1,
+      "outlet_profile_scale": 1.0000002942289474,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055093716190316,
+        0.7055095097359567,
+        0.7055093428879323,
+        0.7055093827288472
+      ],
+      "flux_relative_spread": 2.3649171595587602e-07,
+      "divergence_rms": 0.0008243712831272593,
+      "divergence_over_gradient": 0.00033364045179945317,
+      "weak_divergence_max": 8.783866580579399e-16,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.0007755575476783058,
+      "psi_excess_over_Q": 0,
+      "closed_contours_above_wall": 0,
+      "straight_profile_max_error": 4.736571860181754e-05
+    },
+    "R0-h0.09": {
+      "R": 0.0,
+      "a": 0.0,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.09,
+      "triangles": 3939,
+      "dofs": 18391,
+      "sigma0": 1,
+      "outlet_profile_scale": 0.9999989367047055,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055004474351687,
+        0.705505243657588,
+        0.7055042739832276,
+        0.7055005149272168
+      ],
+      "flux_relative_spread": 6.79820377949632e-06,
+      "divergence_rms": 0.0030860489556824595,
+      "divergence_over_gradient": 0.001249012256636342,
+      "weak_divergence_max": 1.9239637654041002e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.0030667814733316935,
+      "psi_excess_over_Q": 0,
+      "closed_contours_above_wall": 0,
+      "straight_profile_max_error": 0.00022596803237777408
+    },
+    "R0.4-h0.0225": {
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.0225,
+      "triangles": 65368,
+      "dofs": 297164,
+      "sigma0": 1,
+      "outlet_profile_scale": 0.9999999977762972,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055096577430345,
+        0.7055096795475149,
+        0.7055096378382114,
+        0.7055096622065734
+      ],
+      "flux_relative_spread": 5.911909824035734e-08,
+      "divergence_rms": 0.031160508558345887,
+      "divergence_over_gradient": 0.012942395406929848,
+      "weak_divergence_max": 7.531293079094534e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.00030598050438908233,
+      "psi_excess_over_Q": 0.004120323512611601,
+      "closed_contours_above_wall": 1,
+      "straight_profile_max_error": null
+    },
+    "R0.4-h0.045": {
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.045,
+      "triangles": 16395,
+      "dofs": 75263,
+      "sigma0": 1,
+      "outlet_profile_scale": 0.9999994846697615,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055090282396247,
+        0.7055092166321515,
+        0.7055091041595499,
+        0.7055090116967029
+      ],
+      "flux_relative_spread": 2.904771337719134e-07,
+      "divergence_rms": 0.048360563238388464,
+      "divergence_over_gradient": 0.020086978902463932,
+      "weak_divergence_max": 1.1560991446485334e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.001067720862178377,
+      "psi_excess_over_Q": 0.003941923418455118,
+      "closed_contours_above_wall": 1,
+      "straight_profile_max_error": null
+    },
+    "R0.4-h0.09": {
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.09,
+      "triangles": 4073,
+      "dofs": 19089,
+      "sigma0": 1,
+      "outlet_profile_scale": 1.0000041646140578,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055029211446202,
+        0.7055027484644707,
+        0.7055047830341886,
+        0.7055030174479802
+      ],
+      "flux_relative_spread": 2.8838152897747985e-06,
+      "divergence_rms": 0.0661378964393837,
+      "divergence_over_gradient": 0.02747131595094442,
+      "weak_divergence_max": 1.793881786676795e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.0038240470352857003,
+      "psi_excess_over_Q": 0.0036109044465908458,
+      "closed_contours_above_wall": 1,
+      "straight_profile_max_error": null
+    },
+    "R1-h0.0225": {
+      "R": 1.0,
+      "a": 1.5,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.0225,
+      "triangles": 80185,
+      "dofs": 364198,
+      "sigma0": 1,
+      "outlet_profile_scale": 0.99999999654576,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055096684309828,
+        0.7055096665880043,
+        0.7055096385768563,
+        0.7055096667498271
+      ],
+      "flux_relative_spread": 4.2315476199893315e-08,
+      "divergence_rms": 0.05097872467067106,
+      "divergence_over_gradient": 0.0239409950842149,
+      "weak_divergence_max": 5.086951799044513e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.0004580789922793826,
+      "psi_excess_over_Q": 7.079878547866514e-06,
+      "closed_contours_above_wall": 2,
+      "straight_profile_max_error": null
+    },
+    "R1-h0.045": {
+      "R": 1.0,
+      "a": 1.5,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.045,
+      "triangles": 19967,
+      "dofs": 91517,
+      "sigma0": 1,
+      "outlet_profile_scale": 0.9999998457872133,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055092143375434,
+        0.7055094282307108,
+        0.7055095529341193,
+        0.7055092059332557
+      ],
+      "flux_relative_spread": 4.918417821690729e-07,
+      "divergence_rms": 0.06641600048131494,
+      "divergence_over_gradient": 0.031193767165908347,
+      "weak_divergence_max": 2.94076886300045e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.0013683193795843498,
+      "psi_excess_over_Q": 0.0,
+      "closed_contours_above_wall": 0,
+      "straight_profile_max_error": null
+    },
+    "R1-h0.09": {
+      "R": 1.0,
+      "a": 1.5,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.09,
+      "triangles": 5000,
+      "dofs": 23328,
+      "sigma0": 1,
+      "outlet_profile_scale": 1.0000027570528107,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055052926865405,
+        0.7055023680620817,
+        0.7055044164510427,
+        0.7055053394431274
+      ],
+      "flux_relative_spread": 4.2116591120210544e-06,
+      "divergence_rms": 0.10657431930038379,
+      "divergence_over_gradient": 0.050076142914496635,
+      "weak_divergence_max": 1.2888550734210368e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.004921465710494778,
+      "psi_excess_over_Q": 0.0,
+      "closed_contours_above_wall": 0,
+      "straight_profile_max_error": null
+    },
+    "R2-h0.09": {
+      "R": 2.0,
+      "a": 3.0,
+      "D": 0.25,
+      "W": 1,
+      "L": 10,
+      "h": 0.09,
+      "triangles": 8290,
+      "dofs": 38233,
+      "sigma0": 1,
+      "outlet_profile_scale": 0.9999983060272262,
+      "flux_analytic": 0.7055131877334897,
+      "fluxes": [
+        0.7055039696889334,
+        0.7055083337794503,
+        0.7055018253824241,
+        0.7055039603533683
+      ],
+      "flux_relative_spread": 9.22505367633814e-06,
+      "divergence_rms": 0.09815506699048583,
+      "divergence_over_gradient": 0.0636200488477613,
+      "weak_divergence_max": 3.109332588494343e-15,
+      "wall_current_max": 0.0,
+      "streamfunction_current_relative_error": 0.005498020545381499,
+      "psi_excess_over_Q": 0.0,
+      "closed_contours_above_wall": 0,
+      "straight_profile_max_error": null
+    }
+  },
+  "current_nodal_rechecks": {
+    "R0-h0.0225": {
+      "file": "R0-h0.0225.npz",
+      "sha256": "c145a5390b119f4f622288dd0456e9a3929e0478a1678272bea68ef944f2f7eb",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.70512769022895,
+        0.7052144409182564,
+        0.705235955075981,
+        0.7050023610626917
+      ],
+      "nodal_linear_flux_relative_spread": 0.00033109801113684394,
+      "Q": 0.7055131877334897,
+      "R": 0.0,
+      "a": 0.0,
+      "D": 0.25,
+      "h": 0.0225,
+      "straight_profile_nodal_linear_max_error": 0.0011072914149956037
+    },
+    "R0-h0.045": {
+      "file": "R0-h0.045.npz",
+      "sha256": "f0146adba71837a0b04be375d4760d811f5890adc96b42c8e388f34fced0ec2d",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.7038453634496082,
+        0.7043895459231775,
+        0.7044677710212901,
+        0.703207503322976
+      ],
+      "nodal_linear_flux_relative_spread": 0.0017863134527120721,
+      "Q": 0.7055131877334897,
+      "R": 0.0,
+      "a": 0.0,
+      "D": 0.25,
+      "h": 0.045,
+      "straight_profile_nodal_linear_max_error": 0.004581420491740484
+    },
+    "R0-h0.09": {
+      "file": "R0-h0.09.npz",
+      "sha256": "7033f243a3e044e71bfca88df019de9b11a77d0af78183f4433b661afa2d81a3",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.6956526277909867,
+        0.7011476371666465,
+        0.7006738011880611,
+        0.6962295111287782
+      ],
+      "nodal_linear_flux_relative_spread": 0.007788669965635841,
+      "Q": 0.7055131877334897,
+      "R": 0.0,
+      "a": 0.0,
+      "D": 0.25,
+      "h": 0.09,
+      "straight_profile_nodal_linear_max_error": 0.012200249030626581
+    },
+    "R0.4-h0.0225": {
+      "file": "R0.4-h0.0225.npz",
+      "sha256": "00b33f5c53bacc9d0ba12d1f19734385d46b49cf512f82cb93e477fb1dcbf148",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.7049825453834082,
+        0.7052271870883391,
+        0.7052442304393562,
+        0.7050018237661477
+      ],
+      "nodal_linear_flux_relative_spread": 0.0003709144782802955,
+      "Q": 0.7055131877334897,
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "D": 0.25,
+      "h": 0.0225,
+      "psi_excess_over_wall": 0.004120323512611601,
+      "closed_contours": [
+        {
+          "vertices": 163,
+          "closure_error": 0.0,
+          "area": 0.1218161724356121,
+          "ccw_circulation_from_nodal_current": 0.033919451936446056,
+          "rotation": "counterclockwise"
+        }
+      ]
+    },
+    "R0.4-h0.045": {
+      "file": "R0.4-h0.045.npz",
+      "sha256": "cf0ea8d1c15b86a679af00f5202ecfd282ced83d4a5ed0e2a75589e9eb26c659",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.7027417239047944,
+        0.7045227814443615,
+        0.7045082455136484,
+        0.7038589104141508
+      ],
+      "nodal_linear_flux_relative_spread": 0.002524485113154178,
+      "Q": 0.7055131877334897,
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "D": 0.25,
+      "h": 0.045,
+      "psi_excess_over_wall": 0.003941923418455118,
+      "closed_contours": [
+        {
+          "vertices": 81,
+          "closure_error": 0.0,
+          "area": 0.12018701153976864,
+          "ccw_circulation_from_nodal_current": 0.03216387090249363,
+          "rotation": "counterclockwise"
+        }
+      ]
+    },
+    "R0.4-h0.09": {
+      "file": "R0.4-h0.09.npz",
+      "sha256": "7ab14e81a0a735955a168a70c3cd23a2f290981d25916df310b6217f227f64d7",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.6975723915476529,
+        0.7019736816416616,
+        0.7005566184665044,
+        0.6953129096607924
+      ],
+      "nodal_linear_flux_relative_spread": 0.00944103114821627,
+      "Q": 0.7055131877334897,
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "D": 0.25,
+      "h": 0.09,
+      "psi_excess_over_wall": 0.0036109044465908458,
+      "closed_contours": [
+        {
+          "vertices": 41,
+          "closure_error": 0.0,
+          "area": 0.11832145453936765,
+          "ccw_circulation_from_nodal_current": 0.02925712651639368,
+          "rotation": "counterclockwise"
+        }
+      ]
+    },
+    "R1-h0.0225": {
+      "file": "R1-h0.0225.npz",
+      "sha256": "2a3238dd5cb2c28d09395889882e6247cf44560ce8a335f86f3f5cf818606707",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.7050974104383452,
+        0.705243165310244,
+        0.7052555047649305,
+        0.7051273569606202
+      ],
+      "nodal_linear_flux_relative_spread": 0.00022408415510020573,
+      "Q": 0.7055131877334897,
+      "R": 1.0,
+      "a": 1.5,
+      "D": 0.25,
+      "h": 0.0225,
+      "psi_excess_over_wall": 7.079878547866514e-06,
+      "closed_contours": [
+        {
+          "vertices": 6,
+          "closure_error": 0.0,
+          "area": 4.6320061680371616e-05,
+          "ccw_circulation_from_nodal_current": 5.549714033171923e-06,
+          "rotation": "counterclockwise"
+        },
+        {
+          "vertices": 10,
+          "closure_error": 0.0,
+          "area": 0.00012008397015711436,
+          "ccw_circulation_from_nodal_current": 1.602904363561279e-05,
+          "rotation": "counterclockwise"
+        }
+      ]
+    },
+    "R1-h0.045": {
+      "file": "R1-h0.045.npz",
+      "sha256": "c0ee1897a3a26c19081875ea9dbb61eb68ffbd3a9ae6dd2f4edc6cab222a81be",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.7033400094851319,
+        0.7044608530623262,
+        0.7043752408898135,
+        0.7036743280095751
+      ],
+      "nodal_linear_flux_relative_spread": 0.0015886925952371188,
+      "Q": 0.7055131877334897,
+      "R": 1.0,
+      "a": 1.5,
+      "D": 0.25,
+      "h": 0.045,
+      "psi_excess_over_wall": 0.0,
+      "closed_contours": []
+    },
+    "R1-h0.09": {
+      "file": "R1-h0.09.npz",
+      "sha256": "993b4e809433ad55d1004c2388555bf4bef7e70be579309b607831c1a6fd63cc",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.699412866476043,
+        0.7009730750952228,
+        0.7011417372397479,
+        0.6979170469834719
+      ],
+      "nodal_linear_flux_relative_spread": 0.004570701600398956,
+      "Q": 0.7055131877334897,
+      "R": 1.0,
+      "a": 1.5,
+      "D": 0.25,
+      "h": 0.09,
+      "psi_excess_over_wall": 0.0,
+      "closed_contours": []
+    },
+    "R2-h0.09": {
+      "file": "R2-h0.09.npz",
+      "sha256": "71b847f02421a8bb36c1c01afa81f7aebbd881b153407308cba415a5811c5d28",
+      "finite_fields": true,
+      "wall_current_nodal_max": 0.0,
+      "inlet_current_is_left_to_right": true,
+      "nodal_linear_fluxes": [
+        0.6983371428698656,
+        0.7009003145800324,
+        0.7007602358586535,
+        0.6992561958110963
+      ],
+      "nodal_linear_flux_relative_spread": 0.0036330599551245993,
+      "Q": 0.7055131877334897,
+      "R": 2.0,
+      "a": 3.0,
+      "D": 0.25,
+      "h": 0.09,
+      "psi_excess_over_wall": 0.0,
+      "closed_contours": []
+    }
+  },
+  "current_svg_geometry_checks": [
+    {
+      "case": "A",
+      "R": 0.4,
+      "a": 0.6000000000000001,
+      "W": 1,
+      "D": 0.25,
+      "pixels_per_W": 200.0,
+      "contour_levels": [
+        0.11288211003735836,
+        0.29631553884806566,
+        0.49385923141344273,
+        0.6631823964694803,
+        0.7019856217948223,
+        0.7065432686116426,
+        0.7081913980166873
+      ],
+      "segments_per_level": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outside_mesh_segment_midpoints": 0,
+      "arrow_checks": [
+        {
+          "physical_point": [
+            0.09675735651255662,
+            0.25060845523146247
+          ],
+          "screen_tangent_dot_unit_current": 0.9999965921078825,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.09982271631063327,
+            0.4601921473282775
+          ],
+          "screen_tangent_dot_unit_current": 0.9999994636477153,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.09679187085261043,
+            0.675474112082106
+          ],
+          "screen_tangent_dot_unit_current": 0.9999900915938216,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.10219506577558052,
+            0.9309855082094862
+          ],
+          "screen_tangent_dot_unit_current": 0.9999410301631398,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.09914697344672178,
+            1.0897054041080838
+          ],
+          "screen_tangent_dot_unit_current": 0.9996595290968605,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            -0.2039321460973409,
+            1.4424482366071185
+          ],
+          "screen_tangent_dot_unit_current": 0.9999698955351652,
+          "closed_contour": true
+        },
+        {
+          "physical_point": [
+            0.11405393019644067,
+            1.3817644033861867
+          ],
+          "screen_tangent_dot_unit_current": 0.9999222500278433,
+          "closed_contour": true
+        }
+      ]
+    },
+    {
+      "case": "B",
+      "R": 1.0,
+      "a": 1.5,
+      "W": 1,
+      "D": 0.25,
+      "pixels_per_W": 200.0,
+      "contour_levels": [
+        0.11288211003735836,
+        0.29631553884806566,
+        0.49385923141344273,
+        0.6631823964694803,
+        0.7019856217948223
+      ],
+      "segments_per_level": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outside_mesh_segment_midpoints": 0,
+      "arrow_checks": [
+        {
+          "physical_point": [
+            0.1042056491060706,
+            0.2981515386080542
+          ],
+          "screen_tangent_dot_unit_current": 0.9999999648046145,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.10078740910442847,
+            0.5649864952018164
+          ],
+          "screen_tangent_dot_unit_current": 0.9999994148264797,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.0944121452797986,
+            0.880291575864214
+          ],
+          "screen_tangent_dot_unit_current": 0.9999868970895099,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.09490865196325077,
+            1.4588784862748514
+          ],
+          "screen_tangent_dot_unit_current": 0.9999323149334318,
+          "closed_contour": false
+        },
+        {
+          "physical_point": [
+            0.1036306889948981,
+            2.2334345706473977
+          ],
+          "screen_tangent_dot_unit_current": 0.9999932945425943,
+          "closed_contour": false
+        }
+      ]
+    }
+  ],
+  "visual_rendering_review": "Performed separately by the parent rendering workflow; not asserted by this calculation script."
+}

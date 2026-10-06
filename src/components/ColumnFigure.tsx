@@ -4,7 +4,7 @@ const captions = [
   '왼쪽에서는 전자가 원자핵의 인력으로 휘어지며 핵에 운동량을 전달한다. 오른쪽에서는 전자끼리 운동량을 주고받지만 두 전자의 총운동량은 유지된다. 아래 청록색 화살표는 전자계의 운동량, 주황색은 원자핵이 받아가는 운동량이다.',
   '벽 가까이에서는 느리고 중앙에서는 빠른 전자 유체의 평균 흐름을 나타낸 도해다.',
   '채널 폭이 커지면서 개별 궤적이 중요한 탄도 수송, 점성에 의한 운동량 전달이 중요한 흐름, 내부 운동량 완화가 중요한 흐름으로 바뀌는 예다. 오른쪽에서는 중앙의 평균 속도가 거의 고르고 벽 근처에서 느려진다.',
-  '장치 크기와 운동량 전달 길이의 관계가 바뀌면 정상적인 전류 소용돌이가 나타나거나 사라질 수 있다.',
+  '같은 채널 폭과 점성 길이에서 곁방과 입구를 함께 키운 두 정상 전류장이다. 작은 곁방에는 닫힌 순환이 뚜렷하고, 큰 곁방의 주 흐름은 들어갔다 나오는 열린 경로다. 두 형상은 같은 공간 축척으로 그렸다.',
   '비선형 전기 응답은 흐름의 역학뿐 아니라 가열에 의해서도 나타날 수 있으므로, 원인을 분리해야 한다.',
 ];
 const titles = [
@@ -84,6 +84,28 @@ export function ColumnFigure({ number }: { number: number }) {
       </figure>
     );
   }
+  if (number === 4) {
+    return (
+      <figure className="column-figure my-10 border-y border-zinc-300 py-5" aria-labelledby={`${id}-caption`}>
+        <p className="mb-4 text-sm font-semibold text-zinc-800">그림 4. {titles[3]}</p>
+        <img
+          src="/images/columns/electron-fluid/figure-4-cavity-flow.svg"
+          alt="같은 폭의 채널에 연결된 크기가 다른 두 곁방. 작은 곁방에는 반시계 방향의 닫힌 전류 순환이 있고, 큰 곁방에는 입구로 들어갔다 나오는 열린 유선이 있다."
+          width={1600}
+          height={900}
+          className="block h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption id={`${id}-caption`} className="mt-3 text-sm leading-6 text-zinc-500">
+          {captions[3]}
+          <span className="mt-2 block text-xs leading-5">
+            정상·선형 유체 모델의 예시다. 화살표는 관습적인 전류 방향이며 전자의 평균 이동 방향은 반대다. 선의 밀도와 면의 색은 전류 크기나 온도 값을 나타내지 않는다.
+          </span>
+        </figcaption>
+      </figure>
+    );
+  }
   const marker = `url(#${id}-arrow)`;
   const arrow = (x1: number, y1: number, x2: number, y2: number, color = blue) => (
     <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="2.5" markerEnd={marker} />
@@ -100,18 +122,6 @@ export function ColumnFigure({ number }: { number: number }) {
               <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke" />
             </marker>
           </defs>
-          {number === 4 && <>
-            <text x="160" y="28" textAnchor="middle" className="diagram-heading">순환하는 전류가 있는 경우</text>
-            <text x="480" y="28" textAnchor="middle" className="diagram-heading">더 큰 곁방과 입구</text>
-            <path d="M 20 195 H 130 V 152 a 43 43 0 1 1 40 0 V 195 H 300 M 20 240 H 300" stroke="#949fa3" strokeWidth="3" fill="none" />
-            <path d="M 340 195 H 425 V 171 a 75 75 0 1 1 110 0 V 195 H 620 M 340 240 H 620" stroke="#949fa3" strokeWidth="3" fill="none" />
-            {[210, 227].map(y => <g key={y}>{arrow(35, y, 285, y)}{arrow(355, y, 605, y)}</g>)}
-            <path d="M 150 102 A 25 25 0 1 1 149 102" stroke={blue} fill="none" strokeWidth="2.5" />
-            {arrow(126, 123, 126, 115)}
-            <path d="M 355 205 H 425 Q 480 150 535 205 H 605" stroke={blue} strokeWidth="2.5" fill="none" markerEnd={marker} />
-            <text x="480" y="110" textAnchor="middle">닫힌 순환 없음</text>
-            <text x="320" y="277" textAnchor="middle">동일한 Dν · 곁방 반경과 입구 폭을 함께 확대</text>
-          </>}
           {number === 5 && <>
             <rect x="210" y="10" width="220" height="44" rx="4" fill="#eae9e3" />
             <text x="320" y="38" textAnchor="middle" className="diagram-heading">전압·전류 증가</text>
@@ -132,7 +142,7 @@ export function ColumnFigure({ number }: { number: number }) {
         </svg>
       </div>
       <figcaption id={`${id}-caption`} className="mt-3 text-sm leading-6 text-zinc-500">{captions[number - 1]}</figcaption>
-      {[4, 5].includes(number) && <p className="mt-2 text-xs leading-5 text-zinc-500">화살표와 유선은 전류밀도 방향을 나타냅니다. 개별 전자의 궤적이 아니며, 전자의 평균 이동 방향은 반대입니다.</p>}
+      {number === 5 && <p className="mt-2 text-xs leading-5 text-zinc-500">화살표와 유선은 전류밀도 방향을 나타냅니다. 개별 전자의 궤적이 아니며, 전자의 평균 이동 방향은 반대입니다.</p>}
     </figure>
   );
 }
