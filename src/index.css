@@ -1,11 +1,10 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    --font-sans: Helvetica, Arial, sans-serif;
     --outer-bg: rgb(244, 243, 238);
     --inner-bg: #f8f7f2;
     --line-color: #dde7e7;
@@ -38,11 +37,12 @@
     @apply border-border;
   }
   html {
+    font-family: var(--font-sans);
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-family: var(--font-sans);
     background: var(--outer-bg);
     color: rgb(24, 24, 27);
   }

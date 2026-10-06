@@ -25,7 +25,7 @@
 }
 
 .column-figure text {
-  font-family: 'Pretendard', system-ui, sans-serif;
+  font-family: var(--font-sans);
   fill: #52525b;
   font-size: 15px;
 }

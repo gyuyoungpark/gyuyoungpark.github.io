@@ -165,7 +165,7 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="16
 <desc id="desc">Narrow, medium and wide channels compare ballistic paths, a viscous velocity profile and a bulk momentum relaxation profile. Each teal arrow has an electron symbol and represents normalized mean drift velocity, not an individual trajectory. The wide channel retains frequent electron-electron collisions and has a nearly uniform interior velocity with no-slip boundary layers. Channel widths are schematic, not drawn to scale. All three regimes can have linear response.</desc>
 <defs>{''.join(definitions)}</defs>
 <rect width="1600" height="900" fill="{BG}"/>
-<g font-family="Segoe UI, Arial, sans-serif" font-weight="400">{content}</g>
+<g font-family="Helvetica, Arial, sans-serif" font-weight="400">{content}</g>
 </svg>'''
 (ROOT/'figure-3.svg').write_text(svg,encoding='utf-8')
 (ROOT/'validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
