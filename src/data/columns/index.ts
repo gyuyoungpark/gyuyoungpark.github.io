@@ -1,5 +1,7 @@
+export type ColumnLanguage = 'en' | 'ko';
+
 export type ColumnBlock =
-  | { type: 'paragraph' | 'heading' | 'equation'; text: string; references?: string[] }
+  | { type: 'paragraph' | 'heading' | 'equation'; text: string; textEn?: string; references?: string[] }
   | { type: 'figure'; number: number }
   | {
     type: 'paperFigure';
@@ -8,7 +10,9 @@ export type ColumnBlock =
     width: number;
     height: number;
     alt: string;
+    altEn?: string;
     caption: string;
+    captionEn?: string;
     figureLabel: string;
     sourceUrl: string;
     credit: string;
@@ -36,6 +40,7 @@ export interface Column {
   date: string;
   tags: string[];
   description: string;
+  descriptionEn?: string;
   blocks: ColumnBlock[];
   references?: ColumnReference[];
   thumbnail?: string;

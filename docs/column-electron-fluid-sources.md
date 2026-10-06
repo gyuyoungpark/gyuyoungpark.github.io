@@ -4,9 +4,12 @@ Checked 2026-10-06. Bibliographic titles, journals, volume, pages/article number
 and DOI were checked against publisher records and author-hosted originals.
 The bibliography follows first use in the article. Reference marks scroll and
 focus the matching item without changing the website's hash route. Reference
-titles open the published DOI in a new tab. The existing ENG default remains;
-the Korean article contains the new figure blocks, and the common bibliography
-is available in both language views.
+titles open the published DOI in a new tab. ENG remains the default. Both
+language views now contain the full article, localized explanatory and paper
+figure captions, and the common bibliography. The English edition was checked
+against the Korean text and the source claims; it preserves the distinction
+between linear vortices, nonlinear flow, and heating. English Wikipedia links
+match whole words without case sensitivity and link aliases only once.
 
 ## Primary references
 

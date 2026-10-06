@@ -14,11 +14,13 @@
   "blocks": [
     {
       "type": "paragraph",
-      "text": "전하의 흐름을 전류라고 한다. 전자는 대표적인 전하 운반자다. 우리는 전류를 처음 배울 때, 도선을 따라 움직이는 전자를 파이프 속을 흐르는 물에 비유하곤 한다. 전압은 물을 밀어내는 압력 차이에, 저항은 물의 흐름을 방해하는 요소에 대응시킨다. 눈에 보이지 않는 전기를 익숙한 물의 움직임으로 이해하는 것이다."
+      "text": "전하의 흐름을 전류라고 한다. 전자는 대표적인 전하 운반자다. 우리는 전류를 처음 배울 때, 도선을 따라 움직이는 전자를 파이프 속을 흐르는 물에 비유하곤 한다. 전압은 물을 밀어내는 압력 차이에, 저항은 물의 흐름을 방해하는 요소에 대응시킨다. 눈에 보이지 않는 전기를 익숙한 물의 움직임으로 이해하는 것이다.",
+      "textEn": "Electric current is the flow of charge. Electrons are a common charge carrier. When we first learn about current, we often picture electrons moving along a wire as water flowing through a pipe. Voltage plays the role of a pressure difference; resistance represents whatever impedes the flow. The analogy gives an everyday picture of something we cannot see."
     },
     {
       "type": "paragraph",
-      "text": "물이나 공기 같은 유체의 움직임을 다루는 학문이 유체역학이다. 그렇다면 전류를 물의 흐름에 빗댄 설명은 어디까지 유효할까? **전자의 흐름도 단순한 비유를 넘어, 실제로 유체역학으로 설명할 수 있을까?**"
+      "text": "물이나 공기 같은 유체의 움직임을 다루는 학문이 유체역학이다. 그렇다면 전류를 물의 흐름에 빗댄 설명은 어디까지 유효할까? **전자의 흐름도 단순한 비유를 넘어, 실제로 유체역학으로 설명할 수 있을까?**",
+      "textEn": "Fluid mechanics describes the motion of fluids such as water and air. How far can we take the water analogy for electric current? **Can electron flow actually be described by fluid mechanics?**"
     },
     {
       "type": "paragraph",
@@ -26,22 +28,26 @@
       "references": [
         "de-jong-1995",
         "bandurin-2018"
-      ]
+      ],
+      "textEn": "Under certain conditions, it can. What matters is how particles exchange momentum and move collectively, rather than the size or shape of any one particle. When the conditions are right, we can describe an electron system by its density and mean flow velocity instead of following each electron's trajectory. To see when this is possible, we need to look at **collisions**."
     },
     {
       "type": "heading",
-      "text": "충돌은 흐름을 방해하기만 할까?"
+      "text": "충돌은 흐름을 방해하기만 할까?",
+      "textEn": "Do collisions always impede the flow?"
     },
     {
       "type": "paragraph",
-      "text": "전자가 충돌한다고 하면 작은 구슬이 원자핵이나 다른 전자에 부딪혀 튕겨 나가는 장면을 떠올리기 쉽다. 하지만 여기서 충돌은 단단한 표면끼리 맞닿는다는 뜻이 아니다. 전자는 전자기적 상호작용을 통해 운동량과 운동 상태가 달라질 수 있다. 이런 과정을 산란이라고 부른다. 전자끼리의 충돌도 서로의 표면에 부딪히는 일이 아니라, 상호작용을 통해 실제로 운동량을 주고받는 과정이다."
+      "text": "전자가 충돌한다고 하면 작은 구슬이 원자핵이나 다른 전자에 부딪혀 튕겨 나가는 장면을 떠올리기 쉽다. 하지만 여기서 충돌은 단단한 표면끼리 맞닿는다는 뜻이 아니다. 전자는 전자기적 상호작용을 통해 운동량과 운동 상태가 달라질 수 있다. 이런 과정을 산란이라고 부른다. 전자끼리의 충돌도 서로의 표면에 부딪히는 일이 아니라, 상호작용을 통해 실제로 운동량을 주고받는 과정이다.",
+      "textEn": "An electron collision may bring to mind a small marble bouncing off an atomic nucleus or another electron. But a collision here does not require two solid surfaces to touch. Electromagnetic interactions can change an electron's momentum and state of motion. We call such processes scattering. Electron-electron collisions are exchanges of momentum through these interactions."
     },
     {
       "type": "paragraph",
       "text": "그런데 모든 산란이 흐름에 같은 영향을 주지는 않는다. 불순물이나 격자 진동에 의한 산란에서는 전자계의 운동량이 주변 물질로 전달될 수 있다. 반면 운동량을 보존하는 전자-전자 산란에서는 한 전자가 잃은 운동량을 다른 전자가 받아간다. 개별 전자의 움직임은 바뀌지만 전체 운동량은 남는다. 전자 하나의 진행 방향이 바뀌는 것과 전자 집단의 운동량이 사라지는 것은 다른 일이다.",
       "references": [
         "de-jong-1995"
-      ]
+      ],
+      "textEn": "Different scattering processes have different effects on the flow. Scattering from impurities or lattice vibrations can transfer momentum from the electrons to the surrounding material. In momentum-conserving electron-electron scattering, however, the momentum one electron loses is gained by another. Individual electrons change their motion, while the total momentum remains. A change in one electron's direction is different from a loss of momentum by the electron system as a whole."
     },
     {
       "type": "figure",
@@ -53,29 +59,34 @@
       "references": [
         "de-jong-1995",
         "bandurin-2018"
-      ]
+      ],
+      "textEn": "If electrons exchange momentum often enough before losing it to their surroundings, their distribution within a small region can approach local equilibrium. This does not mean that all electrons move at the same speed. It means that their many different motions can be described by a few quantities: density, temperature, and mean flow velocity. Just as we calculate the velocity field of water without tracking every molecule, we can describe electrons through collective variables."
     },
     {
       "type": "paragraph",
       "text": "여기에 도선의 폭이 개입한다. 다른 산란이 드문 깨끗한 채널에서, 폭 \\(W\\)가 전자-전자 산란 사이의 평균 거리 \\(\\ell_{ee}\\)보다 훨씬 작다고 해보자. 전자는 다른 전자와 충분히 충돌하기 전에 옆벽을 만난다. 이때는 개별 궤적과 경계에서의 반사가 중요한 탄도 수송에 가깝다. 반대로 \\(W\\gg\\ell_{ee}\\)라면 채널 내부에서 여러 차례 운동량을 교환할 여유가 생긴다. 주변으로의 운동량 손실까지 충분히 느리다면, 개별 궤적보다 집단적인 흐름을 기술하는 편이 유용해진다.",
       "references": [
         "de-jong-1995"
-      ]
+      ],
+      "textEn": "The width of the wire also matters. Consider a clean channel in which other scattering processes are rare. If its width \\(W\\) is much smaller than \\(\\ell_{ee}\\), the mean distance between electron-electron collisions, electrons reach the side walls before they have enough collisions with one another. Transport is then close to the ballistic regime, where individual trajectories and reflections at the boundary matter. When \\(W\\gg\\ell_{ee}\\), electrons have room to exchange momentum many times inside the channel. If momentum loss to the surroundings is also slow enough, a collective description of the flow becomes useful."
     },
     {
       "type": "heading",
-      "text": "벽은 어디까지 전자를 느리게 할까?"
+      "text": "벽은 어디까지 전자를 느리게 할까?",
+      "textEn": "How far does a wall's influence reach?"
     },
     {
       "type": "paragraph",
-      "text": "그 집단적인 성격은 벽 근처에서 드러난다. 채널의 경계가 흐름 방향의 운동량을 빼앗으면 가장자리의 평균 흐름은 느려진다. 전자들이 서로 충돌하므로 벽의 영향은 벽에 직접 부딪힌 전자에게만 머물지 않는다. 빠른 영역과 느린 영역 사이에서 운동량이 전달되며 속도 차이가 완화된다. 이것이 전단 점성의 역할이다. 점성은 운동량을 공간적으로 재분배하고, 벽은 그 운동량이 전자계 밖으로 빠져나가는 통로가 된다."
+      "text": "그 집단적인 성격은 벽 근처에서 드러난다. 채널의 경계가 흐름 방향의 운동량을 빼앗으면 가장자리의 평균 흐름은 느려진다. 전자들이 서로 충돌하므로 벽의 영향은 벽에 직접 부딪힌 전자에게만 머물지 않는다. 빠른 영역과 느린 영역 사이에서 운동량이 전달되며 속도 차이가 완화된다. 이것이 전단 점성의 역할이다. 점성은 운동량을 공간적으로 재분배하고, 벽은 그 운동량이 전자계 밖으로 빠져나가는 통로가 된다.",
+      "textEn": "The collective nature of the flow becomes clear near a wall. If the channel boundary removes momentum along the flow direction, the mean flow slows near the edges. Because electrons collide with one another, the wall's influence extends beyond those that reach it directly. Momentum passes between faster and slower regions, reducing the difference in their velocities. This is the role of shear viscosity. Viscosity redistributes momentum through space; the wall provides a route for that momentum to leave the electron system."
     },
     {
       "type": "paragraph",
       "text": "벽에서 평균 흐름 속도가 거의 0이고 물질 내부의 운동량 손실이 충분히 약하다면, 가장자리에서는 느리고 가운데에서는 빠른 포물선형 속도 분포가 나타난다. 이를 푸아죄유 흐름이라고 부른다. 파이프 속 물과 닮은 것은 우연이 아니다. 서로 다른 입자로 이루어진 두 계에서 비슷한 운동량 전달과 힘의 균형이 성립하기 때문이다. 그래핀에서는 채널을 가로지르는 홀 전기장 분포를 측정해, 탄도 수송에서 푸아죄유 흐름으로 넘어가는 변화를 실제로 관찰했다.",
       "references": [
         "sulpizio-2019"
-      ]
+      ],
+      "textEn": "If the mean flow velocity is nearly zero at the walls and momentum loss within the material is weak enough, a parabolic velocity profile develops: slow at the edges and fast at the center. This is called Poiseuille flow. Its resemblance to water flowing through a pipe comes from a similar balance of forces and momentum transfer in the two systems. In graphene, measurements of the Hall electric field across a channel have revealed the crossover from ballistic transport to Poiseuille flow."
     },
     {
       "type": "figure",
@@ -83,7 +94,8 @@
     },
     {
       "type": "paragraph",
-      "text": "그렇다면 도선을 계속 넓히면 점성의 특징이 더 뚜렷해질까? 꼭 그렇지는 않다. 운동량이 물질 내부에서 소실되기 전에 점성에 의해 퍼질 수 있는 대표적인 거리는"
+      "text": "그렇다면 도선을 계속 넓히면 점성의 특징이 더 뚜렷해질까? 꼭 그렇지는 않다. 운동량이 물질 내부에서 소실되기 전에 점성에 의해 퍼질 수 있는 대표적인 거리는",
+      "textEn": "Does widening the wire make viscous behavior more pronounced? Not necessarily. A useful length scale is the distance over which viscosity can spread momentum before it is lost to the material:"
     },
     {
       "type": "equation",
@@ -94,7 +106,8 @@
       "text": "로 표현된다. 여기서 \\(\\nu\\)는 동점성계수, \\(\\tau_{\\mathrm{mr}}\\)은 내부 산란에 의한 운동량 완화 시간이다. 채널 폭이 이 거리보다 매우 커지면 벽의 영향은 주로 가장자리 부근에 남는다. 중앙에서는 내부의 운동량 손실이 더 중요해지고, 흐름은 익숙한 확산 지배 수송에 가까워진다.",
       "references": [
         "torre-2015"
-      ]
+      ],
+      "textEn": "Here, \\(\\nu\\) is the kinematic viscosity and \\(\\tau_{\\mathrm{mr}}\\) is the momentum relaxation time due to scattering within the material. When the channel is much wider than this distance, the wall's influence is largely confined to the edges. In the center, momentum loss within the material becomes more important, and transport approaches the familiar diffusive regime."
     },
     {
       "type": "paragraph",
@@ -102,7 +115,8 @@
       "references": [
         "de-jong-1995",
         "torre-2015"
-      ]
+      ],
+      "textEn": "If a clean channel supports a regime dominated by viscosity, increasing its width can take it through ballistic, viscous, and diffusive transport. Not every wire follows this sequence. These changes are crossovers between processes that control the flow, rather than thermodynamic phase transitions such as melting ice. Local equilibrium can persist even when viscous effects become less prominent in a wide channel. Diffusive transport does not necessarily mean that a hydrodynamic description has ceased to apply."
     },
     {
       "type": "figure",
@@ -120,14 +134,17 @@
       "sourceUrl": "https://www.nature.com/articles/s41467-018-07004-4/figures/1",
       "credit": "© The Author(s) 2018. D. A. Bandurin et al., Nature Communications 9, 4533 (2018)",
       "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "altEn": "Original Figure 1 from Bandurin et al. (2018): the bilayer graphene device and measurement geometry, the temperature dependence of vicinity resistance at different electron densities, and a comparison with kinetic theory.",
+      "captionEn": "Measurements of vicinity resistance in bilayer graphene. Vicinity resistance is the voltage near a current injector divided by the injected current. The figure shows the device geometry (a), measurements (b), and kinetic-theory calculations (c); the plotted resistance has been corrected for the ohmic background. The resistance minimum and its subsequent temperature dependence help identify the crossover from quasiballistic to viscous transport. A negative vicinity resistance alone does not establish hydrodynamic flow."
     },
     {
       "type": "paragraph",
       "text": "형상을 바꾸면 차이는 더 극적으로 드러난다. 직선 채널 옆에 둥근 곁방을 붙이면, 주변 흐름에서 전달된 운동량이 그 안에 회전하는 전류를 만들 수 있다. 실제로 상온의 그래핀에서 이런 전류 소용돌이가 관측됐다. 이 실험에서는 곁방과 입구의 크기를 함께 키우자 소용돌이가 사라졌다. 공간이 넓다고 회전이 더 잘 유지되는 것은 아니었다. 장치 크기와 운동량 전달 길이의 비율이 바뀌자 흐름의 모양도 바뀐 것이다.",
       "references": [
         "palm-2024"
-      ]
+      ],
+      "textEn": "Changing the geometry can make the difference more striking. Attach a round side cavity to a straight channel, and momentum transferred from the main flow can set up a circulating current inside it. Such current vortices have been observed in graphene at room temperature. In that experiment, enlarging both the cavity and its entrance made the vortex disappear. As the device dimensions grew relative to the viscous length, the flow pattern changed."
     },
     {
       "type": "paragraph",
@@ -135,7 +152,8 @@
       "references": [
         "torre-2015",
         "palm-2024"
-      ]
+      ],
+      "textEn": "These vortices do not necessarily require a large voltage. A steady vortex can exist in the linear response to a small voltage. With other conditions unchanged, doubling the voltage can simply double the current while preserving its pattern. A proportional relation between current and voltage does not rule out fluid behavior, and a vortex does not imply turbulence. The shape of the flow and its nonlinear response to the drive are separate questions."
     },
     {
       "type": "figure",
@@ -146,7 +164,8 @@
       "text": "집단적인 흐름은 전류의 모양뿐 아니라 좁은 통로를 통과하는 효율에도 영향을 준다. Ga[Al]As의 이차원 전자계에서는 특정 온도 구간에서 점접촉 전도도가 비상호작용 탄도 수송의 기준인 샤빈 한계를 넘는 초탄도 수송이 관측됐다. 여기서 ‘초탄도’는 이 탄도 기준을 넘는 전도도 향상을 가리킨다.",
       "references": [
         "ginzburg-2021"
-      ]
+      ],
+      "textEn": "Collective flow can also affect how efficiently electrons pass through a narrow opening. In a two-dimensional electron system in Ga[Al]As, point-contact conductance has been observed to exceed the Sharvin limit over a certain temperature range. This limit is the reference for noninteracting ballistic transport. The term 'superballistic' refers to conductance above that reference, not to an increase in the speed of individual electrons."
     },
     {
       "type": "paperFigure",
@@ -160,25 +179,30 @@
       "sourceUrl": "https://journals.aps.org/prresearch/article/10.1103/PhysRevResearch.3.023033/deliverable/d1549a74-9ab8-421a-9f2b-c7901370f5bd",
       "credit": "L. V. Ginzburg et al., Physical Review Research 3, 023033 (2021)",
       "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "altEn": "Original Figure 1 from Ginzburg et al. (2021): bulk conductance and mobility in Ga[Al]As decrease with temperature, while point-contact conductance rises over an intermediate temperature range and exceeds the Sharvin reference under some conditions.",
+      "captionEn": "Measurements in a two-dimensional electron system in a Ga[Al]As heterostructure. Bulk conductance and mobility decrease as temperature rises (a, b), while conductance through a narrow contact increases over a certain temperature range (c, d). Some measurements at high electron densities exceed the Sharvin reference lines shown for comparison. The conductance enhancement is consistent with a viscous transport model."
     },
     {
       "type": "heading",
-      "text": "전압은 유체 전환 스위치가 아니다"
+      "text": "전압은 유체 전환 스위치가 아니다",
+      "textEn": "What changes when the voltage rises?"
     },
     {
       "type": "paragraph",
       "text": "그렇다면 전압을 더 높이면 무엇이 달라질까? 이번에는 채널이 좁아졌다 넓어지는 구간을 생각해보자. 전자 유체는 그 구간을 지나며 가속되거나 감속된다. 구동이 강해져 이러한 대류 가속의 효과가 점성이나 운동량 손실에 견줄 만큼 커지면, 전압과 전류가 단순히 비례하던 관계에서 벗어날 수 있다. 이것이 비선형 유체역학으로 이어지는 한 경로다. 중요한 것은 전압 자체가 아니라, 달라진 흐름 속도와 형상이 어떤 힘의 균형을 만드는지다.",
       "references": [
         "hui-2021"
-      ]
+      ],
+      "textEn": "Consider a channel that narrows and then widens. The electron fluid accelerates and decelerates as it passes through this region. As the drive increases, the effects of convective acceleration can become as important as viscosity and momentum relaxation, and current may no longer be proportional to voltage. This is one route to nonlinear hydrodynamics. The flow velocity and device geometry determine the balance of forces."
     },
     {
       "type": "paragraph",
       "text": "더 나아가 흐름의 안정성이 바뀌는 경우도 이론적으로 예측된다. 특정한 경계조건을 가진 그래핀 트랜지스터에서는 전류가 전자 밀도의 파동을 증폭시켜, 일정하게 유지되던 흐름이 지속적인 진동 상태로 바뀔 수 있다. 작은 흔들림이 가라앉는 대신 자라나는 것이다. 이는 앞서 본 수송 영역의 크로스오버와 구별되는 동역학적 불안정성이다. 다만 전압을 높이면 모든 전자 유체에서 이런 변화가 일어나는 것은 아니다.",
       "references": [
         "crabb-2021"
-      ]
+      ],
+      "textEn": "Theory also predicts cases in which the flow becomes unstable. In graphene transistors with particular boundary conditions, a current can amplify waves in the electron density, turning steady flow into sustained oscillations. Small disturbances grow instead of dying away. This is a dynamical instability, distinct from the crossover between transport regimes discussed above. Raising the voltage does not produce this behavior in every electron fluid."
     },
     {
       "type": "paragraph",
@@ -186,7 +210,8 @@
       "references": [
         "de-jong-1995",
         "sulpizio-2019"
-      ]
+      ],
+      "textEn": "There is another complication. A higher voltage can also raise the electron temperature through Joule heating, changing the scattering rates and viscosity. A curved current-voltage characteristic is therefore not, by itself, evidence of nonlinear hydrodynamics. We need to distinguish a growing role for flow acceleration from a change in transport conditions caused by heating. Voltage is not a simple switch that turns electrons into a fluid."
     },
     {
       "type": "figure",
@@ -194,7 +219,8 @@
     },
     {
       "type": "paragraph",
-      "text": "처음의 물 비유로 돌아가보자. 전류가 물처럼 흐른다는 말이 물리적인 설명이 되려면, 단지 두 흐름의 모습이 닮았다는 것만으로는 부족하다. 전자들이 서로 운동량을 교환할 시간이 있는지, 그 운동량이 어디까지 전달되는지, 어디에서 사라지는지를 알아야 한다. 전자 유체의 흥미로움은 전기가 물을 닮았다는 데만 있지 않다. 같은 전자라도 산란, 장치의 크기와 형상, 구동 조건에 따라 흐름을 결정하는 물리가 달라진다는 데 있다. “무슨 물질인가?”라는 질문 옆에는 언제나 하나가 더 필요하다. “이 조건에서는 무엇이 흐름을 결정하는가?”"
+      "text": "처음의 물 비유로 돌아가보자. 전류가 물처럼 흐른다는 말이 물리적인 설명이 되려면, 단지 두 흐름의 모습이 닮았다는 것만으로는 부족하다. 전자들이 서로 운동량을 교환할 시간이 있는지, 그 운동량이 어디까지 전달되는지, 어디에서 사라지는지를 알아야 한다. 전자 유체의 흥미로움은 전기가 물을 닮았다는 데만 있지 않다. 같은 전자라도 산란, 장치의 크기와 형상, 구동 조건에 따라 흐름을 결정하는 물리가 달라진다는 데 있다. “무슨 물질인가?”라는 질문 옆에는 언제나 하나가 더 필요하다. “이 조건에서는 무엇이 흐름을 결정하는가?”",
+      "textEn": "The water analogy becomes a physical description only when we can account for how electrons exchange momentum, how far it travels, and where it is lost. The same material can support different transport regimes as scattering, device size, geometry, and drive change. To understand the current, we need to ask what controls the flow under the conditions of the experiment."
     }
   ],
   "references": [
@@ -286,5 +312,6 @@
       "doi": "10.1103/PhysRevB.104.155440",
       "url": "https://arxiv.org/abs/2106.01296"
     }
-  ]
+  ],
+  "descriptionEn": "How momentum exchange and momentum loss determine when electrons can flow like a fluid."
 }
