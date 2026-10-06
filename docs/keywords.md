@@ -12,7 +12,7 @@ Matching ignores letter case, extra whitespace, and equivalent Unicode width for
 
 Backgrounds are randomly selected from the 90 color swatches sampled from the user-supplied Munsell chart. The palette uses representative RGB values from the chart image, not a conversion of the printed Munsell coordinates. A keyword keeps the same background across all badges and rerenders within one page load; reloading chooses colors again. Text is pure black or white, whichever gives the higher sRGB contrast ratio (at least 4.5:1 for all palette colors). Hover and focus use rings so the selected colors retain their contrast.
 
-Click keywords to toggle multiple topics. Selected topics appear as removable chips below the keyword cloud; Clear restores all posts. Research, VAGUE, and Activities show only posts matching at least one selected topic (OR), without duplicates, and hide sections with no results. Section navigation keeps the selection. Content badges add their topic to the current selection.
+Click keywords to toggle multiple topics. Selected topics appear as removable chips below the keyword cloud; Clear restores all posts. Research, VAGUE, and Activities show only posts matching every selected topic (AND), without duplicates, and hide sections with no results. Section navigation keeps the selection. Content badges add their topic to the current selection.
 
 Keyword URLs use `/#/keywords/<encoded keyword>,<encoded keyword>`, so selections can be bookmarked and browser Back/Forward restores previous selections. Each topic is encoded separately, including any literal comma in its name. An empty selection uses `/#keywords`. Keyword data is rebuilt as part of the normal website build; deploy content updates as usual.
 

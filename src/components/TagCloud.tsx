@@ -48,7 +48,7 @@ export function TagCloud({ selectedKeywords, matchingCount, onToggle, onClear }:
                 aria-label="Clear keyword selection">Clear</button>
             </div>
             <p className="mt-4 text-sm text-zinc-600" role="status">
-              {matchingCount} matching {matchingCount === 1 ? 'item' : 'items'} · Matches any selected keyword
+              {matchingCount} matching {matchingCount === 1 ? 'item' : 'items'}
             </p>
             {matchingCount === 0 && <p className="mt-2 text-sm text-zinc-600">No matching posts. Remove a keyword or clear the selection.</p>}
           </div>

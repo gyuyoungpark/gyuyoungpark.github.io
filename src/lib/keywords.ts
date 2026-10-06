@@ -54,10 +54,13 @@ export function toggleKeyword(selected: readonly string[], label: string): strin
 export function filterByKeywords<T extends { tags: readonly (string | { name: string })[] }>(
   items: readonly T[], selected: readonly string[],
 ): T[] {
-  const ids = new Set(selected.map(normalizeKeyword).filter(Boolean));
-  return items.filter((item) => !ids.size || item.tags.some((tag) =>
-    ids.has(normalizeKeyword(typeof tag === 'string' ? tag : tag.name)),
-  ));
+  const ids = [...new Set(selected.map(normalizeKeyword).filter(Boolean))];
+  return items.filter((item) => {
+    const topics = new Set(item.tags.map((tag) =>
+      normalizeKeyword(typeof tag === 'string' ? tag : tag.name),
+    ));
+    return ids.every((id) => topics.has(id));
+  });
 }
 
 // RGB samples from the centers of the 90 swatches in the supplied Munsell chart.

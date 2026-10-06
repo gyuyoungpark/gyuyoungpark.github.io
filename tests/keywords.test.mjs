@@ -91,14 +91,17 @@ test('toggling permits multiple selection, individual removal, and removal of th
   assert.deepEqual(selected, ['chaos', 'spintronics'], 'input is not mutated');
 });
 
-test('filters match any selected topic across metadata formats without duplicating posts', () => {
+test('filters require every selected topic across metadata formats without duplicating posts', () => {
   const entries = [
     content({ id: 'chaos', tags: ['Chaos', 'Spintronics'] }),
     content({ id: 'spin', tags: [{ name: 'Ｓｐｉｎｔｒｏｎｉｃｓ' }] }),
     content({ id: 'fluid', tags: ['Electron Hydrodynamics'] }),
   ];
   assert.deepEqual(filterByKeywords(entries, ['chaos']).map(({ id }) => id), ['chaos']);
-  assert.deepEqual(filterByKeywords(entries, [' CHAOS ', 'Spintronics']).map(({ id }) => id), ['chaos', 'spin']);
+  assert.deepEqual(filterByKeywords(entries, ['Spintronics']).map(({ id }) => id), ['chaos', 'spin']);
+  assert.deepEqual(filterByKeywords(entries, [' CHAOS ', 'Spintronics']).map(({ id }) => id), ['chaos']);
+  assert.deepEqual(filterByKeywords(entries, ['Chaos', 'Electron Hydrodynamics']), [], 'different posts cannot jointly satisfy AND');
+  assert.deepEqual(filterByKeywords(entries, ['Chaos', 'Unknown']), [], 'one unmatched selected topic excludes the post');
   assert.deepEqual(filterByKeywords(entries, []), entries, 'Clear restores all posts');
   assert.deepEqual(filterByKeywords(entries, ['Unknown']), []);
 });
