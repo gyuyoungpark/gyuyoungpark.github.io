@@ -55,8 +55,8 @@ export function Hero() {
         <div className="space-y-1">
           <p className="text-[15px] font-medium leading-6 text-zinc-700">DEGREE</p>
           <p className="text-[15px] leading-6 text-zinc-700">
-            <span className="block">Ph.D. in Materials Science and Engineering</span>
-            <span className="block">computational physics and material scientist</span>
+            <span className="block">Ph.D. in Materials Science</span>
+            <span className="block">and Engineering</span>
           </p>
         </div>
 
