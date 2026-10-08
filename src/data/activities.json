@@ -18,6 +18,7 @@
       "label": "PoM abstract",
       "sourceUrl": "/documents/activities/pm26-abstract.pdf"
     },
+    "includeThumbnailOnDetail": true,
     "tags": [
       "Moiré Magnetism",
       "Chaos",

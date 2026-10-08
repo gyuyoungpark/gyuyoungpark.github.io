@@ -58,6 +58,11 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
         {caption && <figcaption className="mt-5 text-base leading-8 text-zinc-700">{caption}</figcaption>}
         {sourceUrl && <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 hover:text-black">{imageLabel ?? 'Image'} · Source</a>}
       </figure> : caption && <p className="text-base leading-8 text-zinc-700">{caption}</p>}
+      {isActivity && detailImage && item.includeThumbnailOnDetail && item.image && item.image !== image && <figure className="mt-10">
+        <a href={item.image} target="_blank" rel="noopener noreferrer" aria-label={`View full ${item.imageLabel?.toLowerCase() ?? 'image'}`} className="block">
+          <img src={item.image} alt={item.imageAlt ?? item.title} className="h-auto w-full object-contain" loading="lazy" decoding="async" />
+        </a>
+      </figure>}
       <footer className="trimmed-top-border mt-10 pt-6">
         <KeywordTags tags={item.tags} className="mb-6" />
         <BackLink href={`/#${sectionHash}`}>{section}</BackLink>

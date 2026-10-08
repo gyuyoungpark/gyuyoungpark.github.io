@@ -138,7 +138,7 @@ test('content detail pages render from the actual app', async (t) => {
       assert.ok(homepage.includes('src="/images/activities/pm26-photo.jpg"'), 'PoM thumbnail keeps the supplied photo');
       assert.ok(pom.includes('src="/images/activities/pm26-abstract.png"'), 'PoM detail displays the submitted abstract');
       assert.ok(pom.includes('href="/documents/activities/pm26-abstract.pdf"'), 'original abstract PDF is available');
-      assert.ok(!pom.includes('src="/images/activities/pm26-photo.jpg"'), 'detail page uses the abstract in place of the photo');
+      assert.ok(pom.includes('src="/images/activities/pm26-photo.jpg"'), 'PoM detail shows the supplied photo alongside the abstract');
     });
 
     await t.test('section return routes retain the selected OR filter', () => {

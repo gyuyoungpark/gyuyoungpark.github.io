@@ -57,6 +57,7 @@ export interface Activity {
     label: string;
     sourceUrl: string;
   };
+  includeThumbnailOnDetail?: boolean;
   tags: (string | Tag)[];
 }
 
