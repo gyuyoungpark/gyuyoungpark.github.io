@@ -111,9 +111,8 @@ test('built electron-fluid pilot pages contain complete localized content and di
       const expectedFigures = column.blocks.filter((block) => block.type === 'figure');
       const expectedPaperFigures = column.blocks.filter((block) => block.type === 'paperFigure');
       assert.equal(expectedFigures.length, 5, 'pilot includes all five explanatory figures');
-      assert.equal(expectedPaperFigures.length, 2, 'pilot includes both original paper figures');
       assert.equal(figures.filter((figure) => (figure.attributes.class ?? '').split(/\s+/).includes('column-figure')).length, 5);
-      assert.equal(figures.filter((figure) => (figure.attributes.class ?? '').split(/\s+/).includes('column-paper-figure')).length, 2);
+      assert.equal(figures.filter((figure) => (figure.attributes.class ?? '').split(/\s+/).includes('column-paper-figure')).length, expectedPaperFigures.length);
       assert.equal(figures.length, expectedFigures.length + expectedPaperFigures.length);
       for (const block of expectedFigures) {
         const label = `${route.language === 'en' ? 'Figure' : '그림'} ${block.number}.`;

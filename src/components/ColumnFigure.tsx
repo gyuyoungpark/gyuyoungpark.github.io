@@ -38,12 +38,12 @@ const figures = [
     height: 900,
     ko: {
       title: '도선의 폭에 따라 달라지는 전자의 흐름',
-      caption: '채널 폭을 늘렸을 때 전자의 이동 방식이 바뀌는 예다. 왼쪽에서는 개별 전자의 궤적이 중요한 탄도 수송이 나타난다. 가운데에서는 점성에 따른 운동량 전달이, 오른쪽에서는 채널 내부에서 운동량을 잃는 과정이 흐름을 좌우한다. 오른쪽의 평균 속도는 중앙에서 거의 일정하고 벽 근처에서 느려진다.',
+      caption: '도선의 폭에 따라 흐름을 좌우하는 과정이 달라지는 예다. 좁은 도선에서는 전자 개개의 움직임이 중요하다. 가운데에서는 전자끼리 운동량을 주고받으며 함께 흐르고, 오른쪽에서는 물질 내부로 운동량을 잃는 과정이 더 중요해진다.',
       alt: '폭이 다른 세 채널에서 탄도 수송, 중앙이 빠른 점성 흐름, 내부에서 운동량을 잃는 과정이 중요한 흐름을 비교한다. 오른쪽은 중앙의 속도가 거의 일정하다. 아래 화살표는 채널이 넓어지는 방향을 나타낸다.',
     },
     en: {
       title: 'Transport regimes as the channel widens',
-      caption: 'This example shows a change from ballistic transport, where individual trajectories matter, to viscous flow, where momentum transfer across the flow matters, and then to flow dominated by momentum relaxation in the bulk. On the right, the mean speed is nearly uniform in the center and falls near the walls.',
+      caption: 'The processes that shape the flow change as the wire widens. In a narrow wire, individual electron motion matters. In the middle, electrons exchange momentum and flow together. In the wider wire on the right, momentum loss to the surrounding material becomes more important.',
       alt: 'Three channels of different widths show ballistic trajectories, viscous flow that is fastest in the center, and flow dominated by bulk momentum relaxation with a nearly uniform center speed. The arrow below indicates increasing channel width.',
     },
   },
@@ -53,12 +53,12 @@ const figures = [
     height: 900,
     ko: {
       title: '옆 공간의 크기에 따라 달라지는 전류 소용돌이',
-      caption: '채널 폭과 점성 길이는 같게 두고, 옆 공간과 입구의 크기를 함께 늘렸을 때의 전류 흐름을 비교했다. 두 흐름 모두 시간에 따라 변하지 않는 상태다. 작은 공간에서는 전류가 뚜렷한 소용돌이를 이루지만, 큰 공간에서는 주로 입구로 들어갔다가 다시 나오는 경로를 따른다. 두 구조는 같은 축척으로 그렸다.',
+      caption: '같은 조건에서 옆 공간과 입구의 크기만 바꿨을 때의 전류 흐름이다. 작은 공간에서는 소용돌이가 뚜렷하지만, 큰 공간에서는 전류가 주로 들어갔다가 다시 나온다.',
       alt: '같은 폭의 채널 옆에 연결된 크기가 다른 두 공간. 작은 공간에서는 전류가 반시계 방향으로 순환한다. 큰 공간에서는 주된 전류 흐름이 입구로 들어갔다가 다시 나오는 경로를 따른다.',
     },
     en: {
       title: 'Current vortices as a side cavity grows',
-      caption: 'Two steady current fields with the same channel width and viscous length. Both the side cavity and its opening are larger on the right. The smaller cavity has a clear closed circulation; the main flow in the larger cavity follows open paths into and out of the cavity. Both geometries use the same spatial scale.',
+      caption: 'Current flow with different sizes of the side cavity and its opening, under otherwise identical conditions. The smaller cavity has a clear vortex; in the larger one, current mainly enters and leaves through the opening.',
       alt: 'Two side cavities of different sizes connected to channels of the same width. The smaller cavity contains a closed, counterclockwise current circulation. The larger cavity has open streamlines that enter and leave through its opening.',
     },
   },

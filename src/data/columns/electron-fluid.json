@@ -64,11 +64,11 @@
     },
     {
       "type": "paragraph",
-      "text": "도선의 폭도 중요하다. 다른 산란이 드문 깨끗한 채널에서, 폭 \\(W\\)가 전자-전자 산란 사이의 평균 거리 \\(\\ell_{ee}\\)보다 훨씬 작다고 해보자. 전자는 다른 전자와 충분히 충돌하기 전에 옆벽을 만난다. 이때는 개별 궤적과 경계에서의 반사가 중요한 탄도 수송에 가깝다. 반대로 \\(W\\gg\\ell_{ee}\\)라면 채널 내부에서 여러 차례 운동량을 교환할 여유가 생긴다. 주변으로의 운동량 손실까지 충분히 느리다면, 개별 궤적보다 집단적인 흐름을 기술하는 편이 유용해진다.",
+      "text": "도선의 폭도 중요하다. 깨끗한 도선이 너무 좁으면 전자는 다른 전자들과 충분히 충돌하기 전에 옆벽에 닿는다. 이때는 전자 하나하나의 움직임과 벽에서의 반사가 흐름을 좌우한다. 도선이 넓어지면 전자끼리 여러 차례 운동량을 주고받을 공간이 생긴다. 주변으로 운동량을 잃는 속도까지 충분히 느리다면, 개별 전자보다 집단적인 흐름을 생각하는 편이 더 유용해진다.",
       "references": [
         "de-jong-1995"
       ],
-      "textEn": "The width of the wire also matters. Consider a clean channel in which other scattering processes are rare. If its width \\(W\\) is much smaller than \\(\\ell_{ee}\\), the mean distance between electron-electron collisions, electrons reach the side walls before they have enough collisions with one another. Transport is then close to the ballistic regime, where individual trajectories and reflections at the boundary matter. When \\(W\\gg\\ell_{ee}\\), electrons have room to exchange momentum many times inside the channel. If momentum loss to the surroundings is also slow enough, a collective description of the flow becomes useful."
+      "textEn": "The width of the wire also matters. In a clean, narrow wire, electrons may reach the side walls before enough collisions with one another have taken place. Individual motion and reflections at the walls then shape the flow. A wider wire gives electrons room to exchange momentum many times. If momentum loss to the surroundings is also slow enough, it becomes useful to describe how they flow together."
     },
     {
       "type": "heading",
@@ -94,20 +94,11 @@
     },
     {
       "type": "paragraph",
-      "text": "그렇다면 도선을 계속 넓히면 점성의 특징이 더 뚜렷해질까? 꼭 그렇지는 않다. 운동량이 물질 내부에서 소실되기 전에 점성에 의해 퍼질 수 있는 대표적인 거리는",
-      "textEn": "Does widening the wire make viscous behavior more pronounced? Not necessarily. A useful length scale is the distance over which viscosity can spread momentum before it is lost to the material:"
-    },
-    {
-      "type": "equation",
-      "text": "D_\\nu=\\sqrt{\\nu\\tau_{\\mathrm{mr}}}"
-    },
-    {
-      "type": "paragraph",
-      "text": "로 표현된다. 여기서 \\(\\nu\\)는 동점성계수, \\(\\tau_{\\mathrm{mr}}\\)은 내부 산란에 의한 운동량 완화 시간이다. 채널 폭이 이 거리보다 매우 커지면 벽의 영향은 주로 가장자리 부근에 남는다. 중앙에서는 내부의 운동량 손실이 더 중요해지고, 흐름은 익숙한 확산 지배 수송에 가까워진다.",
+      "text": "도선을 넓힌다고 벽의 영향이 끝없이 퍼지는 것은 아니다. 전자들이 운동량을 주고받는 동안, 그 일부는 주변 물질로 빠져나간다. 그래서 충분히 넓은 도선에서는 벽 가까이에서만 흐름이 느려지고, 중앙의 흐름은 벽보다 물질 내부의 산란에 더 크게 좌우될 수 있다.",
       "references": [
         "torre-2015"
       ],
-      "textEn": "Here, \\(\\nu\\) is the kinematic viscosity and \\(\\tau_{\\mathrm{mr}}\\) is the momentum relaxation time due to scattering within the material. When the channel is much wider than this distance, the wall's influence is largely confined to the edges. In the center, momentum loss within the material becomes more important, and transport approaches the familiar diffusive regime."
+      "textEn": "A wider wire does not let the wall's influence spread indefinitely. While electrons pass momentum to one another, some is lost to the surrounding material. In a sufficiently wide wire, the wall mainly slows the flow near the edges. The flow in the center can become more strongly affected by scattering within the material."
     },
     {
       "type": "paragraph",
@@ -121,22 +112,6 @@
     {
       "type": "figure",
       "number": 3
-    },
-    {
-      "type": "paperFigure",
-      "referenceId": "bandurin-2018",
-      "image": "/images/columns/electron-fluid/papers/bandurin-2018-figure-1.jpg",
-      "width": 673,
-      "height": 744,
-      "alt": "Bandurin 등(2018)의 원본 그림 1. 이중층 그래핀 소자와 측정 배치를 보여준다. 전자 밀도를 달리하며 측정한 근접 저항의 온도 변화를 운동론 계산 결과와 비교한다.",
-      "caption": "이중층 그래핀의 근접 저항을 측정한 실험이다. 근접 저항은 전류 주입구 가까이의 전압을 주입 전류로 나눈 값이다. 소자 구조(a), 측정 결과(b), 운동론 계산 결과(c)를 보여주며, 그림의 저항은 옴성 배경을 보정한 값이다. 저항이 최솟값을 보이는 지점과 온도가 더 오를 때의 변화는 준탄도 수송에서 점성 수송으로 넘어가는 단서다. 음의 저항만으로 유체 흐름을 판정할 수는 없다.",
-      "figureLabel": "Figure 1",
-      "sourceUrl": "https://www.nature.com/articles/s41467-018-07004-4/figures/1",
-      "credit": "© The Author(s) 2018. D. A. Bandurin et al., Nature Communications 9, 4533 (2018)",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "altEn": "Original Figure 1 from Bandurin et al. (2018): the bilayer graphene device and measurement geometry, the temperature dependence of vicinity resistance at different electron densities, and a comparison with kinetic theory.",
-      "captionEn": "Measurements of vicinity resistance in bilayer graphene. Vicinity resistance is the voltage near a current injector divided by the injected current. The figure shows the device geometry (a), measurements (b), and kinetic-theory calculations (c); the plotted resistance has been corrected for the ohmic background. The resistance minimum and its subsequent temperature dependence help identify the crossover from quasiballistic to viscous transport. A negative vicinity resistance alone does not establish hydrodynamic flow."
     },
     {
       "type": "paragraph",
@@ -161,27 +136,11 @@
     },
     {
       "type": "paragraph",
-      "text": "집단적인 흐름은 전류의 모양뿐 아니라 좁은 통로를 통과하는 효율에도 영향을 준다. Ga[Al]As의 이차원 전자계에서는 특정 온도 구간에서 점접촉 전도도가 비상호작용 탄도 수송의 기준인 샤빈 한계를 넘는 초탄도 수송이 관측됐다. 여기서 ‘초탄도’는 이 탄도 기준을 넘는 전도도 향상을 가리킨다.",
+      "text": "좁은 통로에서는 전자끼리의 충돌이 오히려 전류를 늘릴 수도 있다. 실제 반도체 실험에서는 전자들이 서로 영향을 주지 않고 자유롭게 지나간다고 가정했을 때의 기준보다 전류가 더 잘 통하는 조건이 관측됐다. 집단적인 움직임이 좁은 통로를 통과하는 방식에도 영향을 주는 것이다.",
       "references": [
         "ginzburg-2021"
       ],
-      "textEn": "Collective flow can also affect how efficiently electrons pass through a narrow opening. In a two-dimensional electron system in Ga[Al]As, point-contact conductance has been observed to exceed the Sharvin limit over a certain temperature range. This limit is the reference for noninteracting ballistic transport. The term 'superballistic' refers to conductance above that reference, not to an increase in the speed of individual electrons."
-    },
-    {
-      "type": "paperFigure",
-      "referenceId": "ginzburg-2021",
-      "image": "/images/columns/electron-fluid/papers/ginzburg-2021-figure-1.png",
-      "width": 800,
-      "height": 621,
-      "alt": "Ginzburg 등(2021)의 원본 그림 1. Ga[Al]As의 벌크 전도도와 이동도는 온도에 따라 감소하지만, 점접촉 전도도는 중간 온도 구간에서 증가하고 일부 조건에서 샤빈 한계를 나타내는 기준선을 넘는다.",
-      "caption": "Ga[Al]As 이종접합의 이차원 전자계에서 측정한 결과다. 벌크 전도도와 이동도는 온도가 오를수록 감소하지만(a,b), 점접촉의 전도도는 일정 온도 구간에서 증가한다(c,d). 높은 전자 밀도의 일부 측정값은 비교를 위해 표시한 샤빈 기준선을 넘어, 점성 수송 모델과 부합하는 전도도 향상을 보여준다.",
-      "figureLabel": "Figure 1",
-      "sourceUrl": "https://journals.aps.org/prresearch/article/10.1103/PhysRevResearch.3.023033/deliverable/d1549a74-9ab8-421a-9f2b-c7901370f5bd",
-      "credit": "L. V. Ginzburg et al., Physical Review Research 3, 023033 (2021)",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "altEn": "Original Figure 1 from Ginzburg et al. (2021): bulk conductance and mobility in Ga[Al]As decrease with temperature, while point-contact conductance rises over an intermediate temperature range and exceeds the Sharvin reference under some conditions.",
-      "captionEn": "Measurements in a two-dimensional electron system in a Ga[Al]As heterostructure. Bulk conductance and mobility decrease as temperature rises (a, b), while conductance through a narrow contact increases over a certain temperature range (c, d). Some measurements at high electron densities exceed the Sharvin reference lines shown for comparison. The conductance enhancement is consistent with a viscous transport model."
+      "textEn": "Collisions can sometimes help electrons pass through a narrow opening. In a semiconductor experiment, conductance exceeded the reference expected for electrons passing freely without interacting with one another. Their collective motion can change how efficiently they pass through the opening."
     },
     {
       "type": "heading",
