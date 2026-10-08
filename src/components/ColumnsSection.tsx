@@ -17,13 +17,13 @@ export function ColumnsSection({ columns = allColumns }: { columns?: Column[] })
           const footerTags = column.tags.filter((tag) => !headerTagIds.has(normalizeKeyword(tag)));
           return (
             <article key={column.id} className="trimmed-borders bg-white p-5">
-              <time dateTime={column.date} className="text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
-              <div className="mt-3 flex items-start gap-3">
-                <a href={contentHref('columns', column.id)} className="min-w-0 flex-1 after:absolute after:inset-0 after:z-[1] after:content-['']" aria-label={column.titleEn}>
-                  <h3 className="text-xl font-semibold leading-8 text-zinc-900">{column.titleEn}</h3>
-                </a>
+              <div className="flex min-h-8 items-center justify-between gap-3">
+                <time dateTime={column.date} className="text-xs tabular-nums tracking-[0.08em] text-zinc-500">{column.date.replace(/-/g, '.')}</time>
                 <KeywordTags tags={headerTags} className="shrink-0 justify-end" />
               </div>
+              <a href={contentHref('columns', column.id)} className="mt-3 block after:absolute after:inset-0 after:z-[1] after:content-['']" aria-label={column.titleEn}>
+                <h3 className="text-xl font-semibold leading-8 text-zinc-900">{column.titleEn}</h3>
+              </a>
               {column.thumbnail && <img src={column.thumbnail} alt={column.thumbnailAlt ?? ''} width="640" height="360" className="mt-5 w-full" />}
               <KeywordTags tags={footerTags} className="mt-4" />
             </article>
