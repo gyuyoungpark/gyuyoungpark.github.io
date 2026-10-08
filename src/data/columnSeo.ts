@@ -2,12 +2,12 @@ import electronFluid from './columns/electron-fluid.json';
 
 export const SITE_ORIGIN = 'https://gyuyoungpark.github.io';
 
-export type ColumnSeoId = 'electron-fluid';
+export type ColumnSeoId = 'electron-fluid' | 'molecular-handedness';
 export type ColumnSeoLanguage = 'en' | 'ko';
 
 export interface ColumnSeoPage {
   readonly language: ColumnSeoLanguage;
-  readonly path: '/columns/electron-fluid/' | '/columns/electron-fluid/ko/';
+  readonly path: `/columns/${ColumnSeoId}/` | `/columns/${ColumnSeoId}/ko/`;
   readonly title: string;
   readonly description: string;
   readonly ogLocale: 'en_US' | 'ko_KR';
@@ -40,4 +40,30 @@ export const columnSeo = {
       },
     },
   },
+  'molecular-handedness': {
+    defaultLanguage: 'en',
+    pages: {
+      en: {
+        language: 'en',
+        path: '/columns/molecular-handedness/',
+        title: 'Chirality: Why does life use only one hand? | Gyuyoung Park',
+        description:
+          'An accessible introduction to molecular chirality and the Soai reaction: how a small initial imbalance between mirror-image molecules can grow through autocatalysis.',
+        ogLocale: 'en_US',
+      },
+      ko: {
+        language: 'ko',
+        path: '/columns/molecular-handedness/ko/',
+        title: '카이랄성과 자기촉매: 생명은 왜 한쪽 손만 쓸까? | Gyuyoung Park',
+        description:
+          '분자의 카이랄성과 소아이 반응을 손의 비유로 살펴봅니다. 거울상 분자 사이의 작은 불균형이 자기촉매를 통해 커지는 과정을 쉽게 설명합니다.',
+        ogLocale: 'ko_KR',
+      },
+    },
+  },
 } as const satisfies Readonly<Record<ColumnSeoId, ColumnSeoEntry>>;
+
+export function getColumnSeo(id: string): ColumnSeoEntry | undefined {
+  return Object.prototype.hasOwnProperty.call(columnSeo, id)
+    ? columnSeo[id as ColumnSeoId] : undefined;
+}

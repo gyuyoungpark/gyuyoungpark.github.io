@@ -1,6 +1,6 @@
 import type { Column } from '../data/columns';
 import {
-  columnSeo,
+  getColumnSeo,
   SITE_ORIGIN,
   type ColumnSeoLanguage,
 } from '../data/columnSeo';
@@ -46,9 +46,8 @@ export function columnSeoMetadata(
   column: Column,
   language: ColumnSeoLanguage,
 ): ColumnSeoMetadata | undefined {
-  if (column.id !== 'electron-fluid') return undefined;
-
-  const config = columnSeo[column.id];
+  const config = getColumnSeo(column.id);
+  if (!config) return undefined;
   const page = config.pages[language];
   const alternateLanguage = language === 'en' ? 'ko' : 'en';
   const canonical = new URL(page.path, SITE_ORIGIN).href;

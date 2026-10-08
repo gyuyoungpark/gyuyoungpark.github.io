@@ -9,8 +9,6 @@ import { createServer } from 'vite';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = resolve(root, 'dist');
 const template = await readFile(resolve(dist, 'index.html'), 'utf8');
-const pilotId = 'electron-fluid';
-const marker = `data-column-seo="${pilotId}"`;
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => ({
@@ -22,7 +20,7 @@ function escapeHtml(value) {
   })[character]);
 }
 
-function seoHead(metadata) {
+function seoHead(metadata, marker) {
   const meta = metadata.meta.map((tag) => {
     const key = tag.name
       ? `name="${escapeHtml(tag.name)}"`
@@ -40,7 +38,8 @@ function seoHead(metadata) {
   return [...meta, ...links, `<script ${marker} type="application/ld+json">${jsonLd}</script>`].join('\n    ');
 }
 
-function pageHtml(markup, metadata) {
+function pageHtml(markup, metadata, columnId) {
+  const marker = `data-column-seo="${escapeHtml(columnId)}"`;
   const titlePattern = /<title\b[^>]*>[\s\S]*?<\/title>/i;
   const languagePattern = /(<html\b[^>]*\blang=)["'][^"']*["']/i;
   const rootPattern = /<div\s+id=["']root["']\s*>\s*<\/div>/i;
@@ -52,7 +51,7 @@ function pageHtml(markup, metadata) {
     .replace(titlePattern, () => `<title ${marker}>${escapeHtml(metadata.title)}</title>`)
     .replace(languagePattern, (_match, prefix) => `${prefix}"${escapeHtml(metadata.htmlLanguage)}"`)
     .replace(rootPattern, () => `<div id="root">${markup}</div>`)
-    .replace(/<\/head>/i, () => `    ${seoHead(metadata)}\n  </head>`);
+    .replace(/<\/head>/i, () => `    ${seoHead(metadata, marker)}\n  </head>`);
 }
 
 function outputPath(pathname) {
@@ -83,24 +82,24 @@ try {
   ]);
   const { default: App } = appModule;
   const { columnSeo, SITE_ORIGIN } = configModule;
-  const column = columnsModule.getColumnById(pilotId);
-  const config = columnSeo[pilotId];
-  if (!column || !config) throw new Error(`Missing SEO pilot column: ${pilotId}`);
-
   const canonicalUrls = [new URL('/', SITE_ORIGIN).href];
-  for (const page of Object.values(config.pages)) {
-    const metadata = metadataModule.columnSeoMetadata(column, page.language);
-    if (!metadata || metadata.canonical !== new URL(page.path, SITE_ORIGIN).href) {
-      throw new Error(`Missing or inconsistent SEO metadata for ${page.path}`);
+  for (const [columnId, config] of Object.entries(columnSeo)) {
+    const column = columnsModule.getColumnById(columnId);
+    if (!column) throw new Error(`Missing configured SEO column: ${columnId}`);
+    for (const page of Object.values(config.pages)) {
+      const metadata = metadataModule.columnSeoMetadata(column, page.language);
+      if (!metadata || metadata.canonical !== new URL(page.path, SITE_ORIGIN).href) {
+        throw new Error(`Missing or inconsistent SEO metadata for ${page.path}`);
+      }
+      const markup = renderToString(React.createElement(App, {
+        initialLocation: { pathname: page.path, hash: '' },
+      }));
+      const destination = outputPath(page.path);
+      await mkdir(resolve(destination, '..'), { recursive: true });
+      await writeFile(destination, pageHtml(markup, metadata, columnId), 'utf8');
+      canonicalUrls.push(metadata.canonical);
+      console.log(`Prerendered ${page.path} (${page.language})`);
     }
-    const markup = renderToString(React.createElement(App, {
-      initialLocation: { pathname: page.path, hash: '' },
-    }));
-    const destination = outputPath(page.path);
-    await mkdir(resolve(destination, '..'), { recursive: true });
-    await writeFile(destination, pageHtml(markup, metadata), 'utf8');
-    canonicalUrls.push(metadata.canonical);
-    console.log(`Prerendered ${page.path} (${page.language})`);
   }
 
   const urls = [...new Set(canonicalUrls)];

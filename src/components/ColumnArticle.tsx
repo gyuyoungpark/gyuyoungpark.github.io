@@ -10,7 +10,7 @@ import { KeywordTags } from './KeywordTags';
 import { BackLink } from './BackLink';
 import { formatDetailDate } from '@/lib/detailDate';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
-import { columnSeo } from '@/data/columnSeo';
+import { getColumnSeo } from '@/data/columnSeo';
 import { applyColumnSeo } from '@/lib/columnSeo';
 
 function ArticleText({ tokens, language }: { tokens: ColumnTextToken[]; language: ColumnLanguage }) {
@@ -31,7 +31,7 @@ function ArticleText({ tokens, language }: { tokens: ColumnTextToken[]; language
 export function ColumnArticle({ column, initialLanguage = 'en' }: { column: Column; initialLanguage?: ColumnLanguage }) {
   const articleTitles = { en: column.titleEn, ko: column.title };
   const [language, setLanguage] = useState<ColumnLanguage>(initialLanguage);
-  const seo = column.id === 'electron-fluid' ? columnSeo['electron-fluid'] : undefined;
+  const seo = getColumnSeo(column.id);
   const blocks = column.blocks.map((block) =>
     language === 'en' && (block.type === 'paragraph' || block.type === 'heading')
       ? { ...block, text: block.textEn ?? block.text } : block,

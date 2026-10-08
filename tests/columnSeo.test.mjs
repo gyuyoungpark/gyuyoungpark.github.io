@@ -7,7 +7,6 @@ import { createServer } from 'vite';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const dist = path.join(root, 'dist');
-const column = JSON.parse(await readFile(path.join(root, 'src/data/columns/electron-fluid.json'), 'utf8'));
 const configServer = await createServer({ root, configFile: false,
   optimizeDeps: { noDiscovery: true, include: [] },
   server: { middlewareMode: true, hmr: false, watch: null }, appType: 'custom' });
@@ -18,9 +17,14 @@ try {
   await configServer.close();
 }
 const origin = seo.SITE_ORIGIN;
-const routes = Object.values(seo.columnSeo[column.id].pages).map((page) => ({
-  ...page, pathname: page.path, articleTitle: page.language === 'en' ? column.titleEn : column.title,
+const configuredColumns = await Promise.all(Object.entries(seo.columnSeo).map(async ([id, config]) => {
+  const column = JSON.parse(await readFile(path.join(root, `src/data/columns/${id}.json`), 'utf8'));
+  const routes = Object.values(config.pages).map((page) => ({
+    ...page, pathname: page.path, articleTitle: page.language === 'en' ? column.titleEn : column.title,
+  }));
+  return { column, routes };
 }));
+const allRoutes = configuredColumns.flatMap(({ routes }) => routes);
 
 function decodeEntities(value) {
   const named = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ' };
@@ -70,7 +74,8 @@ async function requireLocalAsset(url, pathname) {
   assert.ok((await stat(asset)).isFile(), `built local asset exists: ${url}`);
 }
 
-test('built electron-fluid pilot pages contain complete localized content and discovery metadata', async (t) => {
+for (const { column, routes } of configuredColumns) {
+test(`built ${column.id} pages contain complete localized content and discovery metadata`, async (t) => {
   const htmlByLanguage = new Map();
   for (const route of routes) {
     await t.test(`${route.language}: article is present before JavaScript runs`, async () => {
@@ -110,8 +115,8 @@ test('built electron-fluid pilot pages contain complete localized content and di
       const figures = elements(article.inner, 'figure');
       const expectedFigures = column.blocks.filter((block) => block.type === 'figure');
       const expectedPaperFigures = column.blocks.filter((block) => block.type === 'paperFigure');
-      assert.equal(expectedFigures.length, 5, 'pilot includes all five explanatory figures');
-      assert.equal(figures.filter((figure) => (figure.attributes.class ?? '').split(/\s+/).includes('column-figure')).length, 5);
+      if (column.id === 'electron-fluid') assert.equal(expectedFigures.length, 5, 'electron-fluid retains all five explanatory figures');
+      assert.equal(figures.filter((figure) => (figure.attributes.class ?? '').split(/\s+/).includes('column-figure')).length, expectedFigures.length);
       assert.equal(figures.filter((figure) => (figure.attributes.class ?? '').split(/\s+/).includes('column-paper-figure')).length, expectedPaperFigures.length);
       assert.equal(figures.length, expectedFigures.length + expectedPaperFigures.length);
       for (const block of expectedFigures) {
@@ -139,12 +144,13 @@ test('built electron-fluid pilot pages contain complete localized content and di
         assert.ok(textContent(figure.inner).includes(caption), 'complete localized paper-figure caption');
         assert.ok(tags(figure.inner, 'a').some((anchor) => anchor.attributes.href === block.sourceUrl), 'paper figure keeps its primary source');
       }
-      assert.equal(column.references.length, 8, 'pilot retains all eight references');
+      if (column.id === 'electron-fluid') assert.equal(column.references.length, 8, 'electron-fluid retains all eight references');
       for (const reference of column.references) {
         const listItem = elements(article.inner, 'li').find((item) => item.attributes.id === `column-${column.id}-reference-${reference.id}`);
         assert.ok(listItem, `reference entry: ${reference.id}`);
         assert.ok(textContent(listItem.inner).includes(reference.title), 'reference title is in initial HTML');
-        assert.ok(tags(listItem.inner, 'a').some((anchor) => anchor.attributes.href === `https://doi.org/${reference.doi}`), 'reference DOI is preserved');
+        const referenceUrl = reference.doi ? `https://doi.org/${reference.doi}` : reference.url;
+        assert.ok(tags(listItem.inner, 'a').some((anchor) => anchor.attributes.href === referenceUrl), 'reference DOI or primary source URL is preserved');
       }
       for (const image of tags(html, 'img')) await requireLocalAsset(image.attributes.src, route.pathname);
       for (const script of tags(html, 'script')) if (script.attributes.src) await requireLocalAsset(script.attributes.src, route.pathname);
@@ -183,17 +189,26 @@ test('built electron-fluid pilot pages contain complete localized content and di
       assert.equal(article.mainEntityOfPage?.['@id'] ?? article.mainEntityOfPage, canonical);
       assert.equal(article.author?.name, 'Gyuyoung Park');
       assert.equal(new URL(Array.isArray(article.image) ? article.image[0] : article.image).origin, origin);
+      for (const managed of [...metas, ...links, ...tags(head, 'script')].filter((tag) => tag.attributes['data-column-seo'])) {
+        assert.equal(managed.attributes['data-column-seo'], column.id, 'managed SEO nodes belong to this article');
+      }
       const languageAnchors = tags(html, 'a');
       for (const alternate of routes) assert.ok(languageAnchors.some((anchor) => anchor.attributes.href === alternate.pathname), 'both language versions have real navigable links');
     });
   }
 
-  await t.test('only the electron-fluid pilot is prerendered and listed for discovery', async () => {
+});
+}
+
+test('only the configured columns are prerendered and listed for discovery', async () => {
     const index = await readFile(path.join(dist, 'index.html'), 'utf8');
     assert.equal(elements(index, 'article').length, 0, 'homepage remains the existing app entry');
-    assert.ok(!index.includes(proseSegments(column.blocks[0].textEn)[0]), 'homepage does not duplicate the full pilot article');
+    for (const { column } of configuredColumns) {
+      const opening = column.blocks.find((block) => block.type === 'paragraph');
+      assert.ok(!index.includes(proseSegments(opening.textEn)[0]), 'homepage does not duplicate the full article');
+    }
     assert.ok(!index.includes('"@type":"Article"'), 'homepage does not publish the pilot structured data');
-    const pilotHtml = new Set(routes.map((route) => `${route.pathname.slice(1)}index.html`));
+    const pilotHtml = new Set(allRoutes.map((route) => `${route.pathname.slice(1)}index.html`));
     for (const file of await readdir(dist, { recursive: true })) {
       const normalized = file.replaceAll('\\', '/');
       if (!normalized.endsWith('.html') || pilotHtml.has(normalized) || normalized === 'index.html') continue;
@@ -203,12 +218,11 @@ test('built electron-fluid pilot pages contain complete localized content and di
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
     const locations = elements(sitemap, 'loc').map((element) => textContent(element.inner));
     assert.ok(!locations.some((url) => url.includes('#')), 'sitemap uses canonical real paths');
-    const expected = routes.map((route) => `${origin}${route.pathname}`);
+    const expected = allRoutes.map((route) => `${origin}${route.pathname}`);
     assert.equal(locations.filter((url) => url === `${origin}/`).length, 1, 'homepage remains in the sitemap');
     for (const canonical of expected) assert.equal(locations.filter((url) => url === canonical).length, 1, 'each localized canonical appears once');
     assert.ok(locations.every((url) => url === `${origin}/` || expected.includes(url)), 'sitemap does not expand the pilot to other records');
     const robots = await readFile(path.join(dist, 'robots.txt'), 'utf8');
     assert.match(robots, new RegExp(`^Sitemap:\\s*${origin.replaceAll('.', '\\.')}\\/sitemap\\.xml\\s*$`, 'm'));
     assert.ok(!/^Disallow:\s*\/(?:\s|$)/m.test(robots), 'robots allows crawling the pilot');
-  });
 });

@@ -13,6 +13,8 @@ export type ColumnBlock =
     altEn?: string;
     caption: string;
     captionEn?: string;
+    heading?: string;
+    headingEn?: string;
     figureLabel: string;
     sourceUrl: string;
     credit: string;

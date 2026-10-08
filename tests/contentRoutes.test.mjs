@@ -20,12 +20,19 @@ test('section anchors, keyword filters and malformed detail URLs do not become d
   }
 });
 
-test('the SEO pilot uses real language paths while old links remain readable', () => {
-  assert.equal(contentHref('columns', 'electron-fluid'), '/columns/electron-fluid/');
-  assert.deepEqual(contentRouteFromPath('/columns/electron-fluid/'), { section: 'columns', id: 'electron-fluid', language: 'en' });
-  assert.deepEqual(contentRouteFromPath('/columns/electron-fluid/ko/'), { section: 'columns', id: 'electron-fluid', language: 'ko' });
-  assert.deepEqual(contentRouteFromHash('#/columns/electron-fluid'), { section: 'columns', id: 'electron-fluid' });
-  for (const path of ['/', '/columns/', '/columns/other/', '/columns/electron-fluid/extra/']) assert.equal(contentRouteFromPath(path), null);
+test('searchable columns use real language paths while old links remain readable', () => {
+  for (const id of ['electron-fluid', 'molecular-handedness']) {
+    assert.equal(contentHref('columns', id), `/columns/${id}/`);
+    assert.deepEqual(contentRouteFromPath(`/columns/${id}/`), { section: 'columns', id, language: 'en' });
+    assert.deepEqual(contentRouteFromPath(`/columns/${id}/ko/`), { section: 'columns', id, language: 'ko' });
+    assert.deepEqual(contentRouteFromHash(`#/columns/${id}`), { section: 'columns', id });
+    for (const ending of ['extra/', 'ko/extra/', 'en/']) {
+      assert.equal(contentRouteFromPath(`/columns/${id}/${ending}`), null);
+    }
+    assert.equal(contentRouteFromPath(`/columns/${id}`), null);
+  }
+  for (const path of ['/', '/columns/', '/columns/other/']) assert.equal(contentRouteFromPath(path), null);
+  assert.equal(contentHref('columns', 'other'), '/#/columns/other');
   assert.equal(contentHref('research', 'electron-fluid'), '/#/research/electron-fluid');
 });
 

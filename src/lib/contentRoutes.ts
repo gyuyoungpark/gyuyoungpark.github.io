@@ -1,15 +1,17 @@
 export type ContentSection = 'research' | 'activities' | 'columns' | 'achievements';
 export type ContentRoute = { section: ContentSection; id: string; language?: 'en' | 'ko' };
 
+const columnPathIds = new Set(['electron-fluid', 'molecular-handedness']);
+
 export function contentHref(section: ContentSection, id: string): string {
-  if (section === 'columns' && id === 'electron-fluid') return '/columns/electron-fluid/';
+  if (section === 'columns' && columnPathIds.has(id)) return `/columns/${id}/`;
   return `/#/${section}/${encodeURIComponent(id)}`;
 }
 
 export function contentRouteFromPath(pathname: string): ContentRoute | null {
-  if (pathname === '/columns/electron-fluid/') return { section: 'columns', id: 'electron-fluid', language: 'en' };
-  if (pathname === '/columns/electron-fluid/ko/') return { section: 'columns', id: 'electron-fluid', language: 'ko' };
-  return null;
+  const match = /^\/columns\/([^/]+)\/(ko\/)?$/.exec(pathname);
+  if (!match || !columnPathIds.has(match[1])) return null;
+  return { section: 'columns', id: match[1], language: match[2] ? 'ko' : 'en' };
 }
 
 export function contentRouteFromHash(hash: string): ContentRoute | null {

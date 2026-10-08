@@ -1,0 +1,261 @@
+{
+  "id": "molecular-handedness",
+  "title": "생명은 왜 한쪽 손만 쓸까?",
+  "titleEn": "Why does life use only one hand?",
+  "date": "2026-10-08",
+  "tags": [
+    "Chirality",
+    "Asymmetric Catalysis",
+    "Autocatalysis",
+    "Symmetry Breaking",
+    "Origin of Life"
+  ],
+  "description": "분자의 왼손과 오른손을 구별하는 카이랄성에서 출발해, 작은 불균형을 크게 키우는 화학 반응과 생명의 기원을 살펴봅니다.",
+  "descriptionEn": "How chemistry can amplify a tiny difference between left- and right-handed molecules, and what this tells us about the origin of life.",
+  "thumbnail": "/images/columns/molecular-handedness/handedness.svg",
+  "thumbnailAlt": "Left and right hands are mirror images that cannot be superimposed",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "2026 노벨 화학상, 아주 작은 차이가 압도적인 차이가 되는 화학",
+      "textEn": "The 2026 Nobel Prize in Chemistry: how a tiny difference becomes an overwhelming one"
+    },
+    {
+      "type": "paragraph",
+      "text": "왼손용 장갑을 오른손에 끼워 본 적이 있는가? 손가락은 똑같이 다섯 개이고 크기도 비슷하지만, 아무리 돌려 보아도 편하게 들어가지 않는다. 왼손과 오른손은 서로 거울에 비친 모습이면서도, 완전히 포개지지는 않기 때문이다. 분자에도 이런 경우가 있다. 구성하는 원자와 그 연결 순서가 같아도, 공간에서 놓인 모습에 따라 ‘왼손 분자’와 ‘오른손 분자’가 생긴다. 화학에서는 이러한 성질을 **카이랄성**이라고 부른다.",
+      "textEn": "Have you ever tried to put a left-handed glove on your right hand? Both hands have five fingers and are roughly the same size, yet no amount of turning makes the glove fit comfortably. The two hands are mirror images that cannot be laid exactly on top of one another. Molecules can be like this too. Even with the same atoms connected in the same order, their arrangement in space can give rise to a “left-handed” and a “right-handed” molecule. Chemists call this property **chirality**.",
+      "references": [
+        "nobel-2026"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "우리 몸은 이 차이를 구별한다. 단백질을 이루는 카이랄 아미노산은 주로 한쪽 형태이고, DNA와 RNA를 구성하는 당도 정해진 쪽의 형태를 사용한다. 몸속에서 분자를 받아들이는 단백질 역시 입체적인 모양을 갖고 있으므로, 서로 거울상인 두 분자가 몸에서 반드시 같은 일을 하지는 않는다. 장갑이 왼손과 오른손을 구별하듯, 몸도 분자의 ‘손잡이’를 구별하는 셈이다.",
+      "textEn": "Our bodies can tell these forms apart. The chiral amino acids that make up proteins are mostly of one form, and the sugars in DNA and RNA also have a particular handedness. The proteins that interact with molecules in our bodies have three-dimensional shapes of their own, so two mirror-image molecules do not necessarily do the same job. Just as a glove distinguishes a left hand from a right one, the body distinguishes the “handedness” of molecules.",
+      "references": [
+        "nobel-2026"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "여기서 오래된 수수께끼가 등장한다. **생명이 나타나기 전, 누가 분자의 왼쪽과 오른쪽을 골라 주었을까?** 어느 한쪽을 선호하는 조건이 없다면 두 형태가 만들어질 가능성은 동등하다. 그런데 생명은 왜 특정한 쪽을 주로 사용하게 되었을까? 2026년 노벨 화학상을 받은 앙리 B. 카강과 소아이 겐소의 연구는 이 질문의 중요한 부분에 답했다. 두 사람이 밝혀낸 것은, **아주 작은 좌우 불균형을 화학 반응 자체가 크게 키울 수 있다는 사실**이다. 공식 수상 사유는 비대칭 유기합성에서의 비선형 효과와 자기촉매 작용의 발견이다.",
+      "textEn": "This brings us to an old puzzle. **Before life appeared, what selected the left- or right-handed form of a molecule?** With no conditions favoring one side, the two forms are equally likely to be produced. Why, then, did life come to use mainly one particular form? The work of Henri B. Kagan and Kenso Soai, who received the 2026 Nobel Prize in Chemistry, answered an important part of this question. They showed that **a chemical reaction itself can greatly amplify a tiny imbalance between the two forms**. The official award recognizes their discoveries of nonlinear effects and autocatalysis in asymmetric organic synthesis.",
+      "references": [
+        "nobel-2026"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "작은 차이가 반드시 작은 결과로 끝나지는 않는다",
+      "textEn": "A small difference need not produce a small result"
+    },
+    {
+      "type": "paragraph",
+      "text": "화학자는 원하는 분자를 만들기 위해 촉매를 사용한다. 촉매는 반응이 더 쉽게 일어나도록 돕는 물질이다. 여기에 왼손과 오른손을 구별하는 성질이 있으면, 두 거울상 중 한쪽이 더 많이 만들어지도록 유도할 수 있다. 카강이 주목한 것은 그 촉매 자체에 양쪽 형태가 섞여 있을 때였다. 촉매의 좌우 불균형이 작다면, 생성물의 불균형도 그에 비례해 작아질 것이라는 생각이 자연스러웠다. 그러나 1986년 카강 연구팀은 그 관계가 단순한 비례가 아닐 수 있음을 보여주었다. **촉매에서는 작은 차이였던 것이 생성물에서는 훨씬 큰 차이가 될 수 있었다.**",
+      "textEn": "Chemists use catalysts to make the molecules they want. A catalyst is a substance that helps a reaction proceed more easily. If it can distinguish left from right, it can favor the formation of one mirror-image form over the other. Kagan focused on what happens when the catalyst itself contains a mixture of the two forms. It seemed natural to expect a small imbalance in the catalyst to produce a similarly small imbalance in the product. In 1986, however, his team showed that the relationship need not be a simple proportion. **A small difference in the catalyst could become a much larger difference in the product.**",
+      "references": [
+        "puchot-1986"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "그 이유를 이해하는 간단한 모형이 있다. 촉매를 이루는 분자들이 둘씩 짝을 지어 일한다고 생각해 보자. 왼쪽끼리, 오른쪽끼리, 그리고 왼쪽과 오른쪽이 섞인 짝이 만들어질 수 있다. 그런데 섞인 짝이 반응을 잘 돕지 못한다면 어떻게 될까? 양쪽이 똑같이 섞여 있다는 사실만으로 반응에 똑같이 기여한다고 말할 수 없게 된다. **분자의 수뿐 아니라, 어떤 짝으로 묶이고 얼마나 활발하게 일하는지가 결과를 결정하기 때문이다.** 이것이 작은 불균형을 증폭할 수 있는 한 가지 원리다.",
+      "textEn": "A simple model helps explain why. Imagine that catalyst molecules work in pairs. They can form left-left pairs, right-right pairs, or mixed left-right pairs. What happens if the mixed pairs are poor at helping the reaction? Having equal numbers of the two forms no longer means that both contribute equally to the reaction. **The outcome depends on how the molecules pair up and how actively those pairs work, as well as on how many molecules there are.** This is one way a small imbalance can be amplified.",
+      "references": [
+        "nobel-scientific-2026"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "이 발견은 단순히 특이한 반응 하나를 찾았다는 뜻이 아니었다. 촉매의 조성과 생성물의 조성이 예상과 다르게 연결된다면, 그 차이는 촉매 분자들이 서로 어떻게 상호작용하는지 알려 주는 단서가 된다. 화학자는 이를 이용해 반응의 내부 작동 방식을 추론하고, 원하는 쪽의 분자가 더 많이 만들어지도록 조건을 설계할 수 있게 되었다.",
+      "textEn": "The discovery meant more than finding a single unusual reaction. If the composition of a catalyst and that of its product are connected in an unexpected way, that difference provides a clue to how catalyst molecules interact with one another. Chemists can use it to work out how a reaction operates and to design conditions that favor the form they want.",
+      "references": [
+        "nobel-2026"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "만들어진 분자가, 다음 분자를 만드는 공장이 된다",
+      "textEn": "The molecule produced becomes a factory for the next one"
+    },
+    {
+      "type": "paragraph",
+      "text": "소아이는 여기서 더 놀라운 가능성을 실험으로 보여주었다. **만들어진 분자가 자기와 같은 분자를 만드는 일을 돕는다면 어떨까?** 보통의 공장은 제품을 만들지만, 그 제품이 다시 공장이 되지는 않는다. 소아이의 반응에서는 생성물이 다음 반응의 촉매 역할을 한다. 제품이 만들어질수록 그 제품을 만드는 일손도 늘어나는 셈이다. 물론 분자가 무에서 생겨나는 것은 아니다. 새로 공급된 원료를 같은 형태의 분자로 바꾸는 일을 돕는다. 이런 과정을 **자기촉매**라고 한다.",
+      "textEn": "Soai demonstrated an even more surprising possibility. **What if a molecule that has just been made helps make more molecules like itself?** An ordinary factory makes products, but its products do not become factories. In the Soai reaction, the product acts as a catalyst for the next reaction. As more product is made, more helpers become available to make it. The molecules do not appear out of nothing: they help turn a fresh supply of starting materials into molecules of the same form. This process is called **autocatalysis**.",
+      "references": [
+        "soai-1995"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "소아이 연구팀의 결정적인 논문은 1995년 《네이처》에 실렸다. 중요한 점은 단순히 분자가 자기 생성을 도왔다는 것이 아니다. **그 과정에서 한쪽 거울상이 차지하는 비율까지 높아졌다는 것**이다. 왼쪽과 오른쪽이 각각 똑같이 두 배로 늘어나기만 한다면, 처음의 51 대 49는 계속 51 대 49다. 그러나 소아이 반응에서는 작은 차이를 확대하는 효과와 자기촉매가 함께 작동했다. 처음에 조금 우세했던 쪽이, 반응을 거치며 더욱 우세해질 수 있었다.",
+      "textEn": "The decisive paper by Soai's team appeared in Nature in 1995. The important point was not simply that a molecule helped make more of itself. **The proportion of one mirror-image form also increased in the process.** If the left- and right-handed forms merely doubled in equal measure, a starting ratio of 51 to 49 would remain 51 to 49. The Soai reaction combined autocatalysis with an effect that amplified the small difference. The side that started with a slight advantage could gain a larger advantage as the reaction proceeded.",
+      "references": [
+        "soai-1995"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "그 증폭 능력이 얼마나 강한지는 2003년의 후속 논문이 보여준다. 연구팀은 처음에 양쪽이 거의 같은 비율이 되도록 준비했다. 불균형의 크기를 분자 수의 비율로 비유하면, **한쪽이 100만 개일 때 다른 쪽이 약 100만 1개인 정도**였다. 그런데 생성물을 다음 반응에 이어 사용하는 과정을 세 차례 거친 뒤에는, 두 거울상 가운데 한쪽의 비율이 99.75%를 넘었다. 거의 구별할 수 없던 출발점의 차이가 압도적인 결과로 바뀐 것이다. 이 비유는 논문의 조성 비율을 환산한 것이며, 연구자가 실제로 분자 200만 개를 하나씩 세었다는 뜻은 아니다.",
+      "textEn": "A follow-up paper in 2003 showed just how powerful this amplification could be. The team began with nearly equal proportions of the two forms. To picture the imbalance in terms of molecule counts, **one side would have roughly 1,000,001 molecules for every 1,000,000 on the other side**. After three rounds in which the product was carried into the next reaction, one mirror-image form accounted for more than 99.75% of the total. An almost imperceptible difference at the start had become an overwhelming one. This comparison converts the composition ratio reported in the paper into an analogy; it does not mean that the researchers counted two million molecules individually.",
+      "references": [
+        "sato-2003"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "같은 해 발표된 **또 다른 논문**은 한 걸음 더 나아갔다. 연구팀은 처음부터 방향을 정해 줄 카이랄 물질을 넣지 않고도, 어느 한쪽 거울상이 더 많이 생기는 반응을 보고했다. 실험에 따라 왼쪽이 우세할 수도, 오른쪽이 우세할 수도 있었다. 어느 쪽을 고를지는 미리 정해져 있지 않지만, 반응이 진행되면 한쪽으로 기울어진 결과가 나타나는 것이다. 이는 처음의 작은 우연한 불균형이 화학 반응에 의해 확대될 수 있음을 보여주는 실험이었다.",
+      "textEn": "**Another paper** published that year went a step further. The team reported a reaction in which one mirror-image form became more abundant without adding a chiral substance to choose the direction at the outset. The left-handed form could dominate in one experiment and the right-handed form in another. The favored side was not fixed in advance, yet the reaction produced a result tilted toward one side. The experiment showed that a chemical reaction could amplify a small, chance imbalance at the start.",
+      "references": [
+        "soai-2003"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "여기서 중요한 구별이 있다. **‘두 결과가 생길 가능성이 같다’는 말은 ‘매번 두 결과가 똑같이 섞여 나온다’는 말과 다르다.** 동전을 던질 때 앞면과 뒷면의 확률이 같아도 매번 정확히 반반이 나오지는 않는다. 소아이의 연구는 화학 반응이 그런 작은 차이를 그냥 흘려보내지 않고, 크게 키울 수 있다는 것을 보여주었다.",
+      "textEn": "There is an important distinction here. **“The two outcomes are equally likely” does not mean “the two outcomes appear in exactly equal proportions every time.”** A coin can have equal probabilities of landing heads or tails without producing a perfectly even split on every sequence of tosses. Soai's work showed that a chemical reaction can take such a small difference and amplify it.",
+      "references": [
+        "soai-2003"
+      ]
+    },
+    {
+      "type": "paperFigure",
+      "referenceId": "suzuki-2010",
+      "image": "/images/columns/molecular-handedness/suzuki-2010-figure-1.jpg",
+      "width": 1200,
+      "height": 1410,
+      "heading": "작은 차이가 커지는 과정 · 소아이 연구진의 개념 그림 (2010)",
+      "headingEn": "How a small difference grows · A schematic from Soai's team (2010)",
+      "alt": "처음 생긴 작은 거울상 분자 비율의 차이가 자기촉매 반응을 거치며 왼쪽 또는 오른쪽 형태의 우세로 이어지는 두 갈래 반응 그림",
+      "altEn": "A reaction schematic branching from a small imbalance between mirror-image molecules to predominance of either the S or R form through autocatalysis",
+      "caption": "처음 생긴 두 거울상 분자의 비율에 아주 작은 차이가 있으면, 자기촉매 반응이 그 차이를 확대할 수 있다. 실험에 따라 어느 쪽이 우세해지는지는 달라질 수 있다. 소아이 연구진의 2010년 후속 실험을 보여주는 그림이다.",
+      "captionEn": "Autocatalysis can amplify a tiny initial difference in the proportions of two mirror-image molecules. Either form may dominate in different experiments. This figure shows a follow-up experiment by Soai’s team in 2010.",
+      "figureLabel": "Figure 1",
+      "sourceUrl": "https://link.springer.com/article/10.1186/1759-2208-1-5/figures/1",
+      "credit": "Suzuki et al., Journal of Systems Chemistry 1, 5 (2010), Figure 1. © Suzuki et al. 2010",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+    },
+    {
+      "type": "heading",
+      "text": "시험관 속 발견은 인류에게 무엇을 주었을까?",
+      "textEn": "What has a discovery in a test tube given us?"
+    },
+    {
+      "type": "paragraph",
+      "text": "가장 직접적인 의미는 원하는 입체 모양의 분자를 만드는 데 있다. 의약품처럼 생명체와 상호작용하는 물질에서는 어떤 원자로 이루어졌는지만큼이나, 그 원자들이 공간에 어떻게 놓였는지가 중요하다. 카강의 발견은 촉매의 조성과 반응 결과를 연결하는 새로운 설계 원리를 제공했다. 적절한 반응에서는 출발 촉매의 작은 치우침으로도 훨씬 크게 치우친 생성물을 얻을 수 있고, 그 관계를 분석하면 반응을 개선할 단서를 찾을 수 있다.",
+      "textEn": "The most direct benefit is in making molecules with the desired three-dimensional shape. For substances that interact with living organisms, such as medicines, the arrangement of atoms in space matters as much as which atoms are present. Kagan's discovery provided a new principle for connecting catalyst composition to reaction outcomes. In a suitable reaction, even a slight bias in the starting catalyst can yield a much more strongly biased product. Studying that relationship can also reveal ways to improve the reaction.",
+      "references": [
+        "nobel-2026"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "자기촉매의 실용적 연결도 있다. 2011년에는 비대칭 자기촉매를 활용해 HIV 치료제 에파비렌즈의 중요한 합성 중간체를 만드는 방법을 개선한 연구가 발표되었다. 이 방법은 생성물과 함께 한쪽 거울상 형태로 준비한 다른 촉매 성분도 사용한다. 소아이 반응 그 자체로 그 약을 만들었다는 뜻은 아니다. 그러나 **생성물이 다음 생성을 돕는다는 원리가 의약품 합성의 실제 문제에도 활용될 수 있음**을 보여주는 사례다. 노벨상과 우리의 일상을 연결할 때는, 막연히 “모든 신약을 가능하게 했다”고 말하는 것보다 이런 구체적인 연결을 보는 편이 정확하다.",
+      "textEn": "Autocatalysis has a practical connection too. In 2011, researchers reported an improved method for making an important intermediate in the synthesis of the HIV medicine efavirenz using asymmetric autocatalysis. This method uses the product together with another catalyst component prepared in a single mirror-image form. This does not mean that the Soai reaction itself made the drug. It shows that **the principle of a product helping to make more product can be applied to a practical problem in pharmaceutical synthesis**. When connecting the Nobel Prize to everyday life, a specific example like this is more accurate than a sweeping claim that the discoveries “made every new drug possible.”",
+      "references": [
+        "efavirenz-2011"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "더 근본적인 의미는 생명을 이해하는 방식에 있다. 이 연구는 처음부터 완벽하게 한쪽으로 정렬된 분자들이 있어야만 한쪽이 지배적인 세계가 만들어지는 것은 아니라는 점을 보여주었다. 다만 **생명 탄생의 실제 경로를 밝혀낸 것은 아니다.** 소아이 반응은 특정한 시약과 조건으로 설계한 실험이며, 초기 지구에서 같은 반응이 일어났다는 증거는 없다. 생명체가 왜 지금의 특정한 쪽을 사용하게 되었는지까지 결정해 주지도 않는다. 밝혀진 것은 그 역사 전체가 아니라, 작은 불균형을 크게 만드는 화학적 경로가 실제로 존재한다는 사실이다.",
+      "textEn": "A more fundamental contribution is to how we understand life. This work showed that a world dominated by one form does not have to begin with molecules already perfectly aligned to that side. It **did not, however, establish the actual route by which life began**. The Soai reaction is an experiment designed around particular reagents and conditions; there is no evidence that the same reaction occurred on the early Earth. Nor does it determine why living organisms use the particular forms they do today. What has been established is the existence of a chemical route that can turn a tiny imbalance into a large one.",
+      "references": [
+        "nobel-scientific-2026"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "이 점에서 두 사람의 업적을 “더 순수한 물질을 만드는 기술”로만 보면 절반을 놓친다. 카강은 작은 비대칭이 그대로 전달되는 데 그치지 않고 증폭될 수 있음을 보여주었고, 소아이는 그 증폭이 자기촉매와 결합해 스스로 커져 가는 반응을 구현했다. **누군가 분자를 하나씩 골라 주지 않아도, 화학 반응 자체가 작은 차이를 압도적인 차이로 바꿀 수 있다.** 2026년 노벨 화학상이 기린 것은, 바로 그 가능성을 실제 화학으로 만들어 낸 발견이다.",
+      "textEn": "To view these achievements only as “a technique for making purer substances” is to miss half their significance. Kagan showed that a small asymmetry can be amplified rather than merely passed along. Soai combined that amplification with autocatalysis in a reaction that builds on itself. **Without anyone selecting molecules one by one, a chemical reaction itself can turn a tiny difference into an overwhelming one.** The 2026 Nobel Prize in Chemistry honors the discoveries that made this possibility a reality in chemistry.",
+      "references": [
+        "nobel-2026"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "nobel-2026",
+      "authors": "The Royal Swedish Academy of Sciences",
+      "title": "They solved chemistry’s asymmetric mystery",
+      "journal": "The Nobel Prize in Chemistry 2026",
+      "year": 2026,
+      "url": "https://www.kva.se/en/prizes/nobel-prizes/they-solved-chemistrys-asymmetric-mystery/"
+    },
+    {
+      "id": "puchot-1986",
+      "authors": "C. Puchot, O. Samuel, E. Duñach, S. Zhao, C. Agami, and H. B. Kagan",
+      "title": "Nonlinear effects in asymmetric synthesis. Examples in asymmetric oxidations and aldolization reactions",
+      "journal": "Journal of the American Chemical Society",
+      "volume": "108",
+      "pages": "2353–2357",
+      "year": 1986,
+      "doi": "10.1021/ja00269a036",
+      "url": "https://doi.org/10.1021/ja00269a036"
+    },
+    {
+      "id": "nobel-scientific-2026",
+      "authors": "The Royal Swedish Academy of Sciences",
+      "title": "Scientific background on the Nobel Prize in Chemistry 2026",
+      "journal": "The Nobel Prize in Chemistry 2026",
+      "year": 2026,
+      "url": "https://www.kva.se/app/uploads/2026/10/nobel-chemistry-2026-scientific-background_98nb7jaql4.pdf"
+    },
+    {
+      "id": "soai-1995",
+      "authors": "K. Soai, T. Shibata, H. Morioka, and K. Choji",
+      "title": "Asymmetric autocatalysis and amplification of enantiomeric excess of a chiral molecule",
+      "journal": "Nature",
+      "volume": "378",
+      "pages": "767–768",
+      "year": 1995,
+      "doi": "10.1038/378767a0",
+      "url": "https://www.nature.com/articles/378767a0"
+    },
+    {
+      "id": "sato-2003",
+      "authors": "I. Sato, H. Urabe, S. Ishiguro, T. Shibata, and K. Soai",
+      "title": "Amplification of Chirality from Extremely Low to Greater than 99.5% ee by Asymmetric Autocatalysis",
+      "journal": "Angewandte Chemie International Edition",
+      "volume": "42",
+      "pages": "315–317",
+      "year": 2003,
+      "doi": "10.1002/anie.200390105",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/anie.200390105"
+    },
+    {
+      "id": "soai-2003",
+      "authors": "K. Soai, I. Sato, T. Shibata, S. Komiya, M. Hayashi, Y. Matsueda, H. Imamura, T. Hayase, H. Morioka, H. Tabira, J. Yamamoto, and Y. Kowata",
+      "title": "Asymmetric synthesis of pyrimidyl alkanol without adding chiral substances by the addition of diisopropylzinc to pyrimidine-5-carbaldehyde in conjunction with asymmetric autocatalysis",
+      "journal": "Tetrahedron: Asymmetry",
+      "volume": "14",
+      "pages": "185–188",
+      "year": 2003,
+      "doi": "10.1016/S0957-4166(02)00791-7",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957416602007917"
+    },
+    {
+      "id": "suzuki-2010",
+      "authors": "K. Suzuki, K. Hatase, D. Nishiyama, T. Kawasaki, and K. Soai",
+      "title": "Spontaneous absolute asymmetric synthesis promoted by achiral amines in conjunction with asymmetric autocatalysis",
+      "journal": "Journal of Systems Chemistry",
+      "volume": "1",
+      "articleNumber": "5",
+      "year": 2010,
+      "doi": "10.1186/1759-2208-1-5",
+      "url": "https://link.springer.com/article/10.1186/1759-2208-1-5"
+    },
+    {
+      "id": "efavirenz-2011",
+      "authors": "N. Chinkov, A. Warm, and E. M. Carreira",
+      "title": "Asymmetric Autocatalysis Enables an Improved Synthesis of Efavirenz",
+      "journal": "Angewandte Chemie International Edition",
+      "year": 2011,
+      "doi": "10.1002/anie.201006689",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/anie.201006689",
+      "volume": "50",
+      "pages": "2957–2961"
+    }
+  ]
+}

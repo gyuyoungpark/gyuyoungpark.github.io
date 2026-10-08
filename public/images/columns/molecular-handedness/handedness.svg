@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="handedness-title handedness-desc">
+  <title id="handedness-title">Mirror-image hands</title>
+  <desc id="handedness-desc">An orange left hand and a blue right hand face one another across a dotted mirror line.</desc>
+  <defs>
+    <filter id="sketch" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.25" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="orange-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#df9d57" stroke-width="1.2" opacity="0.42"/>
+    </pattern>
+    <pattern id="blue-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#70afd1" stroke-width="1.2" opacity="0.42"/>
+    </pattern>
+    <path id="hand" d="M143 292 C143 267 128 245 117 227 L96 170 C90 153 93 143 102 142 C111 141 116 149 121 160 L139 191 L125 108 C122 92 128 86 136 88 C144 90 146 99 148 112 L159 180 L155 88 C154 72 161 66 170 69 C177 72 179 79 180 90 L184 175 L192 100 C194 85 203 80 211 85 C218 89 219 97 217 110 L211 195 L236 168 C248 155 257 158 262 166 C266 173 261 181 254 189 L232 222 C220 237 215 253 214 268 L214 292 Z"/>
+  </defs>
+  <rect width="640" height="360" fill="#fff"/>
+  <line x1="320" y1="42" x2="320" y2="318" stroke="#b4b4b4" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 10"/>
+  <g stroke-linejoin="round" stroke-linecap="round" filter="url(#sketch)">
+    <use href="#hand" fill="#fff7ec" stroke="#c77832" stroke-width="3.5"/>
+    <use href="#hand" fill="url(#orange-hatch)"/>
+    <path d="M157 250 C172 246 192 245 211 250 M174 226 C186 215 200 210 211 207" fill="none" stroke="#c77832" stroke-width="2" opacity="0.55"/>
+    <g transform="translate(640 0) scale(-1 1)">
+      <use href="#hand" fill="#eff8fc" stroke="#357eaa" stroke-width="3.5"/>
+      <use href="#hand" fill="url(#blue-hatch)"/>
+      <path d="M157 250 C172 246 192 245 211 250 M174 226 C186 215 200 210 211 207" fill="none" stroke="#357eaa" stroke-width="2" opacity="0.55"/>
+    </g>
+  </g>
+</svg>
