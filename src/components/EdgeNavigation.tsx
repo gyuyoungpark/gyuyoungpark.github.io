@@ -126,6 +126,8 @@ export function EdgeNavigation({ externalLinks }: { externalLinks: ExternalLink[
   const navigation = [{ label: 'Home', href: '#top' }, ...navItems];
   const panelStyle = offset === null ? undefined : ({ '--edge-drag-offset': `${offset}px` } as CSSProperties);
 
+  if (typeof document === 'undefined') return null;
+
   return (
     <Dialog.Root open={open} onOpenChange={changeOpen} modal={!openedByHover}>
       <button

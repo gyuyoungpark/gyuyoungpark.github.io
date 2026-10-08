@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
-import { contentHref, contentRouteFromHash, doiHref } from '../src/lib/contentRoutes.ts';
+import { contentHref, contentRouteFromHash, contentRouteFromPath, doiHref } from '../src/lib/contentRoutes.ts';
 
 test('detail links preserve IDs and distinguish sections', () => {
   for (const section of ['research', 'activities', 'columns', 'achievements']) {
@@ -18,6 +18,15 @@ test('section anchors, keyword filters and malformed detail URLs do not become d
     '#/research/id/extra', '#/unknown/id']) {
     assert.equal(contentRouteFromHash(hash), null, hash);
   }
+});
+
+test('the SEO pilot uses real language paths while old links remain readable', () => {
+  assert.equal(contentHref('columns', 'electron-fluid'), '/columns/electron-fluid/');
+  assert.deepEqual(contentRouteFromPath('/columns/electron-fluid/'), { section: 'columns', id: 'electron-fluid', language: 'en' });
+  assert.deepEqual(contentRouteFromPath('/columns/electron-fluid/ko/'), { section: 'columns', id: 'electron-fluid', language: 'ko' });
+  assert.deepEqual(contentRouteFromHash('#/columns/electron-fluid'), { section: 'columns', id: 'electron-fluid' });
+  for (const path of ['/', '/columns/', '/columns/other/', '/columns/electron-fluid/extra/']) assert.equal(contentRouteFromPath(path), null);
+  assert.equal(contentHref('research', 'electron-fluid'), '/#/research/electron-fluid');
 });
 
 test('DOI links use the resolver and keep the complete identifier', () => {

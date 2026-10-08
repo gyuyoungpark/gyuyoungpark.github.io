@@ -28,6 +28,7 @@ test('content detail pages render from the actual app', async (t) => {
     const { articles, activities, achievements } = await server.ssrLoadModule('/src/data/content.ts');
     const { columns } = await server.ssrLoadModule('/src/data/columns/index.ts');
     const { formatDetailDate } = await server.ssrLoadModule('/src/lib/detailDate.ts');
+    const { contentHref } = await server.ssrLoadModule('/src/lib/contentRoutes.ts');
     function render(hash, keywordSelection = []) {
       window.location.hash = hash;
       window.history.state = { keywordSelection };
@@ -37,7 +38,7 @@ test('content detail pages render from the actual app', async (t) => {
     await t.test('every homepage card points to its internal detail page', () => {
       const html = render('#top');
       for (const [section, items] of [['research', articles], ['activities', activities], ['columns', columns], ['achievements', achievements]]) {
-        for (const item of items) assert.ok(html.includes(`href="/#/${section}/${encodeURIComponent(item.id)}"`));
+        for (const item of items) assert.ok(html.includes(`href="${contentHref(section, item.id)}"`));
       }
       const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
       assert.equal(cards.length, articles.length + activities.length + columns.length + achievements.length);

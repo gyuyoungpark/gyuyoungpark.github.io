@@ -1,10 +1,18 @@
 export type ContentSection = 'research' | 'activities' | 'columns' | 'achievements';
+export type ContentRoute = { section: ContentSection; id: string; language?: 'en' | 'ko' };
 
 export function contentHref(section: ContentSection, id: string): string {
+  if (section === 'columns' && id === 'electron-fluid') return '/columns/electron-fluid/';
   return `/#/${section}/${encodeURIComponent(id)}`;
 }
 
-export function contentRouteFromHash(hash: string): { section: ContentSection; id: string } | null {
+export function contentRouteFromPath(pathname: string): ContentRoute | null {
+  if (pathname === '/columns/electron-fluid/') return { section: 'columns', id: 'electron-fluid', language: 'en' };
+  if (pathname === '/columns/electron-fluid/ko/') return { section: 'columns', id: 'electron-fluid', language: 'ko' };
+  return null;
+}
+
+export function contentRouteFromHash(hash: string): ContentRoute | null {
   const match = /^#\/(research|activities|columns|achievements)\/([^/]+)$/.exec(hash);
   if (!match) return null;
   try {

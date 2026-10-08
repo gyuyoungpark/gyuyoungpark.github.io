@@ -10,6 +10,8 @@ import { KeywordTags } from './KeywordTags';
 import { BackLink } from './BackLink';
 import { formatDetailDate } from '@/lib/detailDate';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
+import { columnSeo } from '@/data/columnSeo';
+import { applyColumnSeo } from '@/lib/columnSeo';
 
 function ArticleText({ tokens, language }: { tokens: ColumnTextToken[]; language: ColumnLanguage }) {
   return tokens.map((token, index) => {
@@ -26,9 +28,10 @@ function ArticleText({ tokens, language }: { tokens: ColumnTextToken[]; language
   });
 }
 
-export function ColumnArticle({ column }: { column: Column }) {
+export function ColumnArticle({ column, initialLanguage = 'en' }: { column: Column; initialLanguage?: ColumnLanguage }) {
   const articleTitles = { en: column.titleEn, ko: column.title };
-  const [language, setLanguage] = useState<ColumnLanguage>('en');
+  const [language, setLanguage] = useState<ColumnLanguage>(initialLanguage);
+  const seo = column.id === 'electron-fluid' ? columnSeo['electron-fluid'] : undefined;
   const blocks = column.blocks.map((block) =>
     language === 'en' && (block.type === 'paragraph' || block.type === 'heading')
       ? { ...block, text: block.textEn ?? block.text } : block,
@@ -40,10 +43,11 @@ export function ColumnArticle({ column }: { column: Column }) {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const title = articleTitles[language];
   useEffect(() => {
+    if (seo) return applyColumnSeo(column, language);
     const previousTitle = document.title;
     document.title = `${title} | Gyuyoung Park`;
     return () => { document.title = previousTitle; };
-  }, [title]);
+  }, [title, column, language, seo]);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     titleRef.current?.focus({ preventScroll: true });
@@ -60,11 +64,15 @@ export function ColumnArticle({ column }: { column: Column }) {
             {(['en', 'ko'] as const).map((option, index) => (
               <span key={option} className="inline-flex items-center gap-1">
                 {index > 0 && <span aria-hidden="true" className="text-zinc-300">/</span>}
-                <button type="button" onClick={() => setLanguage(option)} aria-pressed={language === option}
+                {seo ? <a href={seo.pages[option].path} hrefLang={option} aria-current={language === option ? 'page' : undefined}
                   aria-label={option === 'en' ? 'English (ENG)' : '한국어 (KOR)'} aria-controls="column-content"
                   className={`px-2 py-2 transition-colors ${language === option ? 'font-semibold text-zinc-900 underline underline-offset-[6px]' : 'text-zinc-500 hover:text-zinc-700'}`}>
                   {option === 'en' ? 'ENG' : 'KOR'}
-                </button>
+                </a> : <button type="button" onClick={() => setLanguage(option)} aria-pressed={language === option}
+                  aria-label={option === 'en' ? 'English (ENG)' : '한국어 (KOR)'} aria-controls="column-content"
+                  className={`px-2 py-2 transition-colors ${language === option ? 'font-semibold text-zinc-900 underline underline-offset-[6px]' : 'text-zinc-500 hover:text-zinc-700'}`}>
+                  {option === 'en' ? 'ENG' : 'KOR'}
+                </button>}
               </span>
             ))}
           </div>
