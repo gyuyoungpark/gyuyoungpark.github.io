@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="handedness-title handedness-desc">
+  <title id="handedness-title">One possible outcome of molecular handedness</title>
+  <desc id="handedness-desc">Two mirror-image hands illustrate one possible outcome: the left form is more abundant, shown with a solid orange outline, and the right form is less abundant, shown with a dashed blue outline. Either form can be the more abundant one.</desc>
+  <defs>
+    <style>
+      text { font-family: Pretendard, Arial, sans-serif; }
+    </style>
+    <filter id="sketch" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">
+      <line x1="0" y1="0" x2="0" y2="13" stroke="#d8a16d" stroke-width="1" opacity="0.2"/>
+    </pattern>
+    <path id="hand" d="M143 263 C143 249 143 238 138 229 C130 216 120 204 113 187 L93 147 C89 139 90 131 96 128 C103 124 110 128 114 135 L137 174 C141 181 145 177 142 167 L124 100 C122 89 124 79 132 77 C140 75 146 82 148 92 L163 154 C165 161 170 160 169 152 L159 70 C157 58 159 50 168 49 C177 48 182 55 183 67 L188 148 C189 155 194 155 195 148 L200 86 C201 74 206 66 215 67 C224 68 227 78 226 90 L217 169 C216 179 220 187 226 181 L248 151 C256 143 266 142 272 150 C278 158 273 167 264 177 L239 209 C222 227 216 244 216 263 Z"/>
+  </defs>
+  <rect width="640" height="360" fill="#fff"/>
+  <line x1="320" y1="34" x2="320" y2="274" stroke="#c3c3c3" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <g filter="url(#sketch)">
+      <use href="#hand" fill="#fff6eb" stroke="#bd7137" stroke-width="3.4"/>
+      <use href="#hand" fill="url(#hatch)"/>
+      <path d="M154 220 C172 215 188 214 206 217 M174 204 C185 190 201 184 216 183" fill="none" stroke="#d09666" stroke-width="1.6"/>
+    </g>
+    <use href="#hand" transform="translate(640 0) scale(-1 1)" fill="none" stroke="#4687aa" stroke-width="3.2" stroke-dasharray="6 6"/>
+  </g>
+  <g font-size="20" text-anchor="middle">
+    <text x="180" y="309" fill="#925223">More abundant</text>
+    <text x="460" y="309" fill="#346c8c">Less abundant</text>
+  </g>
+</svg>

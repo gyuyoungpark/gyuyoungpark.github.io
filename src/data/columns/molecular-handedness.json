@@ -4,16 +4,18 @@
   "titleEn": "Why does life use only one hand?",
   "date": "2026-10-08",
   "tags": [
+    "Nobel Prize",
     "Chirality",
     "Asymmetric Catalysis",
     "Autocatalysis",
     "Symmetry Breaking",
     "Origin of Life"
   ],
+  "headerTags": ["Nobel Prize"],
   "description": "분자의 왼손과 오른손을 구별하는 카이랄성에서 출발해, 작은 불균형을 크게 키우는 화학 반응과 생명의 기원을 살펴봅니다.",
   "descriptionEn": "How chemistry can amplify a tiny difference between left- and right-handed molecules, and what this tells us about the origin of life.",
-  "thumbnail": "/images/columns/molecular-handedness/handedness.svg",
-  "thumbnailAlt": "Left and right hands are mirror images that cannot be superimposed",
+  "thumbnail": "/images/columns/molecular-handedness/handedness-v2.svg",
+  "thumbnailAlt": "One possible outcome of asymmetric amplification: the more abundant left-handed form has a solid outline, while the less abundant right-handed form has a dashed outline; either form can become dominant",
   "blocks": [
     {
       "type": "heading",

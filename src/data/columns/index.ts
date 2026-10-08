@@ -41,6 +41,7 @@ export interface Column {
   titleEn: string;
   date: string;
   tags: string[];
+  headerTags?: string[];
   description: string;
   descriptionEn?: string;
   blocks: ColumnBlock[];
