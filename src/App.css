@@ -5,8 +5,8 @@
   letter-spacing: inherit;
   color: inherit;
   vertical-align: baseline;
-  -webkit-mask-image: linear-gradient(to right, #000, rgb(0 0 0 / 98%) 16%, rgb(0 0 0 / 82%) 35%, rgb(0 0 0 / 63%) 55%, rgb(0 0 0 / 42%) 74%, rgb(0 0 0 / 26%) 86%, rgb(0 0 0 / 12%));
-  mask-image: linear-gradient(to right, #000, rgb(0 0 0 / 98%) 16%, rgb(0 0 0 / 82%) 35%, rgb(0 0 0 / 63%) 55%, rgb(0 0 0 / 42%) 74%, rgb(0 0 0 / 26%) 86%, rgb(0 0 0 / 12%));
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 12%, rgb(0 0 0 / 65%) 30%, rgb(0 0 0 / 25%) 51%, rgb(0 0 0 / 65%) 72%, #000 90%, #000 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 12%, rgb(0 0 0 / 65%) 30%, rgb(0 0 0 / 25%) 51%, rgb(0 0 0 / 65%) 72%, #000 90%, #000 100%);
 }
 
 #keywords:focus {
