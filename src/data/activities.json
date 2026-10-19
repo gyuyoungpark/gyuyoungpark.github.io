@@ -34,10 +34,17 @@
     "kind": "Seminar",
     "url": "https://apctp.org/theme/d/html/activities/activities02_read.php?id=2714&page=2",
     "caption": "A quadratic Hamiltonian formulation of Boolean satisfiability using only the original problem variables, without auxiliary spins.",
-    "image": "/images/activities/apctp-sat-2026.png",
-    "imageAlt": "Official APCTP seminar poster for Gyuyoung Park's Hamiltonian Reformulation of Boolean Satisfiability, March 11, 2026.",
-    "imageLabel": "Official seminar poster",
-    "imageSourceUrl": "https://apctp.org/data/upload/program/seminar_poster_0002714",
+    "image": "/images/activities/apctp-sat-2026-photo.jpg",
+    "imageAlt": "Gyuyoung Park presenting Hamiltonian Reformulation of Boolean Satisfiability at the APCTP seminar on March 11, 2026.",
+    "imageLabel": "Seminar photo",
+    "imageSourceUrl": "/images/activities/apctp-sat-2026-photo.jpg",
+    "detailImage": {
+      "src": "/images/activities/apctp-sat-2026.png",
+      "alt": "Official APCTP seminar poster for Gyuyoung Park's Hamiltonian Reformulation of Boolean Satisfiability, March 11, 2026.",
+      "label": "Official seminar poster",
+      "sourceUrl": "https://apctp.org/data/upload/program/seminar_poster_0002714"
+    },
+    "includeThumbnailOnDetail": true,
     "tags": [
       "Boolean Satisfiability",
       "Ising Model",
