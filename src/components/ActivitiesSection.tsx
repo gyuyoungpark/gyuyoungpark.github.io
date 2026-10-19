@@ -21,6 +21,7 @@ export function ActivitiesSection({ activities }: { activities: Activity[] }) {
             </>}
             image={activity.image}
             imageAlt={activity.imageAlt}
+            imageCropAspectRatio={activity.imageCropAspectRatio}
             caption={activity.caption}
             tags={activity.tags}
           />

@@ -50,6 +50,7 @@ export interface Activity {
   caption: string;
   image?: string;
   imageAlt?: string;
+  imageCropAspectRatio?: string;
   imageLabel?: string;
   imageSourceUrl?: string;
   detailImage?: {

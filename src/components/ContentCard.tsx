@@ -9,11 +9,12 @@ interface ContentCardProps {
   metadata: ReactNode;
   image?: string;
   imageAlt?: string;
+  imageCropAspectRatio?: string;
   caption?: string;
   tags: (string | Tag)[];
 }
 
-export function ContentCard({ id, title, href, metadata, image, imageAlt, caption, tags }: ContentCardProps) {
+export function ContentCard({ id, title, href, metadata, image, imageAlt, imageCropAspectRatio, caption, tags }: ContentCardProps) {
   return (
     <article id={id} className="trimmed-borders flex h-full scroll-mt-28 flex-col bg-white p-5">
       <a href={href} className="block after:absolute after:inset-0 after:z-[1] after:content-['']">
@@ -23,7 +24,9 @@ export function ContentCard({ id, title, href, metadata, image, imageAlt, captio
       {image ? (
         <figure className="mt-5">
           <a href={href} tabIndex={-1} className="flex aspect-[4/3] items-center justify-center bg-white">
-            <img src={image} alt={imageAlt ?? title} className="h-full w-full object-contain" loading="lazy" decoding="async" />
+            <div className={imageCropAspectRatio ? 'w-full overflow-hidden' : 'contents'} style={imageCropAspectRatio ? { aspectRatio: imageCropAspectRatio } : undefined}>
+              <img src={image} alt={imageAlt ?? title} className={`h-full w-full ${imageCropAspectRatio ? 'object-cover object-top' : 'object-contain'}`} loading="lazy" decoding="async" />
+            </div>
           </a>
           {caption && <figcaption className="mt-3 text-sm leading-6 text-zinc-600">{caption}</figcaption>}
         </figure>
