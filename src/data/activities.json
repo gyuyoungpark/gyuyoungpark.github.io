@@ -18,7 +18,6 @@
       "label": "PoM abstract",
       "sourceUrl": "/documents/activities/pm26-abstract.pdf"
     },
-    "includeThumbnailOnDetail": true,
     "tags": [
       "Moiré Magnetism",
       "Chaos",
@@ -44,7 +43,6 @@
       "label": "Official seminar poster",
       "sourceUrl": "https://apctp.org/data/upload/program/seminar_poster_0002714"
     },
-    "includeThumbnailOnDetail": true,
     "tags": [
       "Boolean Satisfiability",
       "Ising Model",
@@ -83,6 +81,12 @@
     "imageAlt": "JEMS 2023 oral-presentation abstract, page 642, for Field-Driven Chaos of Magnetic Skyrmions and its Potential Application to Dynamics-Based Computation by Gyuyoung Park and Sang-Koog Kim.",
     "imageLabel": "Conference abstract",
     "imageSourceUrl": "https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642",
+    "detailImage": {
+      "src": "/images/activities/jems2023-abstract.png",
+      "alt": "JEMS 2023 oral-presentation abstract, page 642, for Field-Driven Chaos of Magnetic Skyrmions and its Potential Application to Dynamics-Based Computation by Gyuyoung Park and Sang-Koog Kim.",
+      "label": "Conference abstract",
+      "sourceUrl": "https://magnetism.eu/cms_viewFile.php?idtf=2774&path=d4%2F2774_213_JEMS2023-BOOK_OF_ABSTRACTS_compressed.pdf#page=642"
+    },
     "tags": [
       "Magnetic Skyrmion",
       "Chaos",
