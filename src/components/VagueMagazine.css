@@ -66,91 +66,10 @@
   user-select: none;
 }
 
-.vague-magazine .vm-interaction-bar {
-  position: absolute;
-  z-index: 2;
-  left: max(40px, env(safe-area-inset-left));
-  right: max(40px, env(safe-area-inset-right));
-  bottom: max(25px, env(safe-area-inset-bottom));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  pointer-events: none;
-}
-
-.vague-magazine .vm-hint {
-  margin: 0;
-  color: #71717a;
-  font-size: 11px;
-  font-weight: 400;
-  background: rgb(255 255 255 / 82%);
-  padding: 10px 0;
-}
-
-.vague-magazine .vm-controls {
-  display: inline-flex;
-  gap: 5px;
-  pointer-events: auto;
-}
-
-.vague-magazine .vm-control {
-  display: inline-flex;
-  min-height: 44px;
-  min-width: 64px;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  padding: 0 12px;
-  border: 1px solid #e4e4e7;
-  background: rgb(255 255 255 / 90%);
-  color: #52525b;
-  font: inherit;
-  font-size: 11px;
-  touch-action: manipulation;
-  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
-}
-
-.vague-magazine .vm-control:hover {
-  border-color: #a1a1aa;
-  background: #f4f4f5;
-  color: #18181b;
-}
-
-.vague-magazine .vm-motion-symbol {
-  width: 7px;
-  height: 8px;
-  border-inline: 2px solid currentColor;
-}
-
-.vague-magazine .vm-motion-symbol.is-paused {
-  width: 0;
-  height: 0;
-  border: 4px solid transparent;
-  border-right: 0;
-  border-left: 6px solid currentColor;
-}
-
 @media (max-width: 640px) {
   .vague-magazine .vm-navigation {
     top: max(13px, env(safe-area-inset-top));
     left: max(12px, env(safe-area-inset-left));
-  }
-
-  .vague-magazine .vm-interaction-bar {
-    left: max(20px, env(safe-area-inset-left));
-    right: max(20px, env(safe-area-inset-right));
-    bottom: max(17px, env(safe-area-inset-bottom));
-    gap: 12px;
-  }
-
-  .vague-magazine .vm-hint {
-    font-size: 10px;
-  }
-
-  .vague-magazine .vm-control {
-    min-width: 54px;
-    padding-inline: 10px;
   }
 }
 
@@ -161,8 +80,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vague-magazine .vm-home,
-  .vague-magazine .vm-control {
+  .vague-magazine .vm-home {
     transition: none;
   }
 }

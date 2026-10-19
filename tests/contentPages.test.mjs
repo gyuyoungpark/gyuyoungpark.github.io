@@ -54,7 +54,7 @@ test('content detail pages render from the actual app', async (t) => {
       assert.ok(!magazine.includes('id="activities"'), 'magazine does not duplicate seminars');
       assert.ok(!magazine.includes('<article'), 'the interactive home has no story content');
       for (const column of columns) assert.ok(!magazine.includes(`href="${contentHref('columns', column.id)}"`), 'the interactive home has no article links');
-      assert.ok(magazine.includes('aria-label="Animation controls"'), 'motion has explicit controls');
+      assert.ok(!magazine.includes('aria-label="Animation controls"'), 'home omits the removed playback controls');
     });
 
     await t.test('research and activity details keep DOI and return links without generic source links', () => {

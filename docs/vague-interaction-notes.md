@@ -22,7 +22,7 @@ The /vague/ entry is an interactive brand surface with no articles, topic lists,
 - Pointer Events support mouse, touch, and pen without rendering React state on every frame.
 - requestAnimationFrame uses elapsed time; paused, reduced-motion, and hidden-tab states stop the automatic frame loop.
 - Cap device pixel ratio, resize the backing buffer, and remove observers, listeners, and animation callbacks on unmount.
-- Keep Reset and Play/Pause operable from the keyboard. No motion is essential to navigation.
+- Keep the home free of interaction hints and playback/reset controls. Motion follows the operating-system reduced-motion preference; navigation remains available independently of the canvas.
 - GSAP is already a project dependency, but this single-screen field does not need it. Consider ScrollTrigger only if future editorial scenes require scroll-linked sequences.
 
 ## Browser documentation
