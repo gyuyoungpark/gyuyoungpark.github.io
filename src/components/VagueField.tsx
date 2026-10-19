@@ -10,22 +10,32 @@ type FieldController = {
   configure: (paused: boolean, reducedMotion: boolean) => void;
   reset: () => void;
   move: (event: PointerEvent) => void;
-  down: (event: PointerEvent) => void;
+  down: (event: PointerEvent) => boolean;
   up: (event: PointerEvent) => void;
-  leave: () => void;
-  cancel: () => void;
+  leave: (event: PointerEvent) => void;
+  cancel: (event: PointerEvent) => void;
 };
 
 type Ripple = { x: number; y: number; born: number };
+type DrawingPoint = { x: number; y: number };
+type DrawingStroke = { points: DrawingPoint[]; lastInput: number; active: boolean };
+
+const MAX_STROKES = 24;
+const MAX_POINTS_PER_STROKE = 1500;
+const STROKE_HOLD_MS = 600;
+const STROKE_FADE_MS = 3000;
 
 export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const drawingCanvasRef = useRef<HTMLCanvasElement>(null);
   const controllerRef = useRef<FieldController | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    const drawingCanvas = drawingCanvasRef.current;
     const context = canvas?.getContext('2d');
-    if (!canvas || !context) return;
+    const drawingContext = drawingCanvas?.getContext('2d');
+    if (!canvas || !context || !drawingCanvas || !drawingContext) return;
 
     let width = 1;
     let height = 1;
@@ -33,10 +43,14 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
     let elapsed = 0;
     let previousFrame = 0;
     let frameId: number | null = null;
+    let drawingFrameId: number | null = null;
     let isPaused = true;
     let prefersReducedMotion = true;
     let disposed = false;
     let ripples: Ripple[] = [];
+    let strokes: DrawingStroke[] = [];
+    let activeStroke: DrawingStroke | null = null;
+    let activePointerId: number | null = null;
     const pointer = {
       active: false,
       pressed: false,
@@ -132,6 +146,108 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
       context.globalAlpha = 1;
     };
 
+    const drawDrawing = (now: number) => {
+      if (disposed || document.hidden) return;
+      const hold = prefersReducedMotion ? 150 : STROKE_HOLD_MS;
+      const fade = prefersReducedMotion ? 900 : STROKE_FADE_MS;
+      strokes = strokes.filter((stroke) => stroke.active || now - stroke.lastInput < hold + fade);
+      drawingContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      drawingContext.clearRect(0, 0, width, height);
+      drawingContext.lineCap = 'round';
+      drawingContext.lineJoin = 'round';
+      drawingContext.lineWidth = 2.5;
+      drawingContext.strokeStyle = '#27272a';
+      drawingContext.fillStyle = '#27272a';
+
+      for (const stroke of strokes) {
+        const progress = stroke.active ? 0 : Math.max(0, Math.min(1, (now - stroke.lastInput - hold) / fade));
+        const opacity = 1 - progress * progress * (3 - 2 * progress);
+        drawingContext.globalAlpha = opacity * 0.84;
+        const first = stroke.points[0];
+        if (stroke.points.length === 1) {
+          drawingContext.beginPath();
+          drawingContext.arc(first.x, first.y, 1.25, 0, Math.PI * 2);
+          drawingContext.fill();
+          continue;
+        }
+
+        drawingContext.beginPath();
+        drawingContext.moveTo(first.x, first.y);
+        for (let index = 1; index < stroke.points.length - 1; index += 1) {
+          const current = stroke.points[index];
+          const next = stroke.points[index + 1];
+          drawingContext.quadraticCurveTo(current.x, current.y, (current.x + next.x) / 2, (current.y + next.y) / 2);
+        }
+        const last = stroke.points[stroke.points.length - 1];
+        drawingContext.lineTo(last.x, last.y);
+        drawingContext.stroke();
+      }
+      drawingContext.globalAlpha = 1;
+    };
+
+    const stopDrawing = () => {
+      if (drawingFrameId !== null) cancelAnimationFrame(drawingFrameId);
+      drawingFrameId = null;
+    };
+
+    const drawingFrame = (now: number) => {
+      drawingFrameId = null;
+      if (disposed || document.hidden) return;
+      drawDrawing(now);
+      if (strokes.some((stroke) => !stroke.active)) {
+        drawingFrameId = requestAnimationFrame(drawingFrame);
+      }
+    };
+
+    const requestDrawingFrame = () => {
+      if (!disposed && !document.hidden && drawingFrameId === null && strokes.some((stroke) => !stroke.active)) {
+        drawingFrameId = requestAnimationFrame(drawingFrame);
+      }
+    };
+
+    const appendPoint = (event: PointerEvent, bounds: DOMRect, now: number) => {
+      if (!activeStroke) return;
+      const point = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
+      const last = activeStroke.points[activeStroke.points.length - 1];
+      activeStroke.lastInput = now;
+      if (last && Math.hypot(point.x - last.x, point.y - last.y) < 0.65) return;
+      if (activeStroke.points.length >= MAX_POINTS_PER_STROKE) {
+        const lastIndex = activeStroke.points.length - 1;
+        activeStroke.points = activeStroke.points.filter((_, index) => index % 2 === 0 || index === lastIndex);
+      }
+      activeStroke.points.push(point);
+    };
+
+    const appendPointerInput = (event: PointerEvent) => {
+      if (!activeStroke || event.pointerId !== activePointerId) return;
+      const bounds = canvas.getBoundingClientRect();
+      const now = performance.now();
+      const coalesced = typeof event.getCoalescedEvents === 'function' ? event.getCoalescedEvents() : [];
+      for (const sample of coalesced) appendPoint(sample, bounds, now);
+      appendPoint(event, bounds, now);
+      drawDrawing(now);
+    };
+
+    const finishStroke = () => {
+      if (activeStroke) {
+        activeStroke.active = false;
+        activeStroke.lastInput = performance.now();
+      }
+      activeStroke = null;
+      activePointerId = null;
+      pointer.pressed = false;
+      drawDrawing(performance.now());
+      requestDrawingFrame();
+    };
+
+    const releaseCapture = () => {
+      const capturedPointerId = activePointerId;
+      finishStroke();
+      if (capturedPointerId !== null && canvas.hasPointerCapture(capturedPointerId)) {
+        canvas.releasePointerCapture(capturedPointerId);
+      }
+    };
+
     const stop = () => {
       if (frameId !== null) cancelAnimationFrame(frameId);
       frameId = null;
@@ -191,9 +307,14 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
         stop();
         reflectPointer();
         draw();
+        drawDrawing(performance.now());
+        requestDrawingFrame();
         requestFrame();
       },
       reset: () => {
+        releaseCapture();
+        stopDrawing();
+        strokes = [];
         elapsed = 0;
         previousFrame = 0;
         ripples = [];
@@ -202,10 +323,14 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
         pointer.strength = 0;
         pointer.x = pointer.y = pointer.targetX = pointer.targetY = 0;
         draw();
+        drawDrawing(performance.now());
         requestFrame();
       },
       move: (event) => {
+        if (!event.isPrimary || (activePointerId !== null && event.pointerId !== activePointerId)) return;
+        if (activePointerId !== null && (event.buttons & 1) === 0) releaseCapture();
         positionPointer(event);
+        if (pointer.pressed) appendPointerInput(event);
         if (pointer.pressed && Math.hypot(
           pointer.targetX - pointer.lastRippleX,
           pointer.targetY - pointer.lastRippleY,
@@ -213,26 +338,39 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
         reflectPointer();
       },
       down: (event) => {
+        if (!event.isPrimary || event.button !== 0 || activePointerId !== null) return false;
         positionPointer(event);
         pointer.pressed = true;
+        activePointerId = event.pointerId;
+        activeStroke = { points: [], lastInput: performance.now(), active: true };
+        strokes.push(activeStroke);
+        if (strokes.length > MAX_STROKES) strokes.shift();
+        appendPointerInput(event);
         addRipple();
         reflectPointer();
+        return true;
       },
       up: (event) => {
+        if (event.pointerId !== activePointerId) return;
+        appendPointerInput(event);
         positionPointer(event);
-        pointer.pressed = false;
+        releaseCapture();
         pointer.active = event.pointerType !== 'touch'
           && pointer.targetX >= 0 && pointer.targetX <= width
           && pointer.targetY >= 0 && pointer.targetY <= height;
         reflectPointer();
       },
-      leave: () => {
-        if (!pointer.pressed) pointer.active = false;
+      leave: (event) => {
+        if (activePointerId !== null && event.pointerId !== activePointerId) return;
+        if (activePointerId !== null) appendPointerInput(event);
+        releaseCapture();
+        pointer.active = false;
         reflectPointer();
       },
-      cancel: () => {
+      cancel: (event) => {
+        if (activePointerId !== null && event.pointerId !== activePointerId) return;
+        releaseCapture();
         pointer.active = false;
-        pointer.pressed = false;
         reflectPointer();
       },
     };
@@ -245,7 +383,10 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
       pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
+      drawingCanvas.width = canvas.width;
+      drawingCanvas.height = canvas.height;
       draw();
+      drawDrawing(performance.now());
     };
     const observer = new ResizeObserver(resize);
     observer.observe(canvas);
@@ -253,19 +394,32 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
 
     const visibilityChanged = () => {
       stop();
+      stopDrawing();
+      if (document.hidden) releaseCapture();
       if (!document.hidden) {
         draw();
+        drawDrawing(performance.now());
+        requestDrawingFrame();
         requestFrame();
       }
     };
+    const windowBlurred = () => {
+      releaseCapture();
+      pointer.active = false;
+      reflectPointer();
+    };
     document.addEventListener('visibilitychange', visibilityChanged);
+    window.addEventListener('blur', windowBlurred);
     resize();
 
     return () => {
       disposed = true;
       stop();
+      stopDrawing();
+      releaseCapture();
       observer.disconnect();
       window.removeEventListener('resize', resize);
+      window.removeEventListener('blur', windowBlurred);
       document.removeEventListener('visibilitychange', visibilityChanged);
       if (controllerRef.current === controller) controllerRef.current = null;
     };
@@ -280,9 +434,9 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
   }, [resetKey]);
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLCanvasElement>) => {
-    if (event.pointerType === 'mouse' && event.button !== 0) return;
-    event.currentTarget.setPointerCapture(event.pointerId);
-    controllerRef.current?.down(event.nativeEvent);
+    if (controllerRef.current?.down(event.nativeEvent)) {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
   };
 
   const handlePointerUp = (event: ReactPointerEvent<HTMLCanvasElement>) => {
@@ -293,15 +447,19 @@ export function VagueField({ paused, resetKey, reducedMotion }: VagueFieldProps)
   };
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="vague-field"
-      aria-hidden="true"
-      onPointerMove={(event) => controllerRef.current?.move(event.nativeEvent)}
-      onPointerDown={handlePointerDown}
-      onPointerUp={handlePointerUp}
-      onPointerLeave={() => controllerRef.current?.leave()}
-      onPointerCancel={() => controllerRef.current?.cancel()}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className="vague-field"
+        aria-hidden="true"
+        onPointerMove={(event) => controllerRef.current?.move(event.nativeEvent)}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={(event) => controllerRef.current?.leave(event.nativeEvent)}
+        onPointerCancel={(event) => controllerRef.current?.cancel(event.nativeEvent)}
+        onLostPointerCapture={(event) => controllerRef.current?.cancel(event.nativeEvent)}
+      />
+      <canvas ref={drawingCanvasRef} className="vague-drawing" aria-hidden="true" />
+    </>
   );
 }

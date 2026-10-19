@@ -20,7 +20,8 @@ The /vague/ entry is an interactive brand surface with no articles, topic lists,
 - Preserve Pretendard and the established VAGUE opacity minimum around G.
 - Use a decorative Canvas 2D line field and real HTML for the wordmark, navigation, and controls.
 - Pointer Events support mouse, touch, and pen without rendering React state on every frame.
-- requestAnimationFrame uses elapsed time; paused, reduced-motion, and hidden-tab states stop the automatic frame loop.
+- Pressing and dragging draws freehand charcoal strokes above the wordmark. Separate gestures remain separate, and completed strokes fade away after a short hold. The opacity fade also runs with reduced motion so drawing never leaves permanent marks.
+- requestAnimationFrame uses elapsed time; paused, reduced-motion, and hidden-tab states stop the automatic background frame loop. Drawing fades use a separate clock and expire after a hidden tab is reopened.
 - Cap device pixel ratio, resize the backing buffer, and remove observers, listeners, and animation callbacks on unmount.
 - Keep the home free of interaction hints and playback/reset controls. Motion follows the operating-system reduced-motion preference; navigation remains available independently of the canvas.
 - GSAP is already a project dependency, but this single-screen field does not need it. Consider ScrollTrigger only if future editorial scenes require scroll-linked sequences.
