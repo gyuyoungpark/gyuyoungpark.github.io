@@ -16,8 +16,6 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
   const detailImage = isActivity ? item.detailImage : undefined;
   const image = isActivity ? detailImage?.src : item.image;
   const imageAlt = detailImage?.alt ?? item.imageAlt ?? item.title;
-  const sourceUrl = isActivity ? detailImage?.sourceUrl : item.figureSourceUrl;
-  const imageLabel = isActivity ? detailImage?.label : item.figureNumber;
   const summary = isActivity ? undefined : item.summary;
   const caption = summary?.length || (detailImage && detailImage.src !== item.image) ? undefined : item.caption ?? ('description' in item ? item.description : undefined);
 
@@ -44,9 +42,9 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
           </p>}
           {isActivity && item.location && <p>{item.location}</p>}
         </div>
-        {(doiUrl || item.url) && <p className="mt-6 text-sm leading-6 [overflow-wrap:anywhere]">
-          <a href={doiUrl ?? item.url} target="_blank" rel="noopener noreferrer" className="text-zinc-700 underline decoration-zinc-400 underline-offset-4 hover:text-black">
-            {doiUrl ? `DOI: ${item.doi}` : 'Official source'}
+        {doiUrl && <p className="mt-6 text-sm leading-6 [overflow-wrap:anywhere]">
+          <a href={doiUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-700 underline decoration-zinc-400 underline-offset-4 hover:text-black">
+            DOI: {item.doi}
           </a>
         </p>}
       </header>
@@ -58,7 +56,6 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
           <img src={image} alt={imageAlt} className={`${detailImage ? '' : 'max-h-[80vh] '}w-full object-contain`} decoding="async" />
         </a>
         {caption && <figcaption className="mt-5 text-base leading-8 text-zinc-700">{caption}</figcaption>}
-        {sourceUrl && <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm text-zinc-500 underline decoration-zinc-300 underline-offset-4 hover:text-black">{imageLabel ?? 'Image'} · Source</a>}
       </figure> : caption && <p className="text-base leading-8 text-zinc-700">{caption}</p>}
       <footer className="trimmed-top-border mt-10 pt-6">
         <KeywordTags tags={item.tags} className="mb-6" />

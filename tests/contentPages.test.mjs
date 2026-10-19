@@ -45,16 +45,16 @@ test('content detail pages render from the actual app', async (t) => {
       for (const card of cards) assert.ok(!card.includes('target="_blank"'), 'card clicks stay on the site');
     });
 
-    await t.test('all research and activity routes show their recorded sources and return links', () => {
+    await t.test('research and activity details keep DOI and return links without generic source links', () => {
       for (const [section, items] of [['research', articles], ['activities', activities]]) {
         for (const item of items) {
           const html = render(`#/${section}/${encodeURIComponent(item.id)}`);
           assert.match(html, /<h1\b/);
           assert.ok(html.includes(item.title), item.id);
           assert.ok(html.includes(`href="/#${section}"`), `return link: ${item.id}`);
-          const source = item.doi ? `https://doi.org/${item.doi}` : item.url;
-          if (source) assert.ok(html.includes(`href="${source.replaceAll('&', '&amp;')}" target="_blank"`), `external source: ${item.id}`);
-          else assert.ok(!html.includes('Official source'), `${item.id}: no invented source link`);
+          if (item.doi) assert.ok(html.includes(`href="https://doi.org/${item.doi}" target="_blank"`), `DOI: ${item.id}`);
+          assert.ok(!html.includes('Official source'), `${item.id}: no generic official source link`);
+          assert.ok(!html.includes(' · Source'), `${item.id}: no generic image source link`);
           const image = section === 'activities' ? item.detailImage?.src : item.image;
           if (image) assert.ok(html.includes(`src="${image}"`), `image: ${item.id}`);
           assert.ok(!html.includes('id="keywords"'), 'detail pages replace the index');
@@ -139,7 +139,6 @@ test('content detail pages render from the actual app', async (t) => {
       const pom = render('#/activities/pm26-moire-chaos');
       assert.ok(homepage.includes('src="/images/activities/pm26-photo.jpg"'), 'PoM thumbnail keeps the supplied photo');
       assert.ok(pom.includes('src="/images/activities/pm26-abstract.png"'), 'PoM detail displays the submitted abstract');
-      assert.ok(pom.includes('href="/documents/activities/pm26-abstract.pdf"'), 'original abstract PDF is available');
       for (const activity of activities) {
         if (!activity.image || activity.image === activity.detailImage?.src) continue;
         const detail = render(`#/activities/${activity.id}`);
