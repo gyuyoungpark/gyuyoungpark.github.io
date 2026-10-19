@@ -125,7 +125,7 @@ function App({ initialLocation }: { initialLocation?: AppLocation } = {}) {
     <KeywordSelectionContext.Provider value={selectedKeywords}>
     <div className="min-h-screen text-zinc-900">
       {!isMagazine && <Header bordered={!isDetail} />}
-      <main className="site-shell bg-white">
+      <main className={isMagazine ? 'vague-page' : 'site-shell bg-white'}>
         {isMagazine ? <VagueMagazine /> : route ? column ? <ColumnArticle key={`${column.id}-${route.language ?? 'en'}`} column={column} initialLanguage={route.language} />
           : item ? <ContentArticle key={`${route.section}-${item.id}`} item={item} />
           : achievement ? <AchievementArticle key={achievement.id} achievement={achievement} />

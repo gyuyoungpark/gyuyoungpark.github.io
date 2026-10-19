@@ -52,7 +52,9 @@ test('content detail pages render from the actual app', async (t) => {
       const magazine = render('', [], '/vague/');
       assert.ok(!magazine.includes('id="research"'), 'magazine is separate from the portfolio index');
       assert.ok(!magazine.includes('id="activities"'), 'magazine does not duplicate seminars');
-      for (const column of columns) assert.ok(magazine.includes(`href="${contentHref('columns', column.id)}"`), 'real articles are reachable');
+      assert.ok(!magazine.includes('<article'), 'the interactive home has no story content');
+      for (const column of columns) assert.ok(!magazine.includes(`href="${contentHref('columns', column.id)}"`), 'the interactive home has no article links');
+      assert.ok(magazine.includes('aria-label="Animation controls"'), 'motion has explicit controls');
     });
 
     await t.test('research and activity details keep DOI and return links without generic source links', () => {

@@ -231,11 +231,13 @@ test('configured columns and the magazine index are prerendered and listed for d
     assert.ok(!/^Disallow:\s*\/(?:\s|$)/m.test(robots), 'robots allows crawling the pilot');
 });
 
-test('the standalone magazine has article links and a canonical document for direct visits', async () => {
+test('the standalone interactive home has no articles and retains a canonical document for direct visits', async () => {
   const html = await readFile(path.join(dist, 'vague/index.html'), 'utf8');
   assert.match(textContent(elements(html, 'h1')[0]?.inner ?? ''), /VAGUE/);
   assert.equal(uniqueAttribute(tags(html, 'link'), 'rel', 'canonical', 'href', 'magazine canonical'), `${origin}/vague/`);
   assert.ok(!html.includes('id="research"'), 'direct magazine visits show the magazine');
-  for (const { routes } of configuredColumns) assert.ok(tags(html, 'a').some((anchor) => anchor.attributes.href === routes[0].pathname), 'existing articles are discoverable');
+  assert.equal(elements(html, 'article').length, 0, 'home is reserved for the interactive experience');
+  for (const { routes } of configuredColumns) assert.ok(!tags(html, 'a').some((anchor) => anchor.attributes.href === routes[0].pathname), 'home has no article links');
+  assert.ok(!html.includes('Explore a topic'), 'topic navigation is removed with the content');
   for (const image of tags(html, 'img')) await requireLocalAsset(image.attributes.src, '/vague/');
 });

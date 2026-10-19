@@ -104,8 +104,8 @@ try {
 
   const magazinePath = '/vague/';
   const magazineCanonical = new URL(magazinePath, SITE_ORIGIN).href;
-  const magazineTitle = 'VAGUE — Science Magazine';
-  const magazineDescription = 'A magazine by Gyuyoung Park. Explore science through stories about matter, chemistry, and the ideas that connect them.';
+  const magazineTitle = 'VAGUE';
+  const magazineDescription = 'VAGUE, an interactive space by Gyuyoung Park.';
   const magazineMarkup = renderToString(React.createElement(App, {
     initialLocation: { pathname: magazinePath, hash: '' },
   }));
