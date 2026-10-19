@@ -52,9 +52,7 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
         {summary.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
       </section>}
       {image ? <figure>
-        <a href={image} target="_blank" rel="noopener noreferrer" aria-label="View full image" className="block">
-          <img src={image} alt={imageAlt} className={`${detailImage ? '' : 'max-h-[80vh] '}w-full object-contain`} decoding="async" />
-        </a>
+        <img src={image} alt={imageAlt} className={`${detailImage ? '' : 'max-h-[80vh] '}w-full object-contain`} decoding="async" />
         {caption && <figcaption className="mt-5 text-base leading-8 text-zinc-700">{caption}</figcaption>}
       </figure> : caption && <p className="text-base leading-8 text-zinc-700">{caption}</p>}
       <footer className="trimmed-top-border mt-10 pt-6">

@@ -29,10 +29,10 @@ test('content detail pages render from the actual app', async (t) => {
     const { columns } = await server.ssrLoadModule('/src/data/columns/index.ts');
     const { formatDetailDate } = await server.ssrLoadModule('/src/lib/detailDate.ts');
     const { contentHref } = await server.ssrLoadModule('/src/lib/contentRoutes.ts');
-    function render(hash, keywordSelection = []) {
+    function render(hash, keywordSelection = [], pathname = '/') {
       window.location.hash = hash;
       window.history.state = { keywordSelection };
-      return renderToStaticMarkup(React.createElement(App));
+      return renderToStaticMarkup(React.createElement(App, { initialLocation: { pathname, hash } }));
     }
 
     await t.test('every homepage card points to its internal detail page', () => {
@@ -43,6 +43,16 @@ test('content detail pages render from the actual app', async (t) => {
       const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
       assert.equal(cards.length, articles.length + activities.length + columns.length + achievements.length);
       for (const card of cards) assert.ok(!card.includes('target="_blank"'), 'card clicks stay on the site');
+    });
+
+    await t.test('the body VAGUE link opens a separate magazine while top navigation keeps its section anchor', () => {
+      const homepage = render('#columns');
+      assert.match(homepage, /<a\b[^>]*href="\/vague\/"[^>]*aria-label="Open VAGUE magazine"/);
+      assert.ok(homepage.includes('href="/#columns"'), 'top navigation keeps its original destination');
+      const magazine = render('', [], '/vague/');
+      assert.ok(!magazine.includes('id="research"'), 'magazine is separate from the portfolio index');
+      assert.ok(!magazine.includes('id="activities"'), 'magazine does not duplicate seminars');
+      for (const column of columns) assert.ok(magazine.includes(`href="${contentHref('columns', column.id)}"`), 'real articles are reachable');
     });
 
     await t.test('research and activity details keep DOI and return links without generic source links', () => {
@@ -57,6 +67,11 @@ test('content detail pages render from the actual app', async (t) => {
           assert.ok(!html.includes(' · Source'), `${item.id}: no generic image source link`);
           const image = section === 'activities' ? item.detailImage?.src : item.image;
           if (image) assert.ok(html.includes(`src="${image}"`), `image: ${item.id}`);
+          const articleHtml = html.match(/<article\b[\s\S]*?<\/article>/)[0];
+          for (const anchor of articleHtml.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)) {
+            assert.ok(!/<img\b/.test(anchor[0]), `${item.id}: detail images do not open links`);
+          }
+          assert.ok(!html.includes('View full image'), `${item.id}: no full-image action`);
           assert.ok(!html.includes('id="keywords"'), 'detail pages replace the index');
         }
       }
@@ -80,8 +95,9 @@ test('content detail pages render from the actual app', async (t) => {
       for (const [section, items] of [['research', articles], ['activities', activities], ['columns', columns], ['achievements', achievements]]) {
         for (const item of items) {
           const html = render(`#/${section}/${encodeURIComponent(item.id)}`).match(/<article\b[\s\S]*?<\/article>/)[0];
+          const returnHref = section === 'columns' ? '/vague/' : `/#${section}`;
           const links = [...html.matchAll(/<a\b[^>]*href="([^\"]+)"[^>]*>[\s\S]*?<\/a>/g)]
-            .filter((match) => match[1] === `/#${section}` && match[0].includes('Back to'));
+            .filter((match) => match[1] === returnHref && match[0].includes('Back to'));
           assert.equal(links.length, 2, `${item.id}: top and bottom return links`);
           for (const link of links) assert.ok(link[0].includes('<span aria-hidden="true">←</span>'), item.id);
           assert.ok(links[0].index < html.indexOf('<h1'), `${item.id}: top link before title`);

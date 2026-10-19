@@ -31,15 +31,15 @@ function seoHead(metadata, marker) {
     const language = tag.hreflang ? ` hreflang="${escapeHtml(tag.hreflang)}"` : '';
     return `<link ${marker} rel="${escapeHtml(tag.rel)}" href="${escapeHtml(tag.href)}"${language} />`;
   });
-  const jsonLd = JSON.stringify(metadata.jsonLd)
+  const jsonLd = metadata.jsonLd && JSON.stringify(metadata.jsonLd)
     .replace(/</g, '\\u003c')
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
-  return [...meta, ...links, `<script ${marker} type="application/ld+json">${jsonLd}</script>`].join('\n    ');
+  return [...meta, ...links, ...(jsonLd ? [`<script ${marker} type="application/ld+json">${jsonLd}</script>`] : [])].join('\n    ');
 }
 
-function pageHtml(markup, metadata, columnId) {
-  const marker = `data-column-seo="${escapeHtml(columnId)}"`;
+function pageHtml(markup, metadata, pageId, markerName = 'data-column-seo') {
+  const marker = `${markerName}="${escapeHtml(pageId)}"`;
   const titlePattern = /<title\b[^>]*>[\s\S]*?<\/title>/i;
   const languagePattern = /(<html\b[^>]*\blang=)["'][^"']*["']/i;
   const rootPattern = /<div\s+id=["']root["']\s*>\s*<\/div>/i;
@@ -101,6 +101,30 @@ try {
       console.log(`Prerendered ${page.path} (${page.language})`);
     }
   }
+
+  const magazinePath = '/vague/';
+  const magazineCanonical = new URL(magazinePath, SITE_ORIGIN).href;
+  const magazineTitle = 'VAGUE — Science Magazine';
+  const magazineDescription = 'A magazine by Gyuyoung Park. Explore science through stories about matter, chemistry, and the ideas that connect them.';
+  const magazineMarkup = renderToString(React.createElement(App, {
+    initialLocation: { pathname: magazinePath, hash: '' },
+  }));
+  const magazineDestination = outputPath(magazinePath);
+  await mkdir(resolve(magazineDestination, '..'), { recursive: true });
+  await writeFile(magazineDestination, pageHtml(magazineMarkup, {
+    title: magazineTitle,
+    htmlLanguage: 'en',
+    meta: [
+      { name: 'description', content: magazineDescription },
+      { property: 'og:title', content: magazineTitle },
+      { property: 'og:description', content: magazineDescription },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: magazineCanonical },
+    ],
+    links: [{ rel: 'canonical', href: magazineCanonical }],
+  }, 'vague', 'data-vague-seo'), 'utf8');
+  canonicalUrls.push(magazineCanonical);
+  console.log(`Prerendered ${magazinePath} (magazine)`);
 
   const urls = [...new Set(canonicalUrls)];
   const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'

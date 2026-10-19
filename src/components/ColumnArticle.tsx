@@ -12,6 +12,7 @@ import { formatDetailDate } from '@/lib/detailDate';
 import { linkColumnParagraphs, type ColumnTextToken } from '@/lib/columnText';
 import { getColumnSeo } from '@/data/columnSeo';
 import { applyColumnSeo } from '@/lib/columnSeo';
+import { VAGUE_PATH } from '@/lib/contentRoutes';
 
 function ArticleText({ tokens, language }: { tokens: ColumnTextToken[]; language: ColumnLanguage }) {
   return tokens.map((token, index) => {
@@ -56,7 +57,7 @@ export function ColumnArticle({ column, initialLanguage = 'en' }: { column: Colu
   return (
     <article lang={language} className="column-article mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
       <header className="mb-10 border-b border-zinc-300 pb-8">
-        <BackLink href="/#columns" className="mb-6"><VagueLogo /></BackLink>
+        <BackLink href={VAGUE_PATH} className="mb-6"><VagueLogo /></BackLink>
         <time dateTime={column.date} className="mb-4 block text-xs tabular-nums tracking-[0.08em] text-zinc-500">{formatDetailDate(column.date)}</time>
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-4">
           <h1 ref={titleRef} tabIndex={-1} className="min-w-0 flex-[1_1_260px] text-3xl font-semibold leading-snug tracking-tight outline-none focus-visible:outline-none sm:text-4xl">{title}</h1>
@@ -103,7 +104,7 @@ export function ColumnArticle({ column, initialLanguage = 'en' }: { column: Colu
       <ColumnReferences columnId={column.id} references={column.references ?? []} />
       <footer className="mt-12 border-t border-zinc-300 pt-6">
         <KeywordTags tags={column.tags} className="mb-6" />
-        <BackLink href="/#columns"><VagueLogo /></BackLink>
+        <BackLink href={VAGUE_PATH}><VagueLogo /></BackLink>
       </footer>
     </article>
   );

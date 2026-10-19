@@ -12,10 +12,8 @@ export function ColumnPaperFigure({ columnId, block, reference, referenceNumber,
   return (
     <figure className="column-paper-figure my-10 border-y border-zinc-300 py-5">
       <p className="mb-4 text-sm font-semibold text-zinc-800">{heading ?? <>{language === 'en' ? 'From the paper' : '논문 그림'} · {reference?.title ?? block.figureLabel}{reference && ` (${reference.year})`}</>}</p>
-      <a href={block.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${block.figureLabel} — ${language === 'en' ? 'original paper figure (opens in a new tab)' : '원본 논문 그림 (새 탭)'}`}>
-        <img src={block.image} alt={language === 'en' ? block.altEn ?? block.alt : block.alt} width={block.width} height={block.height}
-          className="block h-auto w-full" loading="lazy" decoding="async" />
-      </a>
+      <img src={block.image} alt={language === 'en' ? block.altEn ?? block.alt : block.alt} width={block.width} height={block.height}
+        className="block h-auto w-full" loading="lazy" decoding="async" />
       <figcaption className="mt-3 text-sm leading-6 text-zinc-500">
         {language === 'en' ? block.captionEn ?? block.caption : block.caption}
         {reference && <ReferenceMark columnId={columnId} reference={reference} number={referenceNumber} />}

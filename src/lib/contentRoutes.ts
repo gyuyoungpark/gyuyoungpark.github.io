@@ -3,6 +3,12 @@ export type ContentRoute = { section: ContentSection; id: string; language?: 'en
 
 const columnPathIds = new Set(['electron-fluid', 'molecular-handedness']);
 
+export const VAGUE_PATH = '/vague/';
+
+export function isVaguePath(pathname: string): boolean {
+  return pathname === VAGUE_PATH || pathname === '/vague';
+}
+
 export function contentHref(section: ContentSection, id: string): string {
   if (section === 'columns' && columnPathIds.has(id)) return `/columns/${id}/`;
   return `/#/${section}/${encodeURIComponent(id)}`;

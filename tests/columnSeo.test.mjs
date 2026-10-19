@@ -127,6 +127,9 @@ test(`built ${column.id} pages contain complete localized content and discovery 
       for (const figure of figures) {
         const image = tags(figure.inner, 'img')[0];
         assert.ok(image?.attributes.src && image.attributes.alt, 'every figure has its image and alt text');
+        for (const anchor of elements(figure.inner, 'a')) {
+          assert.equal(tags(anchor.inner, 'img').length, 0, 'figure images do not open links');
+        }
         const caption = textContent(elements(figure.inner, 'figcaption')[0]?.inner ?? '');
         assert.ok(caption, 'every figure retains a caption');
         if (route.language === 'ko') {
@@ -200,7 +203,7 @@ test(`built ${column.id} pages contain complete localized content and discovery 
 });
 }
 
-test('only the configured columns are prerendered and listed for discovery', async () => {
+test('configured columns and the magazine index are prerendered and listed for discovery', async () => {
     const index = await readFile(path.join(dist, 'index.html'), 'utf8');
     assert.equal(elements(index, 'article').length, 0, 'homepage remains the existing app entry');
     for (const { column } of configuredColumns) {
@@ -209,6 +212,7 @@ test('only the configured columns are prerendered and listed for discovery', asy
     }
     assert.ok(!index.includes('"@type":"Article"'), 'homepage does not publish the pilot structured data');
     const pilotHtml = new Set(allRoutes.map((route) => `${route.pathname.slice(1)}index.html`));
+    pilotHtml.add('vague/index.html');
     for (const file of await readdir(dist, { recursive: true })) {
       const normalized = file.replaceAll('\\', '/');
       if (!normalized.endsWith('.html') || pilotHtml.has(normalized) || normalized === 'index.html') continue;
@@ -218,11 +222,20 @@ test('only the configured columns are prerendered and listed for discovery', asy
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
     const locations = elements(sitemap, 'loc').map((element) => textContent(element.inner));
     assert.ok(!locations.some((url) => url.includes('#')), 'sitemap uses canonical real paths');
-    const expected = allRoutes.map((route) => `${origin}${route.pathname}`);
+    const expected = [...allRoutes.map((route) => `${origin}${route.pathname}`), `${origin}/vague/`];
     assert.equal(locations.filter((url) => url === `${origin}/`).length, 1, 'homepage remains in the sitemap');
     for (const canonical of expected) assert.equal(locations.filter((url) => url === canonical).length, 1, 'each localized canonical appears once');
     assert.ok(locations.every((url) => url === `${origin}/` || expected.includes(url)), 'sitemap does not expand the pilot to other records');
     const robots = await readFile(path.join(dist, 'robots.txt'), 'utf8');
     assert.match(robots, new RegExp(`^Sitemap:\\s*${origin.replaceAll('.', '\\.')}\\/sitemap\\.xml\\s*$`, 'm'));
     assert.ok(!/^Disallow:\s*\/(?:\s|$)/m.test(robots), 'robots allows crawling the pilot');
+});
+
+test('the standalone magazine has article links and a canonical document for direct visits', async () => {
+  const html = await readFile(path.join(dist, 'vague/index.html'), 'utf8');
+  assert.match(textContent(elements(html, 'h1')[0]?.inner ?? ''), /VAGUE/);
+  assert.equal(uniqueAttribute(tags(html, 'link'), 'rel', 'canonical', 'href', 'magazine canonical'), `${origin}/vague/`);
+  assert.ok(!html.includes('id="research"'), 'direct magazine visits show the magazine');
+  for (const { routes } of configuredColumns) assert.ok(tags(html, 'a').some((anchor) => anchor.attributes.href === routes[0].pathname), 'existing articles are discoverable');
+  for (const image of tags(html, 'img')) await requireLocalAsset(image.attributes.src, '/vague/');
 });

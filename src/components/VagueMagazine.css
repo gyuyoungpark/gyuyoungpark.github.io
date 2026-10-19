@@ -1,0 +1,409 @@
+.vague-magazine {
+  min-height: 100vh;
+  background: #fff;
+  color: #18181b;
+}
+
+.vague-magazine .vm-shell {
+  width: min(100% - 80px, 1240px);
+  margin-inline: auto;
+}
+
+.vague-magazine .vm-header {
+  padding-top: 28px;
+}
+
+.vague-magazine .vm-topline,
+.vague-magazine .vm-introduction,
+.vague-magazine .vm-section-label,
+.vague-magazine .vm-story-meta,
+.vague-magazine .vm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.vague-magazine .vm-topline {
+  padding-top: 12px;
+  border-top: 1px solid #27272a;
+}
+
+.vague-magazine .vm-home {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.vague-magazine .vm-home > span {
+  font-size: 20px;
+  transition: transform 180ms ease;
+}
+
+.vague-magazine .vm-home:hover > span {
+  transform: translateX(-4px);
+}
+
+.vague-magazine .vm-language {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.vague-magazine .vm-language button {
+  min-width: 44px;
+  min-height: 44px;
+  color: #71717a;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+}
+
+.vague-magazine .vm-language button[aria-pressed='true'] {
+  color: #18181b;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.vague-magazine .vm-masthead {
+  margin: 13px 0 20px;
+  font-size: clamp(72px, 29vw, 400px);
+  font-weight: 650;
+  line-height: 0.92;
+  letter-spacing: -0.085em;
+}
+
+.vague-magazine .vm-introduction {
+  align-items: baseline;
+  padding: 26px 0 30px;
+}
+
+.vague-magazine .vm-introduction p {
+  max-width: 580px;
+  font-size: clamp(17px, 1.8vw, 23px);
+  font-weight: 450;
+  line-height: 1.6;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+}
+
+.vague-magazine .vm-introduction > span {
+  flex-shrink: 0;
+  color: #71717a;
+  font-size: 10px;
+  letter-spacing: 0.11em;
+}
+
+.vague-magazine .vm-topics {
+  padding: 21px 0 28px;
+  border-top: 1px solid #d4d4d8;
+}
+
+.vague-magazine .vm-section-label {
+  margin-bottom: 17px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.vague-magazine .vm-section-label h2 {
+  font-weight: 600;
+}
+
+.vague-magazine .vm-section-label > span {
+  color: #71717a;
+  font-variant-numeric: tabular-nums;
+}
+
+.vague-magazine .vm-topic-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.vague-magazine .vm-topic-buttons button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 2px;
+  background: #f4f4f5;
+  color: #52525b;
+  font-size: 12px;
+  line-height: 1.4;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.vague-magazine .vm-topic-buttons button:hover {
+  background: #e4e4e7;
+  color: #18181b;
+}
+
+.vague-magazine .vm-topic-buttons button[aria-pressed='true'] {
+  background: #18181b;
+  color: #fff;
+}
+
+.vague-magazine .vm-clear-topic {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  color: #71717a;
+  font-size: 12px;
+}
+
+.vague-magazine .vm-clear-topic > span {
+  font-size: 18px;
+}
+
+.vague-magazine .vm-story {
+  padding: 34px 0 42px;
+  border-top: 1px solid #d4d4d8;
+}
+
+.vague-magazine .vm-story--featured {
+  padding-top: 38px;
+  border-top-color: #27272a;
+}
+
+.vague-magazine .vm-story-link {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: center;
+}
+
+.vague-magazine .vm-story--featured .vm-story-link {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 46px;
+}
+
+.vague-magazine .vm-story-image {
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.vague-magazine .vm-story-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  transition: transform 350ms ease;
+}
+
+.vague-magazine .vm-story-link:hover .vm-story-image img {
+  transform: scale(1.025);
+}
+
+.vague-magazine .vm-story-copy {
+  min-width: 0;
+}
+
+.vague-magazine .vm-story-meta {
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  color: #71717a;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+.vague-magazine .vm-story-meta > span {
+  color: #52525b;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.vague-magazine .vm-story-meta time {
+  font-variant-numeric: tabular-nums;
+}
+
+.vague-magazine .vm-story h2 {
+  margin-top: 18px;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.vague-magazine .vm-story--featured h2 {
+  font-size: clamp(34px, 4.2vw, 56px);
+}
+
+.vague-magazine .vm-story-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 19px;
+  color: #71717a;
+  font-size: 14px;
+  line-height: 1.8;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  word-break: keep-all;
+}
+
+.vague-magazine .vm-story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 13px;
+  margin-top: 23px;
+  color: #71717a;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.vague-magazine .vm-story-tags li::before {
+  content: '#';
+  margin-right: 2px;
+  color: #a1a1aa;
+}
+
+.vague-magazine .vm-story-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #a1a1aa;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.vague-magazine .vm-story-read > span {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.vague-magazine .vm-story-link:hover .vm-story-read > span {
+  transform: translateX(5px);
+}
+
+.vague-magazine .vm-footer {
+  margin-top: 24px;
+  padding: 22px 0 32px;
+  border-top: 1px solid #27272a;
+}
+
+.vague-magazine .vm-footer p {
+  color: #71717a;
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .vague-magazine .vm-shell {
+    width: calc(100% - 48px);
+  }
+
+  .vague-magazine .vm-introduction > span {
+    display: none;
+  }
+
+  .vague-magazine .vm-story-link,
+  .vague-magazine .vm-story--featured .vm-story-link {
+    gap: 28px;
+  }
+
+  .vague-magazine .vm-story--featured h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vague-magazine .vm-shell {
+    width: calc(100% - 36px);
+  }
+
+  .vague-magazine .vm-header {
+    padding-top: 16px;
+  }
+
+  .vague-magazine .vm-topline {
+    gap: 8px;
+    padding-top: 6px;
+  }
+
+  .vague-magazine .vm-masthead {
+    margin: 24px 0 11px;
+    font-size: 29.8vw;
+  }
+
+  .vague-magazine .vm-introduction {
+    padding: 20px 0 25px;
+  }
+
+  .vague-magazine .vm-introduction p {
+    max-width: 310px;
+    font-size: 17px;
+  }
+
+  .vague-magazine .vm-topics {
+    padding: 18px 0 23px;
+  }
+
+  .vague-magazine .vm-topic-buttons {
+    gap: 6px;
+  }
+
+  .vague-magazine .vm-topic-buttons button {
+    padding-inline: 11px;
+    font-size: 11px;
+  }
+
+  .vague-magazine .vm-story,
+  .vague-magazine .vm-story--featured {
+    padding: 25px 0 31px;
+  }
+
+  .vague-magazine .vm-story-link,
+  .vague-magazine .vm-story--featured .vm-story-link {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .vague-magazine .vm-story h2,
+  .vague-magazine .vm-story--featured h2 {
+    max-width: 540px;
+    margin-top: 12px;
+    font-size: clamp(29px, 7.5vw, 42px);
+    line-height: 1.22;
+  }
+
+  .vague-magazine .vm-story-description {
+    margin-top: 15px;
+  }
+
+  .vague-magazine .vm-story-tags {
+    margin-top: 17px;
+  }
+
+  .vague-magazine .vm-story-read {
+    margin-top: 20px;
+  }
+
+  .vague-magazine .vm-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vague-magazine .vm-home > span,
+  .vague-magazine .vm-topic-buttons button,
+  .vague-magazine .vm-story-image img,
+  .vague-magazine .vm-story-read > span {
+    transition: none;
+  }
+
+  .vague-magazine .vm-home:hover > span,
+  .vague-magazine .vm-story-link:hover .vm-story-image img,
+  .vague-magazine .vm-story-link:hover .vm-story-read > span {
+    transform: none;
+  }
+}

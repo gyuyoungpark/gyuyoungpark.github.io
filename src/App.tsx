@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero';
 import { TagCloud } from '@/components/TagCloud';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { ColumnsSection } from '@/components/ColumnsSection';
+import { VagueMagazine } from '@/components/VagueMagazine';
 import { ColumnArticle } from '@/components/ColumnArticle';
 import { ContentArticle } from '@/components/ContentArticle';
 import { AchievementsSection } from '@/components/AchievementsSection';
@@ -13,7 +14,7 @@ import { articles, activities, achievements } from '@/data/content';
 import { columns, getColumnById } from '@/data/columns';
 import { filterByKeywords, keywordSelectionHref, keywordsFromHash, toggleKeyword } from '@/lib/keywords';
 import { KeywordSelectionContext } from '@/lib/keywordSelection';
-import { contentRouteFromHash, contentRouteFromPath } from '@/lib/contentRoutes';
+import { contentRouteFromHash, contentRouteFromPath, isVaguePath } from '@/lib/contentRoutes';
 import './App.css';
 
 function savedKeywords(state: unknown): string[] | undefined {
@@ -31,6 +32,7 @@ function browserLocation(): AppLocation {
 function App({ initialLocation }: { initialLocation?: AppLocation } = {}) {
   const [location, setLocation] = useState(initialLocation ?? browserLocation);
   const { pathname, hash } = location;
+  const isMagazine = isVaguePath(pathname);
   const [selectedKeywords, setSelectedKeywords] = useState(() => {
     const initialHash = location.hash;
     return location.pathname === '/' && (initialHash.startsWith('#/keywords/') || initialHash === '#keywords' || !initialHash)
@@ -84,6 +86,8 @@ function App({ initialLocation }: { initialLocation?: AppLocation } = {}) {
       if (!anchor || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
       const target = new URL(anchor.href, window.location.href);
       if (target.origin !== window.location.origin || target.search) return;
+      // The magazine has a standalone document with its own page metadata.
+      if (isVaguePath(target.pathname) || isVaguePath(window.location.pathname)) return;
       const isPilot = Boolean(contentRouteFromPath(target.pathname));
       const isReturn = Boolean(contentRouteFromPath(window.location.pathname)) && target.pathname === '/' && target.hash.startsWith('#');
       if (!isPilot && !isReturn) return;
@@ -120,9 +124,9 @@ function App({ initialLocation }: { initialLocation?: AppLocation } = {}) {
   return (
     <KeywordSelectionContext.Provider value={selectedKeywords}>
     <div className="min-h-screen text-zinc-900">
-      <Header bordered={!isDetail} />
+      {!isMagazine && <Header bordered={!isDetail} />}
       <main className="site-shell bg-white">
-        {route ? column ? <ColumnArticle key={`${column.id}-${route.language ?? 'en'}`} column={column} initialLanguage={route.language} />
+        {isMagazine ? <VagueMagazine /> : route ? column ? <ColumnArticle key={`${column.id}-${route.language ?? 'en'}`} column={column} initialLanguage={route.language} />
           : item ? <ContentArticle key={`${route.section}-${item.id}`} item={item} />
           : achievement ? <AchievementArticle key={achievement.id} achievement={achievement} />
           : <article className="mx-auto max-w-[820px] px-5 py-14 sm:px-10">
