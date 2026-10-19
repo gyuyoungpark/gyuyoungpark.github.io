@@ -18,7 +18,7 @@ export function ContentCard({ id, title, href, metadata, image, imageAlt, captio
     <article id={id} className="trimmed-borders flex h-full scroll-mt-28 flex-col bg-white p-5">
       <a href={href} className="block after:absolute after:inset-0 after:z-[1] after:content-['']">
         <div className="text-xs leading-5 text-zinc-500">{metadata}</div>
-        <h3 className="mt-3 text-lg font-semibold leading-7 text-zinc-900">{title}</h3>
+        {title && <h3 className="mt-3 text-lg font-semibold leading-7 text-zinc-900">{title}</h3>}
       </a>
       {image ? (
         <figure className="mt-5">

@@ -8,6 +8,7 @@ import { formatDetailDate } from '@/lib/detailDate';
 
 export function ContentArticle({ item }: { item: Article | Activity }) {
   const isActivity = 'event' in item;
+  const pageTitle = item.title || (isActivity ? item.event : 'Research');
   const section = isActivity ? 'Activities' : 'Research';
   const sectionHash = isActivity ? 'activities' : 'research';
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -22,22 +23,23 @@ export function ContentArticle({ item }: { item: Article | Activity }) {
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = `${item.title} | Gyuyoung Park`;
+    document.title = `${pageTitle} | Gyuyoung Park`;
     window.scrollTo({ top: 0, behavior: 'instant' });
     titleRef.current?.focus({ preventScroll: true });
     return () => { document.title = previousTitle; };
-  }, [item.title]);
+  }, [pageTitle]);
 
   return (
     <article lang="en" className="mx-auto max-w-[820px] px-5 py-10 sm:px-10 sm:py-14">
       <header className="mb-8">
         <BackLink href={`/#${sectionHash}`} className="mb-6">{section}</BackLink>
-        <h1 ref={titleRef} tabIndex={-1} className="text-3xl font-semibold leading-snug tracking-tight [overflow-wrap:anywhere] outline-none sm:text-4xl">{item.title}</h1>
+        <h1 ref={titleRef} tabIndex={-1} className={item.title ? 'text-3xl font-semibold leading-snug tracking-tight [overflow-wrap:anywhere] outline-none sm:text-4xl' : 'sr-only'}>{pageTitle}</h1>
         {!isActivity && item.authors.length > 0 && <p className="mt-4 text-sm leading-6 text-zinc-700">{item.authors.map((author) => author.name).join(', ')}</p>}
         <div className="mt-4 space-y-1 text-sm leading-6 text-zinc-500">
           {isActivity ? <p className="font-medium text-zinc-700">{item.event}</p> : <PublicationCitation article={item} />}
           {item.date && <p>
             <time dateTime={item.date}>{formatDetailDate(item.date)}</time>
+            {isActivity && item.time && ` · ${item.time}`}
             {isActivity ? ` · ${item.kind}` : item.status === 'preprint' ? ' · Preprint' : ''}
           </p>}
           {isActivity && item.location && <p>{item.location}</p>}

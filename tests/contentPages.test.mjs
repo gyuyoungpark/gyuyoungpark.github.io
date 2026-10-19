@@ -53,7 +53,8 @@ test('content detail pages render from the actual app', async (t) => {
           assert.ok(html.includes(item.title), item.id);
           assert.ok(html.includes(`href="/#${section}"`), `return link: ${item.id}`);
           const source = item.doi ? `https://doi.org/${item.doi}` : item.url;
-          assert.ok(html.includes(`href="${source.replaceAll('&', '&amp;')}" target="_blank"`), `external source: ${item.id}`);
+          if (source) assert.ok(html.includes(`href="${source.replaceAll('&', '&amp;')}" target="_blank"`), `external source: ${item.id}`);
+          else assert.ok(!html.includes('Official source'), `${item.id}: no invented source link`);
           const image = section === 'activities' ? item.detailImage?.src : item.image;
           if (image) assert.ok(html.includes(`src="${image}"`), `image: ${item.id}`);
           assert.ok(!html.includes('id="keywords"'), 'detail pages replace the index');

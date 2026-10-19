@@ -42,9 +42,10 @@ export interface Activity {
   event: string;
   date: string;
   dateLabel?: string;
+  time?: string;
   location?: string;
   kind: string;
-  url: string;
+  url?: string;
   doi?: string;
   caption: string;
   image?: string;

@@ -16,7 +16,7 @@ export function ActivitiesSection({ activities }: { activities: Activity[] }) {
             href={contentHref('activities', activity.id)}
             metadata={<>
               <span className="font-medium text-zinc-700">{activity.event}</span>
-              <p><time dateTime={activity.date}>{activity.dateLabel ?? activity.date.replace(/-/g, '.')}</time> · {activity.kind}</p>
+              <p><time dateTime={activity.date}>{activity.dateLabel ?? activity.date.replace(/-/g, '.')}</time>{activity.time && ` · ${activity.time}`} · {activity.kind}</p>
               {activity.location && <p>{activity.location}</p>}
             </>}
             image={activity.image}

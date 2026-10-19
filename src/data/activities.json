@@ -1,5 +1,18 @@
 [
   {
+    "id": "apctp-seminar-2026-10-16",
+    "title": "",
+    "event": "APCTP Seminar",
+    "date": "2026-10-16",
+    "time": "11:00 KST",
+    "location": "Pohang, South Korea",
+    "kind": "Seminar",
+    "caption": "",
+    "image": "/images/activities/apctp-seminar-2026-10-16-photo.jpg",
+    "imageAlt": "Gyuyoung Park presenting at the APCTP seminar in Pohang on October 16, 2026.",
+    "tags": []
+  },
+  {
     "id": "pm26-moire-chaos",
     "title": "Thermally Locked Chaotic Spin Textures in Moiré CrI3 Bilayers",
     "event": "Physics of Magnetism 2026 (PM26)",
